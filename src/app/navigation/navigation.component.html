@@ -1,0 +1,160 @@
+<header class="home u-cf bg">
+  <section class="wrapper">
+    <div class="between-xs top">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+ <div class="row">
+    <div id="mySidenav" class="sidenav">
+        <div class="wrapper">
+          <!-- Sidebar Holder -->
+          <nav id="sidebar">
+            <div class="sidebar-header">
+              <a routerLink="/dashboard">
+                <img src="assets/images/rme.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 rme-logo"></a>
+              <a class="closebtn" (click)="closeNav()">&times;</a>
+      
+            </div>
+            <ul class="list- components">
+              <li>
+                <a routerLink="/dashboard"> <i class="fa fa-home"></i> HOME</a>
+              </li>
+              <li><a routerLink="/sell-property"> <i class="fa fa-university"></i>
+                SELL PREBUILT PROPERTY</a>
+              </li>
+
+              <li><a routerLink="/sell-rawland"> <i class="fa fa-university"></i>
+                SELL RAW LAND</a>
+              </li>
+             <li>
+              <a routerLink="/user/onwer-profile"> <i class="fa fa-university"></i>
+                MY PROPERTIES</a>
+              </li>
+               <li>
+              <a (click)="needAnalysis()"> <i class="fa fa-university"></i>
+                NEED ANALYSIS</a>
+              </li>
+              <li>
+              <a routerLink="/allproperties"> <i class="fa fa-university"></i>
+                ALL PROPERTIES</a>
+              </li>
+              <li class="logout" *ngIf="show==true; else loginside">
+                <a (click)="Logout()"><i class="fa fa-power-off"></i> LOG OUT </a>
+              </li>
+                <ng-template #loginside>
+                  <li  class="logout">
+                <a (click)="loginRoute()"> <i class="fa fa-power-off"></i>
+                       LOG IN </a> 
+                  </li>
+                </ng-template>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- sidebar ends here -->
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="fixed-nav">
+                <ul class="local-navigate">
+                  <li class="nav-item sidebar-but">
+                    <i id="openbutton" #openbutton class="fa fa-bars" (click)="openNav()"></i>
+                  </li>
+                  <li class="nav-item sidebar-but home-sm">
+                    <a routerLink="/dashboard"><i id="openbutton" class="fa fa-home"></i></a>
+                  </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-map-marked-alt"></i><span class="state_nav">{{state}}</span> <b class="caret"></b></a>
+                          <ul class="dropdown-menu multi-column columns-3">
+                            
+                            <div class="row">
+                             
+                              <div class="col-sm-3" *ngFor="let data of stateprop">
+                                  <ul class="multi-column-dropdown">
+                                    <li (click)="statepropfilter($event,data)">{{data.name}}</li>
+                                  </ul>
+                                </div>
+                              
+                            </div>
+                          </ul>
+                      </li>
+                </ul>
+            </nav>
+     
+        <ul class="nav ml-auto menu list-horz list-plain">
+              <li class="nav-item display-item">   
+                <div class="dropdown">
+                    <span data-toggle="dropdown" class="dropdown-toggle dropicon" aria-haspopup="true"><i class="fa fa-th"></i></span>
+                    <div class="dropdown_menu"> 
+                        <div class="dropdown-menu portaldrop">
+                          <div class="row">
+                            <div class="col-4">
+                                <a href="https://community.rmehub.in/" target="_blank"><img src="assets/images/rmicon.png"/>Community</a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://academy.rmehub.in/" target="_blank"><img src="assets/images/rmicon2.png"/>Academy</a>
+                            </div>
+                            <div class="col-4">
+                                <a href="https://www.rmehub.in/" target="_blank"><img src="assets/images/rmicon4.png"/>RMEHUB</a>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-4">
+                              <a href="http://accounttest.s3-website.us-east-2.amazonaws.com/" target="_blank"><img src="assets/images/rmicon3.png"/>Account</a>
+                            </div>
+                            <div class="col-4">
+                            <a href="http://dmctest.rmehub.in.s3-website.us-east-2.amazonaws.com/" target="_blank"><img src="assets/images/dapp.png"/>Dapp</a>
+                            </div>
+                            <div class="col-4">
+                                <!-- <a href="https://retail.rmehub.in/" target="_blank"><img src="assets/images/retail.png"/>Retail</a> -->
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                  </div> 
+            </li>
+
+            <li class="search-nav" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search"></i></li>
+           
+            <li class="nav-item">
+              <div class="dropdown prof-drop"  *ngIf="show==true; else notShow">
+             
+                   <span class="nav-link" id="profile" data-toggle="dropdown" aria-haspopup="true" *ngIf="showprofile; else nameshow">
+                     {{username}} <i class="fa fa-angle-down"></i>
+                     </span>
+             
+                      <ng-template #nameshow>
+                     <span class="nav-link" id="profile" data-toggle="dropdown" aria-haspopup="true">
+                         {{fullname}} <i class="fa fa-angle-down"></i>
+                         </span>
+                       </ng-template>
+                     <div> 
+                     <div class="dropdown-menu">
+                       <a routerLink="/user/myprofile/propertyreview" class="dropdown-item log">My profile</a>
+                       <!-- <a class="dropdown-item">Account Setting</a>
+                       <a class="dropdown-item">Help</a> -->
+                       <a class="dropdown-item log" (click)="Logout()">Log Out</a>
+                   </div>
+                   </div>
+                 </div>
+                   <ng-template #notShow>
+                    <li class="login"><a (click)="loginRoute()">Login / Sign Up</a></li>
+                   </ng-template>
+             </li>
+         </ul>
+    
+    </div>
+  </div>
+</div>
+  </section>
+</header>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="container-fluid modal-input">
+  <div class="modal-dialog modal-lg modal-input-search">
+      <div class="modal-content">
+        <form>
+            <input type="text" name="name" placeholder="Search Topic or Keywords Here.....">
+            <span class="fa fa-search"></span>
+        </form>
+       
+      </div>
+    </div>
+  </div> 
+  </div>

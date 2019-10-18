@@ -1,0 +1,591 @@
+[
+
+{"FURNITURE":[
+    {"id":"furnit1","name":"Centre Table",         "isSelected":false,     "count":0, "value":0},
+    {"id":"furnit2","name":"Dining Set",           "isSelected":false,     "count":0 , "value":2},
+    {"id":"furnit3","name":"Bed",                   "isSelected":false,     "count":0 , "value":3},
+    {"id":"furnit4","name":"Wardrobes",            "isSelected":false,     "count":0, "value":4},
+    {"id":"furnit5","name":"Recliner and Rockers", "isSelected":false,     "count":0, "value":5},
+    {"id":"furnit6","name":"TV Unit",              "isSelected":false,     "count":0, "value":6},
+    {"id":"furnit7","name":"Bar Cabinet",          "isSelected":false,     "count":0, "value":9},
+    {"id":"furnit8","name":"Book Shelves",         "isSelected":false,     "count":0, "value":7},
+    {"id":"furnit9","name":"Almirah",              "isSelected":false,     "count":0, "value":8},
+    {"id":"furnit10","name":"Sofa",                 "isSelected":false,     "count":0, "value":1},
+    {"id":"furnit11","name":"Curtains",             "isSelected":false,     "count":0, "value":10},
+    {"id":"furnit12","name":"Carpet",               "isSelected":false,     "count":0, "value":14},
+    {"id":"furnit13","name":"Study table",          "isSelected":false,     "count":0, "value":13},
+    {"id":"furnit14","name":"Shoe Shelf",           "isSelected":false,     "count":0, "value":11}
+]
+},
+
+{"FURNISHING":[
+    {"id":"furnish1","name":"Unfurnished", "isSelected":false,       "value":0},
+    {"id":"furnish2","name":"Semi Furnished", "isSelected":false,    "value":1},
+    {"id":"furnish3","name":"Fully Furnished", "isSelected":false,   "value":2}
+]
+},
+
+{"RESIDENTIAL":[
+    {"id":"residential1","name":"Flat", "isSelected":false, "value":3},
+    {"id":"residential2","name":"Villa", "isSelected":false, "value":4},
+    {"id":"residential3","name":"House", "isSelected":false, "value":5},
+    {"id":"residential4","name":"Bunglow", "isSelected":false, "value":6},
+    {"id":"residential5","name":"Duplex", "isSelected":false, "value":21}
+]
+},
+
+{"COMMERCIAL":[
+    {"id":"commercial1","name":"Office Building", "isSelected":false,     "value":0},
+    {"id":"commercial2","name":"Office Floor", "isSelected":false,        "value":20},
+    {"id":"commercial3","name":"Complex", "isSelected":false,             "value":1},
+    {"id":"commercial4","name":"Shops", "isSelected":false,               "value":2},
+    {"id":"commercial5","name":"Special Economic Zone", "isSelected":false,"value":15},
+    {"id":"commercial6","name":"Resort", "isSelected":false,              "value":16},
+    {"id":"commercial7","name":"Hotels", "isSelected":false,               "value":18},
+    {"id":"commercial8","name":"Showroom", "isSelected":false,               "value":23},
+    {"id":"commercial9","name":"Studio", "isSelected":false,               "value":24}
+]
+},
+
+{"INDUSTRIAL":[
+    {"id":"industrial1","name":"Factory",             "isSelected":false, "value":7},
+    {"id":"industrial2","name":"Assembling Unit",     "isSelected":false, "value":8},
+    {"id":"industrial3","name":"Work Shop",            "isSelected":false, "value":9},
+    {"id":"industrial4","name":"WareHouse",          "isSelected":false , "value":17},
+    {"id":"industrial5","name":"Laboratory",          "isSelected":false, "value":19},       
+    {"id":"industrial6","name":"Cold Storage", "isSelected":false ,        "value":22}
+]
+},
+
+{"FARMING":[
+
+    {"id":"farming1","name":"Farm Land",      "isSelected":false, "value":11},
+    {"id":"farming2","name":"Green House",    "isSelected":false , "value":12},
+    {"id":"farming3","name":"Farm House",     "isSelected":false , "value":13},
+    {"id":"farming4","name":"Poultry Land",   "isSelected":false, "value":14},
+    {"id":"farming5","name":"Orchid",        "isSelected":false, "value":10}
+]
+},
+
+{"FLOORING":[
+    {"id":"flooring1","name":"Tile Finish",    "isSelected":false, "value":1},
+    {"id":"flooring2","name":"Marble finish",  "isSelected":false, "value":0},
+    {"id":"flooring3","name":"Wooden Finish",  "isSelected":false, "value":2},
+    {"id":"flooring4","name":"Metal Finish",  "isSelected":false,  "value":3}
+
+]
+},
+
+{"CEILING":[
+    {"id":"ceiling1","name":"Border Finishing",  "isSelected":false, "value":0},
+    {"id":"ceiling2","name":"Cornis Finishing",  "isSelected":false, "value":1},
+    {"id":"ceiling3","name":"False Ceiling",     "isSelected":false, "value":2}
+]
+},
+
+
+{"MARKET":[
+    {"id":"market0","name":"Residential","isSelected":false, "value":0,"allowed":true},
+    {"id":"market1","name":"Commercial","isSelected":false, "value":1,"allowed":true},
+    {"id":"market3","name":"Agriculture","isSelected":false, "value":3,"allowed":true},
+    {"id":"market2","name":"Industrial","isSelected":false, "value":2,"allowed":true}
+]
+},
+
+{"ASSET":[
+    {"id":"asset1","name":"Pre-Built", "isSelected":false},
+    {"id":"asset2","name":"Raw", "isSelected":false}
+]
+},
+
+{"ROOMS":[
+    {"id":"room1","name":"Bed Rooms",  "isSelected":false, "value":0},
+    {"id":"room2","name":"Living Room","isSelected":false, "value":7},
+    {"id":"room3","name":"Study Room", "isSelected":false, "value":6},
+    {"id":"room4","name":"Pooja Room",  "isSelected":false, "value":4},
+    {"id":"room5","name":"Servant Room", "isSelected":false, "value":2},
+    {"id":"room6","name":"Dining Room", "isSelected":false, "value":8},
+    {"id":"room7","name":"Store Room", "isSelected":false, "value":5},
+    {"id":"room8","name":"Basement", "isSelected":false, "value":9}
+]
+},
+
+
+{"BATHROOMTYPE":[
+    {"id":"bathroomtype1","name":"Traditional", "isSelected":false, "value":0},
+    {"id":"bathroomtype2","name":"Western", "isSelected":false, "value":1},
+    {"id":"bathroomtype3","name":"French", "isSelected":false, "value":2},
+    {"id":"bathroomtype4","name":"German", "isSelected":false, "value":3},
+    {"id":"bathroomtype5","name":"Others", "isSelected":false, "value":0}
+]
+},
+
+
+{"KITCHENTYPE":[
+    {"id":"kitchentype1","name":"Traditional",         "isSelected":false, "value":0},
+    {"id":"kitchentype2","name":"Modular",             "isSelected":false, "value":1},
+    {"id":"kitchentype3","name":"German",              "isSelected":false, "value":2},
+    {"id":"kitchentype4","name":"Italian",             "isSelected":false, "value":3}
+]
+},
+
+{"NEARLOCATION":[
+    {"id":"locat1","name":"Railway", "isSelected":false,    "value":0,"nearlocat":"","nearestdis":0},
+    {"id":"locat2","name":"Airport", "isSelected":false,    "value":1,"nearlocat":"","nearestdis":0},
+    {"id":"locat3","name":"Metro", "isSelected":false,      "value":2,"nearlocat":"","nearestdis":0},
+    {"id":"locat4","name":"Bus-Stand", "isSelected":false,  "value":3,"nearlocat":"","nearestdis":0},
+    {"id":"locat5","name":"Other", "isSelected":false,      "value":4,"nearlocat":"","nearestdis":0}
+]
+},
+
+{"BHK":[
+    {"id":"bhk1","name":"1 BHK", "isSelected":false, "value":0},
+    {"id":"bhk2","name":"2 BHK", "isSelected":false, "value":1},
+    {"id":"bhk3","name":"3 BHK", "isSelected":false, "value":2},
+    {"id":"bhk4","name":"4 BHK", "isSelected":false, "value":3},
+    {"id":"bhk5","name":"5 BHK", "isSelected":false, "value":4}
+]
+},
+
+{"UTILITIES":[
+    {"id":"utilities1","name":"Electrification",    "isSelected":false, "value":15},
+    {"id":"utilities2","name":"Water Supply",       "isSelected":false, "value":12},
+    {"id":"utilities3","name":"Water Storage",      "isSelected":false, "value":13},
+    {"id":"utilities4","name":"Sewer Line",         "isSelected":false, "value":17},
+    {"id":"utilities5","name":"Power Backup",       "isSelected":false, "value":3},
+    {"id":"utilities6","name":"Gas Pipeline",       "isSelected":false, "value":11},
+    {"id":"utilities7","name":"Motor Pump",         "isSelected":false, "value":16}
+]
+},
+
+{"COMMMUNITY":[
+    {"id":"comm1","name":"Park",  "isSelected":false, "value":8},
+    {"id":"comm2","name":"Gym",        "isSelected":false, "value":6},
+    {"id":"comm3","name":"Swimming Pool",  "isSelected":false, "value":20},
+    {"id":"comm7","name":"Gated Society",  "isSelected":false, "value":19},
+    {"id":"comm4","name":"Security Services", "isSelected":false, "value":9},
+    {"id":"comm5","name":"House keeping",   "isSelected":false, "value":2},
+    {"id":"comm6","name":"CCTV",    "isSelected":false, "value":21},
+    {"id":"facility3","name":"Lifts",          "isSelected":false, "value":0},
+    {"id":"facility5","name":"Open Parking",          "isSelected":false, "value":18},
+    {"id":"facility7","name":"Central Air Condition",   "isSelected":false, "value":7},
+    {"id":"facility6","name":"Escalators",          "isSelected":false, "value":1}
+]
+},
+
+{"FACILITYTYPE":[
+    {"id":"facility1","name":"Solar Panel",             "isSelected":false, "value":10},
+    {"id":"facility2","name":"Raining Water harvesting","isSelected":false, "value":14},
+    {"id":"facility4","name":"Other",                  "isSelected":false, "value":22}
+]
+},
+
+{"KITCHENWARE":[
+    {"id":"kitchenware1","name":"Gas Cooking Unit",  "isSelected":false, "value":6, "count":0},
+    {"id":"kitchenware2","name":"Fridge",         "isSelected":false, "value":2, "count":0},
+    {"id":"kitchenware3","name":"Water purifier", "isSelected":false, "value":8, "count":0},
+    {"id":"kitchenware4","name":"Chimney",        "isSelected":false, "value":13, "count":0},
+    {"id":"kitchenware5","name":"Induction Cooking Unit",  "isSelected":false, "value":7, "count":0}
+]
+},
+
+{"HOMEWARES":[
+    {"id":"homeware1","name":"Fans",    "isSelected":false, "value":0, "count":0},
+    {"id":"homeware2","name":"Lights",    "isSelected":false, "value":1, "count":0},
+    {"id":"homeware3","name":"Geyser",     "isSelected":false, "value":4, "count":0},
+    {"id":"homeware4","name":"Power Point Socket",  "isSelected":false, "value":17, "count":0}
+]
+},
+
+{"APPLIANCE":[
+    {"id":"appliance1","name":"Semi Auto Washing Machine ",               "isSelected":false, "value":10, "count":0},
+    {"id":"appliance2","name":"Fully Auto Washing Machine",               "isSelected":false, "value":11, "count":0},
+    {"id":"appliance3","name":"Television",                           "isSelected":false, "value":5, "count":0},
+    {"id":"appliance4","name":"Vaccum Cleaner",                "isSelected":false, "value":12, "count":0},
+    {"id":"appliance5","name":"Air Purifier",                  "isSelected":false, "value":9, "count":0},
+    {"id":"appliance6","name":"Computer",                      "isSelected":false, "value":15, "count":0},
+    {"id":"appliance7","name":"Internet",                      "isSelected":false, "value":22, "count":0},
+    {"id":"appliance8","name":"Dish Cable",                    "isSelected":false, "value":23, "count":0}
+]
+},
+
+{"CONSTRUCTIONPHASE":[
+    {"id":"phase1","name":"Pre Launching","isSelected":false, "value":5},
+    {"id":"phase2","name":"Ready To move", "isSelected":false, "value":0},
+    {"id":"phase3","name":"Launching", "isSelected":false, "value":4},
+    {"id":"phase4","name":"Finishing mode","isSelected":false, "value":2},
+    {"id":"phase5","name":"Middle way Construction", "isSelected":false, "value":3}
+]
+},
+
+{"COOKINGUNIT":[
+    {"id":"cook1","name":"Gas"},
+    {"id":"cook2","name":"Induction"}
+]
+},
+
+{"WASHINGMACHINE":[
+    {"id":"wash1","name":"Semi"},
+    {"id":"wash2","name":"Fully"}
+]
+},
+
+
+{"FULLYFURNISHEDKITCHEN":[
+    {"id":"fully1","name":"Gas Cooking Unit",       "isSelected":false, "value":6, "count":0},
+    {"id":"fully2","name":"Fridge",                 "isSelected":false, "value":2, "count":0},
+    {"id":"fully3","name":"Water purifier",         "isSelected":false, "value":8, "count":0},
+    {"id":"fully4","name":"Chimney",                "isSelected":false, "value":13, "count":0},
+    {"id":"fully5","name":"Oven"   ,                "isSelected":false,"value":24, "count":0},
+    {"id":"fully6","name":"Electric Cooker",        "isSelected":false,"value":25, "count":0},
+    {"id":"fully7","name":"Electric Kettle",        "isSelected":false,"value":26, "count":0},
+    {"id":"fully8","name":"Griller",                "isSelected":false,"value":27, "count":0},
+    {"id":"fully9","name":"Blender",                "isSelected":false,"value":28, "count":0},
+    {"id":"fully10","name":"Juicer/Mixer/Grinder" , "isSelected":false,"value":29, "count":0},
+    {"id":"fully11","name":"Air Purifier" ,         "isSelected":false, "value":9, "count":0}
+]
+},
+
+{"PROPERTYDIMENSION":[
+    {"id":"size1","name":"Sq.Feet", "value":0} ,
+    {"id":"size2","name":"Sq.Yards", "value":1},
+    {"id":"size3","name":"Sq.Meter", "value":2},
+    {"id":"size4","name":"Acres", "value":3},
+    {"id":"size5","name":"Marla", "value":4},
+    {"id":"size6","name":"Ghaz", "value":5},
+    {"id":"size7","name":"Bigha", "value":6},
+    {"id":"size8","name":"Cents", "value":7},
+    {"id":"size9","name":"Biswa", "value":8},
+    {"id":"size10","name":"kottah", "value":9},
+    {"id":"size11","name":"Kanal", "value":10},
+    {"id":"size12","name":"Grounds", "value":11},
+    {"id":"size13","name":"Guntha", "value":12},
+    {"id":"size14","name":"Hectares", "value":13},
+    {"id":"size15","name":"Rood", "value":14},
+    {"id":"size16","name":"chataks", "value":15},
+    {"id":"size17","name":"perch", "value":16}
+]
+},
+
+{"PROPERTYFLOOR":[
+    {"id":"floor5","name":"Ground Floor","value":0},
+    {"id":"floor5","name":"1","value":1},
+    {"id":"floor6","name":"2","value":2},
+    {"id":"floor7","name":"3","value":3},
+    {"id":"floor8","name":"4","value":4},
+    {"id":"floor9","name":"5","value":5},
+    {"id":"floor10","name":"6","value":6},
+    {"id":"floor11","name":"7","value":7},
+    {"id":"floor12","name":"8","value":8},
+    {"id":"floor13","name":"9","value":9},
+    {"id":"floor14","name":"10","value":10},
+    {"id":"floor15","name":"11","value":11},
+    {"id":"floor16","name":"12","value":12},
+    {"id":"floor17","name":"14","value":13},
+    {"id":"floor18","name":"15","value":14},
+    {"id":"floor19","name":"16","value":15},
+    {"id":"floor20","name":"17","value":16},
+    {"id":"floor21","name":"18","value":17},
+    {"id":"floor22","name":"19","value":18},
+    {"id":"floor23","name":"20","value":19}
+]
+},
+
+{"PAYCONSTRUCTIONPHASE":[
+    {"id":"const1","name":"Ready To Move", "isSelected":false, "value":0},
+    {"id":"const2","name":"Finishing Mode", "isSelected":false, "value":1},
+    {"id":"const3","name":"Middleway Construction", "isSelected":false, "value":2},
+    {"id":"const4","name":"Launching", "isSelected":false, "value":3},
+    {"id":"const5","name":"Pre Launching", "isSelected":false, "value":4}
+]
+},
+
+{"PAYFINALIZE":[
+    {"id":"payfinalize1","name":"Within One Month", "isSelected":false, "value":0},
+    {"id":"payfinalize2","name":"Next Quarter", "isSelected":false, "value":1},
+    {"id":"payfinalize3","name":"Next Six Month", "isSelected":false, "value":2},
+    {"id":"payfinalize4","name":"Next year", "isSelected":false, "value":3}
+
+]
+},
+
+{"PAYAPPROVAL":[
+    {"id":"approval1","name":"FreeHold", "value":0},
+    {"id":"approval2","name":"Local Authority", "value":1},
+    {"id":"approval3","name":"Other", "value":2}
+]
+},
+
+
+{"PARKINGINFORMATION":[
+    {"id":"parkinfo1","name":"Shared Parking", "value":5, "isSelected":false},
+    {"id":"parkinfo2","name":"Reserved Parking", "value":4, "isSelected":false}
+]
+},
+
+
+
+{"PARKINGAVAILABILITY":[
+    {"id":"parkingavail1","name":"YES", "value":1, "isSelected":false},
+    {"id":"parkingavail2","name":"NO", "value":2, "isSelected":false}
+]
+},
+
+{"PROPERTYFOR":[
+    {"id":"propfor1","name":"Sell", "value":0, "isSelected":false},
+    {"id":"propfor2","name":"Lease", "value":1, "isSelected":false},
+    {"id":"propfor3","name":"Rent", "value":2, "isSelected":false},
+    {"id":"propfor4","name":"Co-Work", "value":3, "isSelected":false},
+    {"id":"propfor5","name":"Co-Living", "value":4, "isSelected":false}
+]
+},
+
+
+{"PAYMENTPLAN":[
+    {"id":"payment1","name":"Down Payment",      "value":0, "isSelected":false},
+    {"id":"payment2","name":"Construction-Link", "value":1, "isSelected":false},
+    {"id":"payment3","name":"Loan",              "value":2, "isSelected":false},
+    {"id":"payment4","name":"Flexible",          "value":3, "isSelected":false}
+]
+},
+
+{"PROPERTYINSTATE":[
+    {"id":"state1", "name":"Uttar Pradesh",  "value":0, "isSelected":false},
+    {"id":"state2", "name":"Uttarakhand",    "value":1, "isSelected":false},
+    {"id":"state3", "name":"Delhi",          "value":2, "isSelected":false},
+    {"id":"state4", "name":"Maharashtra",    "value":3, "isSelected":false},
+    {"id":"state5", "name":"Bihar",          "value":4, "isSelected":false},
+    {"id":"state6", "name":"Chandigarh",     "value":5, "isSelected":false},
+    {"id":"state7", "name":"Rajasthan",      "value":6, "isSelected":false},
+    {"id":"state8", "name":"Gujarat",        "value":7, "isSelected":false}
+]
+},
+
+{"MARKETUPLAD":[
+    {"id":"market0","name":"Residential","isSelected":false, "value":0},
+    {"id":"market1","name":"Commercial","isSelected":false, "value":1},
+    {"id":"market3","name":"Agriculture","isSelected":false, "value":3},
+    {"id":"market2","name":"Industrial","isSelected":false, "value":2},
+    {"id":"market4","name":"Raw Land","isSelected":false, "value":4}
+]
+},
+
+{"BATHROOMLOCATION":[
+    {"id":"bathroomlocat1","name":"Separate", "isSelected":false, "value":1},
+    {"id":"bathroomlocat2","name":"Attached", "isSelected":false, "value":0}
+]
+},
+
+{"FACING":[
+    {"id":"facing1","name":"North West", "isSelected":false, "value":5},
+    {"id":"facing2","name":"North", "isSelected":false, "value":0},
+    {"id":"facing3","name":"North East", "isSelected":false, "value":4},
+    {"id":"facing4","name":"West", "isSelected":false, "value":2},
+    {"id":"","name":"", "isSelected":false, "value":""},
+    {"id":"facing5","name":"East", "isSelected":false, "value":1},
+    {"id":"facing6","name":"South West", "isSelected":false, "value":6},
+    {"id":"facing7","name":"South", "isSelected":false, "value":3},
+    {"id":"facing8","name":"South East", "isSelected":false, "value":7}
+
+]
+},
+
+
+{"FONTBACKYARDAVAILABILITY":[
+    {"id":"front1","name":"YES", "value":1, "isSelected":false},
+    {"id":"front2","name":"NO", "value":2, "isSelected":false}
+]
+},
+
+
+{"BALCONYAVAILABILITY":[
+    {"id":"balc1","name":"YES", "value":1, "isSelected":false},
+    {"id":"balc12","name":"NO", "value":2, "isSelected":false}
+]
+},
+
+{"RAWLANDFACILITIES":[
+    {"id":"rawfac1","name":"Electrification", "value":15, "isSelected":false},
+    {"id":"rawfac2","name":"Water Supply", "value":12, "isSelected":false},
+    {"id":"rawfac3","name":"Water Storage", "value":13, "isSelected":false},
+    {"id":"rawfac4","name":"Sewer Line", "value":17, "isSelected":false},
+    {"id":"rawfac5","name":"Power Backup", "value":3, "isSelected":false},
+    {"id":"rawfac6","name":"Security Services", "value":9, "isSelected":false},
+    {"id":"rawfac7","name":"Gas Pipeline", "value":11, "isSelected":false},
+    {"id":"rawfac8","name":"Motor Pump", "value":16, "isSelected":false},
+    {"id":"rawfac9","name":"CCTV", "value":21, "isSelected":false},
+    {"id":"rawfac10","name":"Solar Panel", "value":10, "isSelected":false},
+    {"id":"rawfac11","name":"Rain Water Harvesting", "value":14, "isSelected":false},
+    {"id":"rawfac12","name":"Other", "value":22, "isSelected":false}
+]
+},
+
+{"RAWMARKET":[
+    {"id":"rawmarket0","name":"Residential","isSelected":false, "value":0},
+    {"id":"rawmarket1","name":"Commercial","isSelected":false, "value":1},
+    {"id":"rawmarket3","name":"Agriculture","isSelected":false, "value":3},
+    {"id":"rawmarket2","name":"Industrial","isSelected":false, "value":2},
+    {"id":"rawmarket4","name":"RAW","isSelected":false, "value":4}
+]
+},
+
+
+{"PROFESSION":[
+    {"id":"prof1","name":"Owner","isSelected":false, "value":0},
+    {"id":"prof2","name":"Agent","isSelected":false, "value":1},
+    {"id":"prof3","name":"Contractor","isSelected":false, "value":3},
+    {"id":"prof4","name":"Builder","isSelected":false, "value":2},
+    {"id":"prof5","name":"User","isSelected":false, "value":4}
+]
+},
+
+{"MARKETCATEGORY":[
+    {"id":"categ1","name":"Primary Market","isSelected":false, "value":0},
+    {"id":"categ2","name":"Secondary Market","isSelected":false, "value":1},
+    {"id":"categ3","name":"Leasing Market","isSelected":false, "value":2}
+]
+},
+
+{"ALLHOMEAPPLIANCE":[           
+    {"id":"allappliance1","name":"Fans",                             "isSelected":false, "value":0, "count":0},
+    {"id":"allappliance2","name":"Lights",                           "isSelected":false, "value":1, "count":0},
+    {"id":"allappliance3","name":"Geyser",                           "isSelected":false, "value":4, "count":0},
+    {"id":"allappliance4","name":"Gas Cooking Unit",                  "isSelected":false, "value":6, "count":0},
+    {"id":"allappliance5","name":"Fridge",                            "isSelected":false, "value":2, "count":0},
+    {"id":"allappliance6","name":"Water purifier",                    "isSelected":false, "value":8, "count":0},
+    {"id":"allappliance7","name":"Chimney",                           "isSelected":false, "value":13, "count":0},
+    {"id":"allappliance8","name":"Oven"   ,                           "isSelected":false,"value":24, "count":0},
+    {"id":"allappliance9","name":"Electric Cooker",                   "isSelected":false,"value":25, "count":0},
+    {"id":"allappliance10","name":"Electric Kettle",                   "isSelected":false,"value":26, "count":0},
+    {"id":"allappliance11","name":"Griller",                           "isSelected":false,"value":27, "count":0},
+    {"id":"allappliance12","name":"Blender",                           "isSelected":false,"value":28, "count":0},
+    {"id":"allappliance13","name":"Juicer/Mixer/Grinder",             "isSelected":false,"value":29, "count":0},
+    {"id":"allappliance14","name":"Air Purifier" ,                    "isSelected":false, "value":9, "count":0},
+    {"id":"allappliance15","name":"Semi Auto Washing Machine ",      "isSelected":false, "value":10, "count":0},
+    {"id":"allappliance16","name":"Fully Auto Washing Machine",      "isSelected":false, "value":11, "count":0},
+    {"id":"allappliance17","name":"Television",                       "isSelected":false, "value":5, "count":0},
+    {"id":"allappliance18","name":"Vaccum Cleaner",                  "isSelected":false, "value":12, "count":0},
+    {"id":"allappliance19","name":"Air Purifier",                    "isSelected":false, "value":9, "count":0},
+    {"id":"allappliance20","name":"Computer",                        "isSelected":false, "value":15, "count":0},
+    {"id":"allappliance21","name":"Chandelier",                      "isSelected":false, "value":16, "count":0},
+    {"id":"allappliance22","name":"Power Point Socket",             "isSelected":false, "value":17, "count":0},
+    {"id":"allappliance24","name":"Ironing Road",                    "isSelected":false, "value":19, "count":0},
+    {"id":"allappliance25","name":"Cutlery",                       "isSelected":false, "value":20, "count":0},
+    {"id":"allappliance26","name":"Crockery",                      "isSelected":false, "value":21, "count":0},
+    {"id":"allappliance27","name":"Internet",                      "isSelected":false, "value":22, "count":0},
+    {"id":"allappliance28","name":"Dish Cable",                    "isSelected":false, "value":23, "count":0}
+]
+},
+
+{"ALLFACILITIES":[
+    {"id":"allfacility1","name":"Park",                     "isSelected":false, "value":8},
+    {"id":"allfacility2","name":"Gym",                      "isSelected":false, "value":6},
+    {"id":"allfacility3","name":"Swimming Pool",            "isSelected":false, "value":20},
+    {"id":"allfacility4","name":"Gated Society",            "isSelected":false, "value":19},
+    {"id":"allfacility5","name":"Security Services",        "isSelected":false, "value":9},
+    {"id":"allfacility6","name":"House keeping",            "isSelected":false, "value":2},
+    {"id":"allfacility7","name":"CCTV",                     "isSelected":false, "value":21},
+    {"id":"allfacility8","name":"Lifts",                    "isSelected":false, "value":0},
+    {"id":"allfacility9","name":"Open Parking",             "isSelected":false, "value":18},
+    {"id":"allfacility10","name":"Central Air Condition",   "isSelected":false, "value":7},
+    {"id":"allfacility11","name":"Escalators",              "isSelected":false, "value":1},
+    {"id":"allfacility12","name":"Electrification",         "isSelected":false, "value":15},
+    {"id":"allfacility13","name":"Water Supply",            "isSelected":false, "value":12},
+    {"id":"allfacility14","name":"Water Storage",           "isSelected":false, "value":13},
+    {"id":"allfacility15","name":"Sewer Line",              "isSelected":false, "value":17},
+    {"id":"allfacility16","name":"Power Backup",            "isSelected":false, "value":3},
+    {"id":"allfacility17","name":"Gas Pipeline",            "isSelected":false, "value":11},
+    {"id":"allfacility18","name":"Motor Pump",              "isSelected":false, "value":16},
+    {"id":"allfacility19","name":"Solar Panel",             "isSelected":false, "value":10},
+    {"id":"allfacility20","name":"Raining Water harvesting","isSelected":false, "value":14}
+]
+},
+
+{"FILTERROOMS":[
+    {"id":"room1","name":"Bed Rooms",    "isSelected":false, "value":0, "count":0},
+    {"id":"room2","name":"Living Room",  "isSelected":false, "value":7, "count":0},
+    {"id":"room3","name":"Study Room",   "isSelected":false, "value":6, "count":0},
+    {"id":"room4","name":"Pooja Room",   "isSelected":false, "value":4, "count":0},
+    {"id":"room5","name":"Servant Room", "isSelected":false, "value":2, "count":0},
+    {"id":"room6","name":"Dining Room",  "isSelected":false, "value":8, "count":0},
+    {"id":"room7","name":"Store Room",   "isSelected":false, "value":5, "count":0},
+    {"id":"room8","name":"Basement",     "isSelected":false, "value":9, "count":0},
+    {"id":"room9","name":"Kitchen",      "isSelected":false, "value":3, "count":0},
+    {"id":"room10","name":"Bathroom",    "isSelected":false, "value":1, "count":0}
+]
+},
+
+{"OPERATIONALFLOOR":[
+    {"id":"operatfloor1", "name":"Conference Room", "value":"conferenceRoom", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor2", "name":"Cabins",          "value":"cabins", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor3", "name":"Cafe Area",       "value":"cafeteria", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor4", "name":"Receiption",      "value":"reception", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor5", "name":"Waiting Hall",    "value":"waitingHall", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor6", "name":"Nap Room",        "value":"napRoom", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor7", "name":"Record Room",     "value":"recordRoom", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor8", "name":"Server Room",     "value":"serverRoom", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor9", "name":"Machine Room",    "value":"machineRoom", "isSelected":false,  "operatlength":"","operatbredth":""},
+    {"id":"operatfloor1", "name":"Operational floor", "value":"operationalFloor", "isSelected":false,  "operatlength":"","operatbredth":""}
+]
+},
+
+{"COMMFURNTIURE":[
+    {"id":"commfurn1","name":"Centre Table",       "isSelected":false,    "value":0 , "count":0},
+    {"id":"commfurn2","name":"Conference Table",   "isSelected":false,    "value":15, "count":0},
+    {"id":"commfurn4","name":"Dining tables",      "isSelected":false,     "value":2, "count":0 },
+    {"id":"commfurn5","name":"Chair",              "isSelected":false,      "value":4, "count":0},
+    {"id":"commfurn6","name":"Sofa",               "isSelected":false,      "value":1, "count":0 },
+    {"id":"commfurn7","name":"Sofa cum Bed",       "isSelected":false,      "value":18, "count":0},
+    {"id":"commfurn8","name":"Counter Table",      "isSelected":false,      "value":19, "count":0}
+]
+},
+
+{"COMMELECTRONICS":[
+    {"id":"commelect1","name":"Air Conditioner",        "isSelected":false,      "value":0 , "count":0},
+    {"id":"commelect2","name":"Fan",                     "isSelected":false,      "value":1 , "count":0},
+    {"id":"commelect3","name":"Tube Light",              "isSelected":false,      "value":2 , "count":0},
+    {"id":"commelect4","name":"LED",                     "isSelected":false,      "value":3 , "count":0},
+    {"id":"commelect5","name":"Computer",                "isSelected":false,      "value":4 , "count":0},
+    {"id":"commelect6","name":"Laptop",                  "isSelected":false,      "value":5 , "count":0},
+    {"id":"commelect7","name":"printer",                 "isSelected":false,      "value":6 , "count":0},
+    {"id":"commelect8","name":"Scanner",                 "isSelected":false,      "value":7 , "count":0},
+    {"id":"commelect9","name":"Xerox",                  "isSelected":false,      "value":8 , "count":0},
+    {"id":"commelect10","name":"Water Cooler",            "isSelected":false,      "value":9 , "count":0},
+    {"id":"commelect11","name":"R.O Purifier",            "isSelected":false,      "value":10 , "count":0},
+    {"id":"commelect12","name":"Cofee Vending Machine",  "isSelected":false,      "value":11 , "count":0},
+    {"id":"commelect13","name":"Drink Disposer",         "isSelected":false,      "value":12 , "count":0},
+    {"id":"commelect14","name":"Air Purifier",           "isSelected":false,      "value":13 , "count":0},
+    {"id":"commelect15","name":"Oven",                   "isSelected":false,      "value":14 , "count":0},
+    {"id":"commelect16","name":"Electric Kettle",         "isSelected":false,      "value":15 , "count":0},
+    {"id":"commelect17","name":"vacuum Cleaner",         "isSelected":false,      "value":16 , "count":0},
+    {"id":"commelect18","name":"Router",                 "isSelected":false,      "value":17 , "count":0},
+    {"id":"commelect19","name":"Lease Line Connection",   "isSelected":false,      "value":18 , "count":0},
+    {"id":"commelect20","name":"HUB",                    "isSelected":false,      "value":18 , "count":0},
+    {"id":"commelect21","name":"Repeater",               "isSelected":false,      "value":19 , "count":0},
+    {"id":"commelect22","name":"Server",                 "isSelected":false,      "value":20 , "count":0},
+    {"id":"commelect23","name":"Telephone",              "isSelected":false,      "value":21 , "count":0},
+    {"id":"commelect24","name":"Generator",              "isSelected":false,      "value":22 , "count":0},
+    {"id":"commelect25","name":"Power Backup",           "isSelected":false,      "value":23 , "count":0},
+    {"id":"commelect26","name":"Security Services",      "isSelected":false,      "value":24 , "count":0},
+    {"id":"commelect27","name":"LIFT",                    "isSelected":false,      "value":25 , "count":0},
+    {"id":"commelect28","name":"Escalator",              "isSelected":false,      "value":26 , "count":0},
+    {"id":"commelect29","name":"ATM",                    "isSelected":false,      "value":27 , "count":0},
+    {"id":"commelect30","name":"Maintainence Staff",     "isSelected":false,      "value":28 , "count":0}
+
+
+
+]
+},
+
+{"SAFETYUTILITIES":[
+    {"id":"safetyutil1","name":"Fire Extinguisher",  "isSelected":false,      "value":0},
+    {"id":"safetyutil2","name":"Smoke Detectors",    "isSelected":false,      "value":1},
+    {"id":"safetyutil3","name":"Magnetic Gate",      "isSelected":false,      "value":2},
+    {"id":"safetyutil4","name":"Bio-Metric System",  "isSelected":false,      "value":3},
+    {"id":"safetyutil5","name":"Emergency Exit",     "isSelected":false,      "value":4},
+    {"id":"safetyutil6","name":"SOS Alarm System",   "isSelected":false,      "value":5}
+]
+}
+
+
+]   

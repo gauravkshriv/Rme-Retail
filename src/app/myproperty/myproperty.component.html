@@ -1,0 +1,149 @@
+<div *ngIf="isLoading" class="overlay">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+<div class="product-sec">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#resid">Residential</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#commerc">Commercial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#indus">Industrial</a>
+          </li>
+      <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#agric">Agricultural</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#rawland">Raw Land</a>
+          </li>
+      </ul>
+    
+      <div class="tab-content">
+          <div class="tab-pane active" id="resid">
+
+              <div class="resid-sec residential-content">
+                <!-- *ngIf="item.saleType == 'LEASE'" -->
+                             <div class="card" *ngFor="let item of recentProperties">
+                                  <div class="row res-listing" *ngIf="item.saleType == 'LEASE'">
+                        <div class="col-md-4">    
+                       
+                            <div class="img_section">
+                                <span *ngIf="item.propertyImages; else imageloc1">
+                                    <img src="{{item.propertyImages[0]}}" alt="img">
+                                </span>
+                                <ng-template #imageloc1>
+                                    <img src="assets/images/product.jpg" alt="img">
+                                </ng-template>
+                              
+                                </div>
+                          </div>
+                          <div class="col-md-8 px-3">
+                            <div class="prop-description">
+                              <h4 class="card-title">{{item.propertyName}}</h4> <h3 class="price">₹ {{item.pricing.expectedPrice}} /-</h3>
+                              <span><strong>{{item.prebuiltAssetType}}</strong> in <span *ngIf="item.locationDetails.mapLocation; else statedata"></span> {{item.locationDetails.mapLocation}}</span><ng-template #statedata>{{item.locationDetails.state}}</ng-template>
+                              <div class="feature-product">
+                              <div class="row">
+                               
+                                <div class="col-lg-7">
+                                  <table>
+                                    <tr>
+                                      <td>Furnishing</td>
+                                      <td><span>{{item.furnishing}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Floor</td>
+                                        <td><span>{{item.residentialStructuralDocument.flats.bhks}}</span></td>
+                                      </tr>
+                                   
+                                    
+                                  </table>
+                                </div>
+                                <div class="col-lg-5"> 
+    
+                                    <table>
+                                        <tr>
+                                          <td>Facing</td>
+                                          <td><span>{{item.residentialStructuralDocument.propertyFacing}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carpet Area</td>
+                                            <td> <span>{{item.dimensionSpec.carpetArea}} Sqyrd</span></td>
+                                          </tr>
+                                        
+                                      </table>
+      
+                                </div>
+                              </div>
+                              </div>
+                              <span>Posted on {{item.createdAt}} by {{item.uploadedBy}} (Owner)</span>
+                            </div>
+                            <button class="btn read-more" [routerLink]="['/user/myprofile/leads',item.propertyId]">Leads</button>
+                          </div>
+                        </div>
+                      </div>
+           
+    
+              </div>
+          </div>
+          <div class="tab-pane fade" id="menu1">
+              <!-- <div class="resid-sec residential-content">
+                  <div class="card" *ngFor="let item of rawproperties">
+           <a [routerLink]="['/rawproperty/view',item.propertyId]">
+             <div class="row res-listing">
+             <div class="col-md-4">    
+                <div class="img_section">
+                    <span *ngIf="item.dimentionDocument.landMap; else imageloc1">
+                        <img src="{{item.dimentionDocument.landMap[0]}}" alt="img">
+                    </span>
+                    <ng-template #imageloc1>
+                        <img src="assets/images/product.jpg" alt="img">
+                    </ng-template>
+                    </div>
+               </div>
+               <div class="col-md-8 px-3">
+                 <div class="prop-description">
+                   <h4 class="card-title">{{item.propertyName}}</h4>
+                   <span>{{item.prebuiltAssetType}} in {{item.locationDetails.mapLocation}}</span>
+                   <div class="row">
+                     <div class="col-lg-6">
+                         <ul class="feature-product">
+                             <li> <span class="post-title">{{item.landStatus}}</span></li>
+                             <li> <span>{{item.marketplace}}</span></li>
+                             <li> <span>{{item.dimentionDocument.acres}}</span></li>
+                             <li>  <span>{{item.locationDetails.state}}</span></li>                                  
+                           </ul>
+                     </div>
+                     <div class="col-lg-6"> 
+                       <ul class="feature-product">
+                           <li> <span>{{item.propertySpecifications.khasraNo}}</span></li>
+                         <li> <span>{{item.propertySpecifications.khataNo}}</span></li>
+                         <li>  <span>{{item.propertySpecifications.sajra.WEST}}</span></li>
+                        <li> <span> {{item.propertyType}}</span></li>
+    
+                       </ul>
+    
+                     </div>
+                   </div>
+                     <span>Posted on {{item.createdAt}} by {{item.uploadedBy}} (Owner)</span>
+                 </div>
+               </div>
+     
+             </div></a>
+           </div>
+    
+    
+    </div> -->
+    
+          </div>
+    
+    
+        </div>
+    
+        <!--  -->
+    
+    </div>

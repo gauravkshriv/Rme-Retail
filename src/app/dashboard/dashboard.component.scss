@@ -1,0 +1,263 @@
+.project_tab_left
+{
+    width: 25%;
+    float: left;
+    background-color: #0a5965;
+}
+.project_tab_right
+{
+    width:75%;
+    display:inline-block;
+}
+.space-section h3 {
+    text-align: center;
+}
+.down_float {
+    float: left;
+    margin: 0px 10px;
+}
+
+
+// .main-filter-section .read-more
+// {
+//   width: 100%;
+// }
+.switch-sec {
+    display: inline-block;
+    margin: 18px 0px 0px 20px;
+}
+.switch-sec ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.switch-sec li {
+    float: left;
+}
+.switch-sec span
+{
+    float: left;
+    padding: 2px 9px;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 22px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {display:none;}
+  
+  /* The slider */
+  .slider-filter {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider-filter:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  
+  input.danger:checked + .slider-filter {
+    background-color: #f44336;
+  }
+
+  .decentralized-section h2 {
+    color: #fff;
+}
+
+
+.add_cart {
+  list-style-type: none;
+  padding: 0px;
+  border: 1px solid #e8e7e7;
+  margin: 0px;
+  padding: 8px;
+}
+
+
+.wishlist
+{
+  color:#ff0000 !important;
+  animation-name: bounce;
+  animation-duration:0.1s;
+  transition:0.1s;
+}
+
+
+@keyframes bounce
+{
+ 0% { transform:scale(1)}
+
+ 100% {transform:scale(1.3)}
+}
+
+
+.fa-heart{
+  color:#dadada;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+
+.fa-cart-plus{
+  color:#324172;
+  font-size: 24px;
+}
+
+.add_cart li {
+    display: inline-block;
+    width: 50%;
+}
+  
+  input:focus + .slider-filter {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  .decentralized_left {
+    width: 37%;
+    float: left;
+    margin: 0px 0px;
+}
+
+// .decentralized-section .item {
+//   margin: 10px 10px !important;
+// }
+
+.decentralized-section {
+  padding: 40px 0px;
+  margin: 20px 0px;
+  background:#17a2b8 url('../../assets/images/pattern.png');
+}
+
+.decent_inner_left {
+  float: left;
+  width: 45%;
+  margin: 0px 5px;
+}
+.decent_inner_right {
+  margin: 0px 5px;
+  float: left;
+ 
+  width: 49%;
+  /* font-size: 14px; */
+}
+
+.decentralized_right {
+  width: 55%;
+  text-align: left;
+  margin: 7px 5px;
+  float: left;
+}
+  .post-product {
+    padding: 10px 0px 0px 10px;
+    list-style-type: none;
+    text-align: left;
+}
+
+  .prices {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    padding: 4px 0px 5px 0px;
+}
+.posted_by {
+  display: block;
+  margin: 10px 0px;
+}
+
+  .property-section h3 {
+    margin-top: 47px;
+    font-size: 27px;
+}
+
+  .property-section .read-more {
+    margin: 7px 10px;
+    padding: 11px;
+    font-size: 17px;
+    width: 300px;
+}
+
+.custom-control.custom-radio {
+  cursor: pointer;
+}
+
+  
+  input:checked + .slider-filter:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider-filter.round {
+    border-radius: 34px;
+  }
+  
+  .slider-filter.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+  .white-panel {
+    position: absolute;
+    background: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+  /*
+  stylize any heading tags withing white-panel below
+  */
+  
+  .white-panel h1 {
+    font-size: 1em;
+  }
+  .white-panel h1 a {
+    color: #A92733;
+  }
+  .white-panel:hover {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    margin-top: -5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #ld
+  {
+    border: none;
+  }
+  // //////////////////////////
+  .card.card-image {
+    height: 427px;
+}
+
+
+.post-product li span {
+  text-transform: capitalize;
+}

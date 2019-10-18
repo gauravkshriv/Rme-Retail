@@ -1,0 +1,161 @@
+
+<div *ngIf="isLoading" class="overlay">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+ </div>
+
+
+
+<section class="wrapper-post">
+    <div class="container">
+        <div class="strip">
+            <h5 #propert>List of All Properties 
+            </h5>
+          </div>
+
+          <ng2-smart-table class="filetable" [settings]="settings" [source]="tabledata" (custom)='onCustom($event)'></ng2-smart-table>
+          
+          <div *ngIf="exportToCsv" class="table-action">
+            <button class="export-btn" title="Export to csv" (click)="exportDataToCsv()">Export</button>
+          </div>
+          <!-- <form name="form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && register(user)" novalidate>
+            <div class="form-group" >
+              <label for="uname">User Name:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.userName" name="username" #userName="ngModel" [ngClass]="(registerForm.submitted || userName.touched) ? (userName.invalid) ? 'is-invalid': 'is-valid' : ''" placeholder="Enter username" required>
+            </div>
+            <div class="form-group" >
+              <label for="uname">Last Name:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastname" #lastName="ngModel" [ngClass]="(registerForm.submitted || lastName.touched) ? (lastName.invalid) ? 'is-invalid': 'is-valid' : ''" placeholder="Enter lastname" required>
+            </div>
+            <div class="form-group">
+              <label for="uname">Email name:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.email" name="email" #email="ngModel" [ngClass]="(registerForm.submitted || email.touched) ? (email.invalid) ? 'is-invalid': 'is-valid' : ''" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="uname">Password:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.Password" name="password" #Password="ngModel" [ngClass]="(registerForm.submitted || Password.touched) ? (Password.invalid) ? 'is-invalid': 'is-valid' : ''" placeholder="Enter password" required>
+            </div>
+            <div class="form-group">
+            <select name="codata" [(ngModel)]="user.country" class="form-control"  #codata (change)="countrydata(codata)"  #country="ngModel" [ngClass]="(registerForm.submitted || country.invalid) ? (country.invalid) ? 'is-invalid': 'is-valid' : ''">
+             <option selected disabled [ngValue]="default">Select Country</option>
+              <option *ngFor="let data of alldata" [value]="data">
+                {{data}}
+              </option>
+            </select>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm">Signup</button>
+            </div>
+           </form> -->
+
+
+          <div class="row">
+            <div class="col-lg-3">   <div class="dropdown down_float">
+                <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                        Budget
+                        </button>
+                        <div class="dropdown-menu budget-filter main-filter">
+                          <div class="budget-filter">
+                            <span class="heading">Select Budget Range</span>
+                            
+                            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                                </div>
+                           </div>
+  </div>
+</div>
+
+  <div class="col-lg-3">
+      <div class="form-group">
+    <select name="type" (click)="togglestate($event)" class="form-control" id="property-type" placeholder="Please select Categories">
+      <option *ngFor="let item of statedata"  [value]="item.name">
+      {{ item.name}}
+      </option>
+      </select>
+    </div>
+    </div>
+      <div class="col-lg-3"></div>
+      <div class="col-lg-3">
+        <div class="buttonsec">
+        <button class="filter">Filter Apply</button>
+      </div>
+    </div>
+          </div>
+       
+  
+   <!-- <div class="postproperty card-body"  *ngFor="let data of residproperty">
+    <a class="read_more" [routerLink]="['/residential/view',data.propertyId]">
+         <div class="row">
+    <div class="col-lg-3">
+        <img class="img-responsive" src="{{data.propertyImages[0]}}">
+    </div>
+    <div class="col-lg-9">
+      <div class="prop_spec">
+    <div class="row">
+      <div class="col-lg-6">
+          <table class="table">
+              <tr>
+                  <td>Property Name</td>
+                  <td>{{data.propertyName}}</td>
+                </tr>
+              
+                <tr>
+                    <td>Property Type</td>
+                    <td>{{data.prebuiltAssetCategory}}</td>
+                  </tr>
+
+                  <tr>
+                      <td>Furnishing Mode</td>
+                      <td>{{data.furnishing}}</td>
+                    </tr>
+                  <tr>
+                    <td>Carpet Area</td>
+                    <td>{{data.dimensionSpec.carpetArea}} FEET</td>
+                  </tr>
+
+            </table>
+      </div>
+    
+      <div class="col-lg-6">
+          <table class="table">
+             
+              <tr>
+                  <td>Estimated Price</td>
+                  <td>₹ {{data.pricing.estimatedPrice}}</td>
+                </tr>
+                <tr>
+                    <td>Expected Price</td>
+                    <td>₹ {{data.pricing.expectedPrice}}</td>
+                  </tr>
+                <tr>
+                <td>State</td>
+                <td>{{data.locationDetails.state}}</td>
+              </tr>
+     
+              <tr>
+                 <td>City</td>
+                 <td>{{data.locationDetails.city}}</td>
+               </tr>
+     
+           </table>
+        </div>
+      </div>
+   
+    </div>
+    </div>
+    </div>
+    </a>
+   </div> -->
+    
+<!--  -->
+
+
+
+<!--  -->
+
+
+<!--  -->
+
+
+        </div>
+        </section>

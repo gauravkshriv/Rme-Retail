@@ -1,0 +1,1524 @@
+
+<div *ngIf="isLoading" class="overlay">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  
+  <!-- start banner -->
+  
+  <article class="banner-section">
+    <section class="wrapper">
+    <div class="container-fluid banner">
+      <div class="row center-xs middle-xs">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="mid-nav-bar">
+              <div class="loop6 owl-carousel">
+                  <div class="item">
+                      <a routerLink="/properties"><img src="assets/images/icon.png"/><span>BUY</span></a>
+                  </div>
+                  <div class="item">
+                      <a href="#"><img src="assets/images/icon2.png"/><span>SELL</span></a>
+                  </div>
+                  <div class="item">
+                      <a href="#"><img src="assets/images/icon3.png"/><span>LEASE</span></a>
+                  </div>
+                  <div class="item">
+                      <a href="#"><img src="assets/images/icon4.png"/><span>RENT</span></a>
+                  </div>
+                  <div class="item">
+                      <a href="#"><img src="assets/images/icon5.png"/><span>CO-LIVING</span></a>
+                  </div>
+                  <div class="item">
+                    <a href="#"><img src="assets/images/icon7.png"/><span>CO-WORKING</span></a>
+                </div>
+                  <div class="item">
+                      <a href="#"><img src="assets/images/icon6.png"/><span>INVEST</span></a>
+                  </div>
+                  <!-- <div>
+                      <a href="#"><img src="assets/images/icon6.png"/>CO-WORKING</a>
+                  </div> -->
+                </div>
+                
+             
+            </div>
+  
+        <div class="content_section">
+            <div class="loop1 owl-carousel">
+                <div class="item">
+                    <h1>Decentralized Real Estate Market place.</h1>
+                    <h5>True value created on blockchain technology by removing leakage and 
+            
+            wastage in existing structure.</h5>
+                    <p>If you are the one , who has ever bought a property either offline or online ,must 
+            
+            had gone under a tough journey when
+                        it came to due - diligence.</p>
+                </div>
+                <div class="item">
+                  <h1>Decentralized Real Estate Market place.</h1>
+                  <h5>True value created on blockchain technology by removing leakage and 
+          
+          wastage in existing structure.</h5>
+                  <p>If you are the one , who has ever bought a property either offline or online ,must 
+          
+          had gone under a tough journey when
+                      it came to due - diligence.</p>
+              </div>
+          
+                
+              </div>
+        </div>    
+        </div>
+      </div>
+    </div>
+  </section>
+  </article>
+  <!--  -->
+  <section class="scroll-section">
+  <div id="top_prop">
+  <i class="fa fa-angle-down"></i>
+  </div>
+  </section>
+  
+  <!--  -->
+  
+  <article class="retail-section">
+      <section class="wrapper">
+          <div class="container-fluid">
+            <section class="heading">
+            <h2>Looking For Property</h2>
+            <p></p>
+          </section>
+            <div class="row">           
+      <div class="col-lg-12 col-md-12 col-sm-12"> 
+       <section class="retail-options responsivefour slider">
+          <div class="loop4 owl-carousel">
+              <div class="item" id="r">
+                  <a class="resid-tab" (click)="residential()"><img src="assets/images/residential.png"/><span>Residential<i></i></span></a>
+                  </div>
+             
+              <div class="item" id="c">
+                  <a class="comm-tab" (click)="commercial()"> <img src="assets/images/commercial.png"/><span>Commercial<i></i></span></a>
+              </div>
+              <div  class="item" id="i">
+                  <a class="ind-tab" (click)="industrial()"> <img src="assets/images/industrial.png"/><span>Industrial<i></i></span></a>
+              </div>
+              <div  class="item" id="f">
+                  <a class="farm-tab" (click)="farming()"> <img src="assets/images/farming.png"/><span>Agricultural<i></i></span></a>
+              </div>
+            </div> 
+              </section>
+  </div>
+  </div>
+          </div>
+  <!--  -->
+  <div class="container-fullwidth">
+  <div class="filter-section">
+  <section class="field-area">
+  <div class="row">                              
+              <div class="col-lg-9 col-md-9 col-sm-12">
+  
+                <div class="field-area residential-content">
+                <div class="property_categ">
+                    <div class="loop5 owl-carousel">
+                        <div class="item">
+                            <a (click)="Flat()"><label class="form-check-label"><img src="assets/images/building.png"><span>Plot</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a (click)="Flat()"><label class="form-check-label"><img src="assets/images/building.png"><span>Flat</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a (click)="House()"><label class="form-check-label"><img src="assets/images/house.png"><span>House</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a (click)="Villa()"><label class="form-check-label"><img src="assets/images/villa.png"><span>Villa</span></label></a>
+                        </div>
+                        <div class="item">
+                            <a (click)="CoWorking()"><label class="form-check-label"><img src="assets/images/bunglow.png"><span>Bunglow</span></label></a>
+                        </div>
+                     
+                        <div class="item">
+                            <a (click)="CoLiving()"><label class="form-check-label"><img src="assets/images/building.png"><span>For Co-Living</span></label></a>
+                        </div>
+                      </div>
+  
+              </div>
+            </div>
+                           
+            <div class="field-area commercial-content">
+                <div class="property_categ">
+  
+  
+                    <div class="loop6 owl-carousel">
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Special Zone</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/house.png"><span>Resort</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/villa.png"><span>Ware House</span></label></a>
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Office</span></label></a>
+                        </div>
+                     
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Shop</span></label></a>
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Hotel</span></label></a>
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Others</span></label></a>
+                        </div>
+                      </div>
+              </div>
+            </div> 
+   
+            <div class="field-area industrial-content">
+                <div class="property_categ">
+                      <div class="loop5 owl-carousel">
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>WorkShop</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Factory</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Assembling Unit</span></label></a>
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/villa.png"><span>Laboratory</span></label></a>
+                        </div>
+                      </div>
+  
+              </div>
+            </div>
+  
+            <div class="field-area farming-content">
+                <div class="property_categ">
+                    <div class="loop5 owl-carousel">
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Farming Land</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/house.png"><span>Farm House</span></label></a> 
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/villa.png"><span>Green House</span></label></a>
+                        </div>
+                        <div class="item">
+                            <a><label class="form-check-label"><img src="assets/images/building.png"><span>Orchard</span></label></a>
+                        </div>
+                      </div>
+              </div>
+            </div> 
+            
+                  </div>
+  
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="switch-sec">
+    <ul>
+  <li class="buy-switch">
+    <span>BUY</span>
+    <label class="switch">
+  <input type="checkbox" class="danger">
+  <span class="slider-filter round"></span>
+  </label>
+  </li>
+  <li class="buy-rent">
+  <span>RENT</span>
+  <label class="switch">
+  <input type="checkbox" class="danger">
+  <span class="slider-filter round"></span>
+  </label>
+  </li>
+  </ul>
+  </div>
+  </div>
+            </div>
+              </section>
+  </div>
+  
+  <!-- slider -->
+  <div class="tab-content" id="nav-tabContent">
+      <div class="row">                    
+              <div class="col-lg-12 col-sm-12 col-md-12">
+                <div class="main-filter-section">
+                <section class="filter_top_sec">
+                 
+                        <div class="dropdown down_float">
+  <span class="filter-text">Filter :-</span>
+                        </div>
+                        <div class="dropdown down_float">
+                    <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                            Budget
+                            </button>
+                            <div class="dropdown-menu budget-filter main-filter">
+                              <div class="budget-filter">
+                                <span class="heading">Select Budget Range</span>
+                                
+                                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                                    </div>
+                               </div>
+  </div>
+  
+  <div class="dropdown down_float">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                Location
+                </button>
+                <div class="dropdown-menu location-filter main-filter">
+                    <span class="filter-head">Enter Location </span>
+                        <div class="form-group">
+                                <input placeholder="search for location" type="text" class="form-control">
+                              </div>
+                              <div class="current">
+                <span><i class="fa fa-dot-circle-o"></i> current Location</span>
+            </div>
+            <div class="distance">
+                <div class="row">
+                    <div class="col-lg-4"> <span class="filter-head">Distance in Km</span></div>
+                    <div class="col-lg-8"> <input placeholder="search for nearby location" type="text" class="form-control"></div>
+                </div>
+               </div>
+  
+            <div class="nearby">
+                <span class="filter-head">Near By Place</span>
+                <div class="double filter-bhk">
+            <span class="tag inline"><span class="tag-label">Railway</span></span>
+            <span class="tag inline"><span class="tag-label">Airport</span></span>
+            <span class="tag inline"><span class="tag-label">Metro</span></span>
+            <span class="tag inline"><span class="tag-label">Bus Stand</span></span>
+            <span class="tag inline"><span class="tag-label">Others</span></span>
+        </div>
+            </div>
+                </div>
+  </div>
+  
+  <div class="dropdown down_float">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                Layout
+                </button>
+                <div class="dropdown-menu layout-filter main-filter">
+              <span class="heading">Area size</span>
+  <div class="layout-left">
+    <ul>
+  <li id="flat">Flat</li>
+  <li id="bedroom">BedRoom</li>
+  <li id="addroom">Add On Rooms</li>
+  <li id="bathroom">BathRoom</li>
+  <li id="kitchen">Kitchen</li>
+  <li id="gallery">Gallery</li>
+  <li id="facing">Facing</li>
+  </ul>
+  </div>
+  <div class="layout-right">
+  <div class="flat-option">
+    <span>Flat </span>
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                    <input type="namde" class="form-control" name="name" placeholder="Minimum">
+            </div>
+            <div class="col">
+                    <input type="namde" class="form-control" name="name" placeholder="Maximum">
+            </div>
+            <div class="col">
+              <select  name="type" id="property-type" class="form-control" placeholder="Please select Categories" required>
+                <option *ngFor="let type of propertyTypes" [value]="type">
+                {{ utilService.capitalize(type) }}
+                </option>
+                </select>
+            </div>
+        </div>
+  </div>
+  </div>
+  
+  <!--  -->
+  <div class="flat-option">
+    <span>BedRoom</span>
+        <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <select  name="type" id="property-type" class="form-control" placeholder="Please select Categories" required>
+                  <option *ngFor="let type of propertyTypes" [value]="type">
+                  {{ utilService.capitalize(type) }}
+                  </option>
+                  </select>
+              </div>
+                <div class="col">
+                        <input type="text" class="form-control" name="name" placeholder="Maximum">
+                </div>
+            </div>
+    </div>
+    </div>
+  <!--  -->
+  
+  <div class="flat-option">
+    <span>Add on Rooms</span>
+        <div class="form-group">
+                <div class="form-check-inline">
+                        <label class="form-check-label" for="check2">
+                          <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Servant Room
+                        </label>
+                      </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="check2">
+                        <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Pooja Room
+                    </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="check2">
+                            <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Store Room
+                        </label>
+                        </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="check2">
+                        <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Study Room
+                    </label>
+                    </div>
+            <div class="form-check-inline">
+                    <label class="form-check-label" for="check2">
+                        <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">Living Room
+                    </label>
+                    </div>
+    </div>
+    </div>
+    <!--  -->
+  
+    <div class="flat-option">
+            <span>BathRoom</span>
+            <div class="row">
+                    <div class="col">
+                            <input type="namde" class="form-control" name="name" placeholder="(Minimum)">
+                    </div>
+                    <div class="col">
+                      <select  name="type" id="property-type" class="form-control" placeholder="Please select Categories" required>
+                        <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ utilService.capitalize(type) }}
+                        </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                            <input type="namde" class="form-control" name="name" placeholder="(Maximum)">
+                    </div>
+                </div>
+  
+            </div>
+            <!--  -->
+  
+            <div class="flat-option">
+                    <span>Kitchen</span>
+                    <div class="row">
+                            <div class="col">
+                                    <input type="namde" class="form-control" name="name" placeholder="(Minimum)">
+                            </div>
+                            <div class="col">
+                                    <input type="namde" class="form-control" name="name" placeholder="(Maximum)">
+                            </div>
+                            <div class="col">
+                                    <input type="namde" class="form-control" name="name" placeholder="(Maximum)">
+                            </div>
+                        </div>
+        
+                    </div>
+                    <!--  -->
+  
+    <div class="flat-option">
+            <span>Gallery</span>
+            <div class="form-group">
+                    <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                              <input type="radio" class="form-check-input" id="check2" name="vehicle2" value="something">Yes
+                              <input type="radio" class="form-check-input" id="check2" name="vehicle2" value="something">No
+                            </label>
+                          </div>
+                          </div>
+                         </div>
+            <!--  -->
+  
+            <div class="flat-option">
+                    <span>Facing</span>
+                    <div class="form-group">
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                              <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">North
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">South
+                              </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                  <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">East
+                                </label>
+                              </div>
+                              <div class="form-check-inline">
+                                  <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">West
+                                  </label>
+                                </div>
+                            <div class="form-check-inline">
+                                    <label class="form-check-label" for="check2">
+                                      <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">North West
+                                    </label>
+                                  </div>
+  
+                            <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">North East
+                                </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="check2">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">South East
+                                    </label>
+                                    </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">South West
+  
+                                </label>
+                                </div>
+                        
+                </div>
+        
+                    </div>
+                    <!--  -->
+  
+  
+  </div>
+  
+                </div>
+  </div>
+  
+  <div class="dropdown down_float">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                Style
+                </button>
+                <div class="dropdown-menu style-filter main-filter">
+                   
+              <div class="floor-option">
+                    <span class="filter-head">FLOORING </span>
+                <div class="form-group">
+                        <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                  <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">MARBEL FINISH
+                                </label>
+                              </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">TILE FINISH
+                            </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">WOODEN FINISH
+                                </label>
+                                </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">OTHER
+                            </label>
+                            </div>
+            </div>
+                    </div>
+  
+                    <!-- start ceiling -->
+                        <div class="floor-option">
+                            <span class="filter-head">CEILING </span>
+                            <div class="form-group">
+                                  <div class="form-check-inline">
+                                          <label class="form-check-label" for="check2">
+                                            <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">BORDER FINISHING
+                                          </label>
+                                        </div>
+                                  <div class="form-check-inline">
+                                      <label class="form-check-label" for="check2">
+                                          <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">CORNIS FINISHING
+                                      </label>
+                                      </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label" for="check2">
+                                              <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">FALSE SEALING
+                                          </label>
+                                          </div>
+                                  <div class="form-check-inline">
+                                      <label class="form-check-label" for="check2">
+                                          <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">OTHER
+                                      </label>
+                                      </div>
+                      </div>
+                              </div>
+                              <!-- end ceiling -->
+  
+                               <!-- start ceiling -->
+                        <div class="floor-option">
+                                <span class="filter-head">KITCHEN </span>
+                                <div class="form-group">
+                                      <div class="form-check-inline">
+                                              <label class="form-check-label" for="check2">
+                                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">INDIAN STYLE
+                                              </label>
+                                            </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label" for="check2">
+                                              <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">MODULAR KITCHEN
+                                          </label>
+                                          </div>
+                                          <div class="form-check-inline">
+                                              <label class="form-check-label" for="check2">
+                                                  <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">GERMAN STYLE
+                                              </label>
+                                              </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label" for="check2">
+                                              <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">ITALIAN STYLE
+                                          </label>
+                                          </div>
+                                          <div class="form-check-inline">
+                                                <label class="form-check-label" for="check2">
+                                                    <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">OTHER
+                                                </label>
+                                                </div>
+                          </div>
+                                  </div>
+                                  <!-- end ceiling -->
+  
+  <!-- start ceiling -->
+    <div class="floor-option">
+            <span class="filter-head">BATHROOM </span>
+            <div class="form-group">
+                    <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                            <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">INDIAN
+                            </label>
+                        </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="check2">
+                            <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">WESTERN
+                        </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">FRENCH
+                            </label>
+                            </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="check2">
+                            <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">GREMAN
+                        </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">OTHER
+                            </label>
+                            </div>
+        </div>
+                </div>
+                <!-- end ceiling -->
+  
+  </div>
+  </div>
+  
+  
+  <div class="dropdown down_float">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                Furnishing
+                </button>
+  
+                <div class="dropdown-menu layout-filter main-filter">
+                    <span class="heading">Area size</span>
+        <div class="layout-left">
+          <ul>
+        <li id="furnish">Furnishing</li>
+        <li id="furniture">Furniture</li>
+        <li id="home">Home Appliances</li>
+        
+        </ul>
+        </div>
+        <div class="furniture-right">   
+        <div class="flat-option">
+          <span>Furnishing</span>
+              <div class="form-group">
+                      <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="unfurnished" value="something">UNFURNISHED
+                              </label>
+                            </div>
+                      <div class="form-check-inline">
+                          <label class="form-check-label" for="check2">
+                              <input type="checkbox" class="form-check-input" id="check2" name="semi-furnished" value="something">SEMI FURNISHED
+                          </label>
+                          </div>
+                          <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                  <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">FULLY FURNISHED
+                              </label>
+                              </div>
+         
+          </div>
+          </div>
+          <!--  -->
+        
+          <div class="flat-option">
+                  <span>Furniture</span>
+                  <div class="form-group">
+                      <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="unfurnished" value="something">CENTRE TABLE
+                              </label>
+                            </div>
+                      <div class="form-check-inline">
+                          <label class="form-check-label" for="check2">
+                              <input type="checkbox" class="form-check-input" id="check2" name="semi-furnished" value="something">SOFA
+                          </label>
+                          </div>
+  
+                          <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                  <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">DINING SET
+                              </label>
+                              </div>
+  
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">BED
+                            </label>
+                            </div>
+  
+                            <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">WARDROBES
+                                </label>
+                                </div>
+  
+                          <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                  <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">RECLINER AND ROCKER
+                              </label>
+                              </div>
+  
+                              <div class="form-check-inline">
+                                  <label class="form-check-label" for="check2">
+                                      <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">TV UNIT
+                                  </label>
+                                  </div>
+                                  <div class="form-check-inline">
+                                      <label class="form-check-label" for="check2">
+                                          <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">BOOK SHELVES
+                                      </label>
+                                      </div>
+  
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="check2">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">BAR CABINETS
+                                    </label>
+                                    </div>
+  
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="check2">
+                                            <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">ALMIRAH
+                                        </label>
+                                        </div>
+                                     </div>
+                                   </div>
+                  <!--  -->
+  
+                  <div class="flat-option">
+                      <span>Home Appliances</span>
+                      <div class="form-group">
+                          <div class="form-check-inline">
+                                  <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="unfurnished" value="something">FANS
+                                  </label>
+                                </div>
+                          <div class="form-check-inline">
+                              <label class="form-check-label" for="check2">
+                                  <input type="checkbox" class="form-check-input" id="check2" name="semi-furnished" value="something">LIGHTS
+                              </label>
+                              </div>
+      
+                              <div class="form-check-inline">
+                                  <label class="form-check-label" for="check2">
+                                      <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">FRIDGE
+                                  </label>
+                                  </div>
+      
+                            <div class="form-check-inline">
+                                <label class="form-check-label" for="check2">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">AIR CONDITION
+                                </label>
+                                </div>
+      
+                                <div class="form-check-inline">
+                                    <label class="form-check-label" for="check2">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">GEYSER
+                                    </label>
+                                    </div>
+      
+                              <div class="form-check-inline">
+                                  <label class="form-check-label" for="check2">
+                                      <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">TELEVISION
+                                  </label>
+                                  </div>
+      
+                                  <div class="form-check-inline">
+                                      <label class="form-check-label" for="check2">
+                                          <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">GAS COOKING UNIT
+                                      </label>
+                                      </div>
+                                      
+      
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="check2">
+                                            <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">WATER PURIFIER
+                                        </label>
+                                        </div>
+  
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="check2">
+                            <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">AIR PURIFIER
+                        </label>
+                        </div>
+                        
+  
+                      <div class="form-check-inline">
+                          <label class="form-check-label" for="check2">
+                              <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">VACCUM CLEANER
+                          </label>
+                          </div>
+  
+              <div class="form-check-inline">
+                  <label class="form-check-label" for="check2">
+                      <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">CHIMNEY
+                  </label>
+                  </div>
+  
+                  <div class="form-check-inline">
+                      <label class="form-check-label" for="check2">
+                          <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">EXHAUST FANS
+                      </label>
+                      </div>
+  
+              <div class="form-check-inline">
+                  <label class="form-check-label" for="check2">
+                      <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">CURTAINS
+                  </label>
+                  </div>
+  
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                    <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">SHOE SHELF
+                </label>
+                </div>
+  
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="check2">
+                        <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">INDUCTION COOKING UNIT
+                    </label>
+                    </div>
+  
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="check2">
+                        <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">COMPUTER TABLE
+                    </label>
+                    </div>
+  
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="check2">
+                            <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">SEMI AUTOMATIC WASHING MACHINE
+                        </label>
+                        </div>
+  
+                        <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                                <input type="checkbox" class="form-check-input" id="check2" name="fully-furnished" value="something">FULLY AUTOMATIC WASHING MACHINE
+                            </label>
+                            </div>
+  
+              </div>
+            
+                      </div>
+                      <!--  -->
+        <!--  -->
+        
+  
+  
+  
+  
+        
+        </div>
+        
+                      </div>
+  
+                
+  </div>
+              
+  
+  <div class="dropdown down_float">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                Facility
+                </button>
+                <div class="dropdown-menu furnsish-filter main-filter">
+                        <div class="floor-option">
+                     <div class="form-group">
+                             
+                                 <div class="form-check-inline">
+                                     <label class="form-check-label" for="check2">
+                                         <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">PARKING SHARED / RESERVER
+                                     </label>
+                                     </div>
+                             <div class="form-check-inline">
+                                 <label class="form-check-label" for="check2">
+                                     <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">OHER FACILIY ENUM
+                                 </label>
+                                 </div>
+                
+                 </div>
+                         </div>
+                         </div>
+  </div>
+  
+  <div class="dropdown down_float">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                Mode
+                </button>
+                <div class="dropdown-menu furnsish-filter main-filter">
+                        <div class="floor-option">
+                     <div class="form-group">
+                             
+                                 <div class="form-check-inline">
+                                     <label class="form-check-label" for="check2">
+                                         <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">CONSTRUCTION
+                                     </label>
+                                     </div>
+                             <div class="form-check-inline">
+                                 <label class="form-check-label" for="check2">
+                                     <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">POSTED BY
+                                 </label>
+                                 </div>
+                                 <div class="form-check-inline">
+                                        <label class="form-check-label" for="check2">
+                                            <input type="checkbox" class="form-check-input" id="check2" name="vehicle2" value="something">PAYMENT MODE
+                                        </label>
+                                        </div>
+                
+                 </div>
+                         </div>
+                         </div>
+  </div>
+  
+            
+   <button class="read-more">Apply Filter</button>          
+  
+                        </section>
+                        </div>
+  
+                          <div class="row">     
+                             <section class="filter_two_sec">    
+                                <div class="dropdown down_float">
+          <span class="filter-text">Filter :-</span>
+                                </div>           
+                                <div class="dropdown down_float">
+                                    <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                      Property Type
+                                    </button>
+                                    <div class="dropdown-menu">
+                                      <a class="dropdown-item" href="#">1 Month </a>
+                                      <a class="dropdown-item" href="#">Next 6 Month</a>
+                                      <a class="dropdown-item" href="#">Next 3 Month</a>
+                                      <a class="dropdown-item" href="#">Next 3 Month</a>
+                                    </div>
+                                  </div>
+  
+                                  <div class="dropdown down_float">
+                                      <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                        Property Phase
+                                      </button>
+                                      <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">1 Month </a>
+                                        <a class="dropdown-item" href="#">Next 6 Month</a>
+                                        <a class="dropdown-item" href="#">Next 3 Month</a>
+                                        <a class="dropdown-item" href="#">Next 3 Month</a>
+                                      </div>
+                                    </div>
+  
+                                    <div class="dropdown down_float">
+                                        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                          Bedroom
+                                        </button>
+                                        <div class="dropdown-menu">
+                                          <a class="dropdown-item" href="#">1 Month </a>
+                                          <a class="dropdown-item" href="#">Next 6 Month</a>
+                                          <a class="dropdown-item" href="#">Next 3 Month</a>
+                                          <a class="dropdown-item" href="#">Next 3 Month</a>
+                                        </div>
+                                      </div>
+  
+                                      <div class="dropdown down_float">
+                                          <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                            Property Budget
+                                          </button>
+                                          <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">1 Month </a>
+                                            <a class="dropdown-item" href="#">Next 6 Month</a>
+                                            <a class="dropdown-item" href="#">Next 3 Month</a>
+                                            <a class="dropdown-item" href="#">Next 3 Month</a>
+                                          </div>
+                                        </div>
+                                    </section>
+                                     </div>
+                                  </div>
+           </div>
+        <!--  -->
+  
+    <!--  -->
+  
+      <!--  -->
+    <div class="resid-sec residential-content">
+        <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselresidItems">
+            <div *nguCarouselDef="let item;" class="item">
+              <a  (click)="fromdashboard(item.propertyId)" [routerLink]="['/residential/view',item.propertyId]"> 
+                <div class="slider_wrapper">
+              <div class="img_section">
+                <span *ngIf="item.propertyImages; else imageloc">
+                    <img src="{{item.propertyImages[0]}}" alt="img">
+                </span>
+                <ng-template #imageloc>
+                    <img src="assets/images/product.jpeg" alt="img">
+                </ng-template>
+                   <span class="location">{{item.propertyName}}</span>
+                </div>
+                <ul class="post-product">
+                  <li> <h5 class="post-title"><a href="#">{{item.prebuiltAssetCategory}}</a></h5></li>
+                  <li> <span>{{item.locationDetails.state}}</span></li>
+                  <li>  <span>{{item.furnishing}}</span></li>
+                 <li>  <span class="bold_text">Price </span><span>₹ {{item.pricing.expectedPrice}}</span></li>
+                 <li>   <span class="bold_text">Posted on </span><span></span>{{item.createdAt}}</li>
+                </ul>
+             </div></a>
+             <div class="add_cart">
+              <li (click)="addtoheart(item)"><i id="{{item.id}}" class="fa fa-heart" title="Add to Heart"></i></li>
+             
+              <li><i class="fa fa-cart-plus" title="Add to cart"></i></li>
+             </div>
+            </div>
+            <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+            <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+            <!-- <ul class="myPoint" NguCarouselPoint>
+                <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+            </ul> -->
+        </ngu-carousel>
+  </div> 
+  
+  <div class="comm-sec commercial-content">
+    <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselcommercItems">
+      <div *nguCarouselDef="let item;" class="item">
+        <a [routerLink]="['/commercial/view',item.propertyId]" (click)="fromdashboard()"> 
+          <div class="slider_wrapper">
+        <div class="img_section">
+          <span *ngIf="item.propertyImages; else imageloc">
+              <img src="{{item.propertyImages[0]}}" alt="img">
+          </span>
+          <ng-template #imageloc>
+              <img src="assets/images/product.jpeg" alt="img">
+          </ng-template>
+             <span class="location">{{item.propertyName}}</span>
+          </div>
+          <ul class="post-product">
+            <li> <h5 class="post-title"><a href="#">{{item.prebuiltAssetCategory}}</a></h5></li>
+            <li> <span>{{item.locationDetails.state}}</span></li>
+            <li>  <span>{{item.marketPlace}}</span></li>
+           <li>  <span class="bold_text">Price </span><span>₹ {{item.pricing.expectedPrice}}</span></li>
+           <li>   <span class="bold_text">Posted on </span><span></span>{{item.createdAt}}</li>
+          </ul>
+       </div></a>
+      </div>
+      <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+      <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+      <!-- <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+      </ul> -->
+  </ngu-carousel>
+  </div>
+  <!--  -->
+  
+
+  
+  <div class="indus-sec industrial-content">
+    <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselIndustrialItems">
+      <div *nguCarouselDef="let item;" class="item">
+        <a [routerLink]="['/industrial/view',item.propertyId]" (click)="fromdashboard()"> 
+          <div class="slider_wrapper">
+        <div class="img_section">
+          <span *ngIf="item.propertyImages; else imageloc">
+              <img src="{{item.propertyImages[0]}}" alt="img">
+          </span>
+          <ng-template #imagelocf>
+              <img src="assets/images/product.jpeg" alt="img">
+          </ng-template>
+             <span class="location">{{item.propertyName}}</span>
+          </div>
+          <ul class="post-product">
+            <li> <h5 class="post-title"><a href="#">{{item.prebuiltAssetCategory}}</a></h5></li>
+            <li> <span>{{item.locationDetails.state}}</span></li>
+            <li>  <span>{{item.furnishing}}</span></li>
+           <li>  <span class="bold_text">Price </span><span>₹ {{item.pricing.expectedPrice}}</span></li>
+           <li>   <span class="bold_text">Posted on </span><span></span>{{item.createdAt}}</li>
+          </ul>
+       </div></a>
+      </div>
+      <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+      <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+      <!-- <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+      </ul> -->
+  </ngu-carousel>
+    </div>
+    <!--  -->
+  
+  
+  <!--  -->
+  
+  <div class="farm-sec farming-content">
+    <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+      <div *nguCarouselDef="let item;" class="item">
+        <a [routerLink]="['/residential/view',item.propertyId]" (click)="fromdashboard()"> 
+          <div class="slider_wrapper">
+        <div class="img_section">
+          <span *ngIf="item.propertyImages; else imageloc">
+              <img src="{{item.propertyImages[0]}}" alt="img">
+          </span>
+          <ng-template #imageloc>
+              <img src="assets/images/product.jpeg" alt="img">
+          </ng-template>
+             <span class="location">{{item.propertyName}}</span>
+          </div>
+          <ul class="post-product">
+            <li> <h5 class="post-title"><a href="#">{{item.prebuiltAssetCategory}}</a></h5></li>
+            <li> <span>{{item.locationDetails.state}}</span></li>
+            <li>  <span>{{item.furnishing}}</span></li>
+           <li>  <span class="bold_text">Price </span><span>₹ {{item.pricing.expectedPrice}}</span></li>
+           <li>   <span class="bold_text">Posted on </span><span></span>{{item.createdAt}}</li>
+          </ul>
+       </div></a>
+      </div>
+      <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+      <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+      <!-- <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+      </ul> -->
+  </ngu-carousel>
+    </div>
+    <!--  -->
+  </div>
+      </div>
+              </section>
+              </article>
+  
+  
+              <!-- start -->
+              
+  
+  
+  <!--  -->
+  <article class="post-property-section">
+      <section class="wrapper row">
+        <div class="col-lg-8 uploadtext">
+          <div class="property-section">
+              <h3>What Makes Us The Preferred Choice</h3>
+          </div>
+          </div>
+  
+          <div class="col-lg-4 uploadbutton">
+            <div class="property-section">
+                <a routerLink="/sell-property"><button class="read-more">Upload Pre-Built Property Here</button></a>
+                <a routerLink="/sell-rawland"><button class="read-more">Upload Your Raw Land Here</button></a>
+            </div>
+            </div>
+  
+  
+          </section>
+              </article>
+  <!--  -->
+  
+    <!--  -->
+    <article class="project-section">
+      <section class="wrapper">
+          <div class="container-fluid">
+            <section class="heading">
+            <h2>Dapp Projects </h2>
+            <p></p>
+          </section>
+          </div>        
+  <div class="row">                    
+            <div class="col-lg-2 col-sm-2 col-md-2"></div>
+          <div class="col-lg-8 col-sm-8 col-md-8">
+            <div class="row">
+              <section class="project-sub-sec">
+            <ul>
+              <li>Project Type</li>
+              <li>Project Saletype</li>
+              <li>Unit Type</li>
+              <li>Location</li>
+              <li>Unit Price</li>
+            </ul>
+                    </section>
+                    </div>
+</div>
+                   <div class="col-lg-2 col-sm-2 col-md-2">
+                    </div>
+       </div>
+
+  <div class="resid-sec container-fullwidth residential-content">
+          <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouseldappdata">
+            <div *nguCarouselDef="let item;" class="item">
+              <a target="_blank" [routerLink]="['/projects/view/',item.inventoryMapper.uniqueId] "> 
+                 <div class="slider_wrapper"> 
+                    <div class="img_section">
+                        <span *ngIf="item.projectGallery.length; else imageloc1">
+                            <img src="{{item.projectGallery[0]}}" alt="img">
+                        </span>
+                        <ng-template #imageloc1>
+                            <img src="assets/images/product.jpg" alt="img">
+                        </ng-template>
+                           <span class="location">{{item.projectName}}</span>
+                        </div>
+                <ul class="post-product">
+                  <li> <h5 class="post-title">{{item.projectType}}</h5></li>
+                  <li> <span>Acre {{item.projectSubType}}</span></li>
+                  <li>  <span>{{item.location.state}}</span></li>
+                 <li>   <span class="bold_text">Posted at </span><span></span>{{item.created}}</li>
+                </ul>
+              </div></a>
+            </div>
+            <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+            <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+        </ngu-carousel>
+      </div>
+              </section>
+              </article> 
+  
+  <!-- end property upload -->
+    <!--  -->
+    <article class="project-section">
+      <section class="wrapper">
+          <div class="container-fluid">
+            <section class="heading">
+            <h2>Recently Uploaded Raw Land Properties </h2>
+            <p></p>
+          </section>
+          </div>
+  
+  <div class="resid-sec container-fullwidth residential-content">
+          <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItemsraw">
+            <div *nguCarouselDef="let item;" class="item">
+              <a [routerLink]="['/rawproperty/view',item.landId]" (click)="fromdashboard()"> 
+                 <div class="slider_wrapper"> 
+                    <div class="img_section">
+                        <span *ngIf="item.dimentionDocument.landMap; else imageloc1">
+                            <img src="{{item.dimentionDocument.landMap[0]}}" alt="img">
+                        </span>
+                        <ng-template #imageloc1>
+                            <img src="assets/images/product.jpeg" alt="img">
+                        </ng-template>
+                           <span class="location">{{item.propertyName}}</span>
+                        </div>
+                <ul class="post-product">
+                  <li> <h5 class="post-title">{{item.marketplace}}</h5></li>
+                  <li> <span>Acre {{item.dimentionDocument.acres}}</span></li>
+                  <li>  <span>{{item.locationDetails.state}}</span></li>
+                 <li>   <span class="bold_text">Posted at </span><span></span>{{item.createdAt}}</li>
+                </ul>
+              </div></a>
+            </div>
+            <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+            <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+        </ngu-carousel>
+      </div>
+              </section>
+              </article> 
+  
+  <!-- end property upload -->
+  
+  
+  
+  <!--  -->
+ 
+  <!--  -->
+ 
+  <article class="project-section">
+      <section class="wrapper">
+          <div class="container-fluid">
+            <section class="heading">
+            <h2>Recently Uploaded Properties</h2>
+            <p></p>
+          </section>
+          </div>
+  
+  <div class="resid-sec  container-fullwidth residential-content">
+          <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItemsView">
+            <div *nguCarouselDef="let item;" class="item">
+              <a [routerLink]="['/residential/view',item.propertyId]" (click)="fromdashboard()"> 
+                 <div class="slider_wrapper"> 
+                    <div class="img_section">
+                        <span *ngIf="item.propertyImages; else imageloc">
+                            <img src="{{item.propertyImages[0]}}" alt="img">
+                        </span>
+                        <ng-template #imageloc>
+                            <img src="assets/images/product.jpeg" alt="img">
+                        </ng-template>
+                           <span class="location">{{item.propertyName}}</span>
+                        </div>
+                <ul class="post-product">
+                  <li> <h5 class="post-title"><a href="#">{{item.prebuiltAssetCategory}}</a></h5></li>
+                  <li> <span>{{item.locationDetails.state}}</span></li>
+                  <li>  <span>{{item.furnishing}}</span></li>
+                 <li>  <span>Price </span><span class="bold_text">₹ {{item.pricing.expectedPrice}}</span></li>
+                 <li>   <span class="bold_text">Posted on </span><span></span>{{item.ccarouselItemsreatedAt}}</li>
+                </ul>
+              </div></a>
+            </div>
+            <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+            <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+            <!-- <ul class="myPoint" NguCarouselPoint>
+                <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+            </ul> -->
+        </ngu-carousel>
+      </div>
+              </section>
+              </article> 
+  
+  <!-- start proprty upload -->
+  
+  
+  <!-- start recent page section -->
+  <!-- <article class="trending-page-section">
+    <section class="wrapper">
+      <div class="container">
+        <div class="page-section">
+            <section class="heading">
+          <h2>Top Property Collections For You</h2>
+          <p></p>
+            </section>
+                <div class="card-prop-section">
+                  <div class="card-columns">
+                    <div class="card card-image">
+                      <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-9 col-xs-9">
+                      <h4 class="card-title">Company Name</h4>
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                      <img class="img-fluid logo" src="https://placehold.it/50x50?text=LOGO">
+                    </div>
+                    <div class="col-sm-12">
+                      <small class="text-muted">
+                        <a href="#!"><strong>landscaping.com</strong></a>
+                      </small>
+                    </div>
+                  </div>
+                        <p class="card-text"></p>
+                        <p class="card-text text-right"><small class="text-muted">
+                                
+                        </small></p>
+                      </div>
+                    </div>
+                    <div class="card card-pin">
+                      <img class="card-img" src="assets/images/bg01.jpg" alt="Card image">
+                      <div class="details"> <p>
+              
+                    </p>
+                  </div>
+                    </div>   
+                    <div class="card card-pin">
+                      <img class="card-img" src="assets/images/bg01.jpg" alt="Card image">
+                      
+                    </div>
+                    <div class="card card-pin">
+                      <img class="card-img" src="assets/images/bg01.jpg" alt="Card image">
+                      
+                    </div>
+                    <div class="card card-pin">
+                      <img class="card-img" src="assets/images/bg01.jpg" alt="Card image">
+                      
+                    </div>
+                   
+                    
+                  </div>    
+                </div>
+            
+  
+  
+        </div>   
+    </div>
+    </section>
+    </article> -->
+  
+    <!--  end page section-->
+  
+  <!-- start page section -->
+  <!-- <article class="space-secure-section">
+      <section class="wrapper">
+        <div class="container-fluid">
+          <div class="space-section">
+              <section class="heading">
+              <h2>Share Space with security</h2>
+              <p></p>
+              </section>
+              <div class="row">
+  
+  
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                <h3>Co-Working</h3>  
+                    <div class="border_left"> 
+                    
+                       <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="share_space">
+                            <div class="space_left">
+                              <img src="assets/images/meeting.png"/>
+                              <h4>Live Conference</h4>
+                            </div>
+                
+                            <div class="space_left">
+                                <img src="assets/images/cloud.png"/>
+                                <h4>Cloud Networking Architecture</h4>
+                              </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="share_space">
+                            <div class="space_left">
+                              <img src="assets/images/plug.png"/>
+                              <h4>Plug & Play</h4>
+                            </div>
+                
+                            <div class="space_left">
+                                <img src="assets/images/payment.png"/>
+                                <h4>Escro Based Payment</h4>
+                              </div>
+                            </div>
+                    </div>
+                </div>
+               </div>
+        <button class="read-more">Learn More</button>
+  
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <section class="border-center"></section>
+                </div>
+  
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                     <h3>Co-Living</h3>  
+                    <div class="border_right">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="share_space">
+                                <div class="space_left">
+                                  <img src="assets/images/bunk.png"/>
+                                  <h4>Bunk House</h4>
+                                </div>
+                    
+                                <div class="space_left">
+                                    <img src="assets/images/rent.png"/>
+                                    <h4>Rent House</h4>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="share_space">
+                                <div class="space_left">
+                                  <img src="assets/images/corporate.png"/>
+                                  <h4>Corporate Living</h4>
+                                </div>
+                    
+                                <div class="space_left">
+                                    <img src="assets/images/zone.png"/>
+                                    <h4>Dedicated Zone</h4>
+                                  </div>
+                                </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="read-more">Learn More</button>
+                </div>
+  
+              </div>
+              
+          </div>
+          </div>
+          </section>
+              </article> -->
+    <!-- end page section -->
+      <article class="recent-page-section">
+      <section class="wrapper">
+          <div class="container-fluid">
+            <section class="heading">
+              <h2>Most Popular Properties</h2>
+              <p></p>
+          </section>
+          </div>
+  
+  <div class="resid-sec container-fullwidth residential-content">
+          <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItemsView">
+            <div *nguCarouselDef="let item;" class="item">
+              <a [routerLink]="['/residential/view',item.propertyId]" (click)="fromdashboard(item.propertyId)">
+                 <div class="slider_wrapper">   
+                    <div class="img_section">
+                        <span *ngIf="item.propertyImages; else imageloc">
+                            <img src="{{item.propertyImages[0]}}" alt="img">
+                        </span>
+                        <ng-template #imageloc>
+                            <img src="assets/images/product.jpeg" alt="img">
+                        </ng-template>
+                           <span class="location">{{item.propertyName}}</span>
+                        </div>
+                <ul class="post-product">
+                  <li> <h5 class="post-title"><a href="#">{{item.prebuiltAssetCategory}}</a></h5></li>
+                  <li> <span>{{item.locationDetails.state}}</span></li>
+                  <li>  <span>{{item.furnishing}}</span></li>
+                 <li>  <span  class="bold_text">Price </span><span>₹ {{item.pricing.expectedPrice}}</span></li>
+                 <li>   <span class="bold_text">Posted on </span><span></span>{{item.createdAt}}</li>
+                </ul>
+  
+            </div></a>
+            </div>
+            <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+            <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+            <!-- <ul class="myPoint" NguCarouselPoint>
+                <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+            </ul> -->
+        </ngu-carousel>
+      </div>
+              </section>
+              </article> 
+  
+  <!-- Newsletter section -->
+  
+  <section class="home-newsletter">
+      <div class="container">
+      <div class="row">
+      <div class="col-sm-12">
+        <div class="single">
+          <h2>Subscribe to our Newsletter</h2>
+        <div class="input-group">
+               <input type="email" class="form-control" placeholder="Enter your email">
+               <span class="input-group-btn">
+               <button class="btn btn-theme" type="submit">Subscribe</button>
+               </span>
+                </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </section>
+  
+  <!-- newsletter end -->
+  
+  

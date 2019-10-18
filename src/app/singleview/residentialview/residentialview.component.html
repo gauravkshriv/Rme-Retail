@@ -1,0 +1,627 @@
+
+<div *ngIf="isLoading" class="overlay">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+
+<section class="wrapper-post">
+  <div class="container">
+
+    <div class="postproperty card-body">
+        <div class="strip">
+            <span>{{singleview.propertyName}}</span><span>Views : {{singleview.views}}
+            </span>
+          </div>
+   <div class="row">
+<div class="col-lg-3">
+    <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+        <div *nguCarouselDef="let item;" class="item">
+            <span *ngIf="singleview.propertyImages; else imageloc">
+                <a href="{{item}}" data-lightbox="roadtrip">
+                     <img data-lightbox="roadtrip" src="{{item}}" alt="img"></a>
+            </span>
+            <ng-template #imageloc>
+                <a href="assets/images/product.jpg" data-lightbox="roadtrip"> <img src="assets/images/product.jpg"></a>
+            </ng-template>
+            <!-- <a href="{{item}}" data-lightbox="roadtrip"> <img src="{{item}}"></a> -->
+        </div>
+       <!-- <div class="carousel-nav"> -->
+        <span NguCarouselNext class="rightRs"><i class="fa fa-angle-right"></i></span>
+        <span NguCarouselPrev class="leftRs"><i class="fa fa-angle-left"></i></span>
+      <!-- </div> -->
+        <!-- <ul class="myPoint" NguCarouselPoint>
+            <li *ngFor="let j of myCarousel.pointNumbers; let j = index" [class.active]="j==myCarousel.activePoint" (click)="myCarousel.moveTo(j)"></li>
+        </ul> -->
+    </ngu-carousel>
+</div>
+
+<div class="col-lg-9">
+  <div class="prop_spec"> 
+<div class="row">
+  <div class="col-lg-6">
+      <table class="table" >
+          <tr>
+              <td>Property Name</td>
+              <td>{{singleview.propertyName}}</td>
+            </tr>
+          <tr>
+          
+          <tr>
+              <td>property Type</td>
+              <td>{{singleview.prebuiltAssetCategory}}</td>
+            </tr>
+
+            <tr *ngIf="singleview.residentialStructuralDocument.flats">
+              <td>Flat</td>
+              <td *ngIf="singleview.residentialStructuralDocument.flats.bhks == null else flatbhk">Not Available
+              </td>
+
+              <ng-template #flatbhk>
+                <td>
+                  <span>{{singleview.residentialStructuralDocument.flats.bhks}}</span>
+                </td> </ng-template>
+            </tr>
+
+         <tr>
+           <td>State</td>
+           <td>{{singleview.locationDetails.state}}</td>
+         </tr>
+
+         <tr>
+            <td>City</td>
+            <td>{{singleview.locationDetails.city}}</td>
+          </tr>
+
+          
+          <tr>
+            <td>Property Facing</td>
+            <td>{{singleview.residentialStructuralDocument.propertyFacing}}</td>
+          </tr>
+
+
+        </table>
+  </div>
+
+  <div class="col-lg-6">
+      <table class="table">
+         
+          <tr>
+              <td>Estimated Price</td>
+              <td>₹ {{pricings.estimatedPrice}}</td>
+            </tr>
+            <tr>
+                <td>Expected Price</td>
+                <td>₹ {{pricings.expectedPrice}}</td>
+              </tr>
+         <tr>
+           <td>Furnished Status</td>
+           <td>{{singleview.furnishing}}</td>
+         </tr>
+
+         <tr>
+            <td>Phase</td>
+            <td>{{singleview.pricing.assetConstructionPhase}}</td>
+          </tr>
+
+            <tr>
+                <td>Carpet Area</td>
+                <td>{{singleview.dimensionSpec.carpetArea}} Sq Feet</td>
+              </tr>
+              <tr>
+                <td>Ownership Type</td>
+                <td>{{pricings.layoutApprovalType}}</td>
+              </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+ </div>
+
+<!--  -->
+
+<!--  -->
+
+ <section class="property-specif">
+ <div class="row">
+        <div class="col-lg-8" [ngClass]="(this.showcontacts || this.locshowcontact) ? 'col-lg-8' : 'col-lg-12'">
+          <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link" id="nav-detail-tab" data-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="false">Details</a>
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Location & Layout</a>
+              <a class="nav-item nav-link" id="nav-furnish-tab" data-toggle="tab" href="#nav-furnish" role="tab" aria-controls="nav-furnish" aria-selected="true">Property Style</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Furnishing Status</a>
+              <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Pricing</a>
+
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+
+              <div class="tab-pane fade" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
+                  <div class="card">
+                      <div class="card-body">
+                          <table class="table table-striped">
+                                   <tr>
+                                  <td>Property Owner</td>
+                     
+
+                                  <td>{{singleview.uploadedBy}}</td>
+                              </tr>
+                            </table>
+                            <h5 class="card-header">Project Description</h5>
+                             <p> {{singleview.propertyDescription}}</p>
+                               </div>
+              </div>
+              </div>
+
+
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          
+              <div class="card">
+                <div class="card-body">
+                
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                      </agm-map>
+
+                </div>
+              </div>
+
+            <div class="card">
+                <div class="card-header"><h5>Property Address</h5></div>
+             <div class="card-body">  
+               <table class="table table-striped">
+                  <h6 style="width:100px">Address</h6> 
+                  <tr>  
+                      <td>Address</td>
+                     <td>{{singleview.locationDetails.addressLineOne}}</td>
+                    </tr>
+                    <tr>  
+                      <td>Map Location</td>
+                     <td>{{singleview.locationDetails.mapLocation}}</td>
+                    </tr>
+               </table>
+
+               <table class="table table-striped">
+                  <tr>
+                      <td>State</td>
+                      <td>{{singleview.locationDetails.state}}</td>
+
+                      <td>City</td>
+                      <td>{{singleview.locationDetails.city}}</td>     
+                    </tr>
+                 <tr>
+                <td>District</td>
+                <td>{{singleview.locationDetails.district}}</td>
+                <td>Tehsil</td>
+                <td>{{singleview.locationDetails.tehsil}}</td>
+                </tr>
+                  <tr>
+                      <td>PinCode</td>
+                      <td>{{singleview.locationDetails.pincode}}</td>
+                      <td></td>
+                      <td></td>
+                     </tr>
+               </table>
+
+                <table class="table table-striped">
+                    <h6>Landmark Section</h6> 
+              <tr *ngIf="railway">
+                <td>Railway</td>
+                <td>{{railway.distance}} Km</td>
+                <td>{{railway.nearByLocationName}}</td>
+              </tr>
+
+              <tr *ngIf="metro">
+                  <td>Metro</td>
+                  <td>{{metro.distance}} Km</td>
+                  <td>{{metro.nearByLocationName}}</td>
+                </tr>
+
+                <tr *ngIf="bus_stand">
+                    <td>Bus Stand</td>
+                    <td>{{bus_stand.distance}} Km</td>
+                    <td>{{bus_stand.nearByLocationName}}</td>
+                  </tr>
+
+                  <tr *ngIf="airport">
+                      <td>Airport</td>
+                      <td>{{airport.distance}} Km</td>
+                      <td>{{airport.nearByLocationName}}</td>
+                    </tr>
+
+                    <tr *ngIf="other">
+                        <td>Other</td>
+                        <td>{{other.distance}} Km</td>
+                        <td>{{other.nearByLocationName}}</td>
+                      </tr>
+
+
+                </table>
+             </div>
+           </div>
+
+           
+         <div class="card">
+            <div class="card-header"><h5>Room Section</h5></div>
+            <div class="card-body">
+               <table class="table table-striped " *ngIf="singleview.residentialStructuralDocument?.bedrooms.length">
+                  <h6 style="width:100px">Bed Room</h6> 
+                 <tr *ngFor="let data of singleview.residentialStructuralDocument?.bedrooms let i = index">
+                  <td>Length</td>
+                   <td *ngIf="data.length == null || data.length == 0  else blenvalue">Not Available</td>
+                   <ng-template #blenvalue>
+                    <td>{{data.length}}</td>
+                   </ng-template>
+                   <td>Breadth</td>
+                   <td *ngIf="data.breath == null || data.breath == 0 else bbredvalue">Not Available</td>
+                   <ng-template #bbredvalue>
+                    <td>{{data.breath}}</td>
+                   </ng-template>
+                  </tr>
+               </table>
+
+               <table class="table table-striped " *ngIf="singleview.residentialStructuralDocument?.livingroom.length">
+                  <h6>Living Room</h6> 
+                 <tr *ngFor="let data of singleview.residentialStructuralDocument?.livingroom">
+                  <td>Length</td>
+                   <td *ngIf="data.length == null || data.length == 0 else llenvalue">Not Available</td>
+                   <ng-template #llenvalue>
+                    <td>{{data.length}}</td>
+                   </ng-template>
+                   <td>Breadth</td>
+                   <td *ngIf="data.breath == null || data.breath == 0 else lbredvalue">Not Available</td>
+                   <ng-template #lbredvalue>
+                    <td>{{data.breath}}</td>
+                   </ng-template>
+                  </tr>
+               </table>
+            
+                <table class="table table-striped " *ngIf="singleview.residentialStructuralDocument?.poojaroom.length">
+                <h6>Pooja Room</h6> 
+               <tr *ngFor="let data of singleview.residentialStructuralDocument?.poojaroom">
+                <td>Length</td>
+                <td *ngIf="data.length == null || data.length == 0 else plenvalue">Not Available</td>
+                <ng-template #plenvalue>
+                 <td>{{data.length}}</td>
+                </ng-template>
+                <td>Breadth</td>
+                <td *ngIf="data.breath == null || data.breath == 0 else pbredvalue">Not Available</td>
+                <ng-template #pbredvalue>
+                 <td>{{data.breath}}</td>
+                </ng-template>
+                </tr>
+             </table> 
+
+             <table class="table table-striped "  *ngIf="singleview.residentialStructuralDocument?.studyroom.length">
+              <h6>Study Room</h6> 
+             <tr *ngFor="let data of singleview.residentialStructuralDocument?.studyroom">
+              <td>Length</td>
+              <td *ngIf="data.length == null || data.length == 0 else slenvalue">Not Available</td>
+              <ng-template #slenvalue>
+               <td>{{data.length}}</td>
+              </ng-template>
+              <td>Breadth</td>
+              <td *ngIf="data.breath == null || data.breath == 0 else sbredvalue">Not Available</td>
+              <ng-template #sbredvalue>
+               <td>{{data.breath}}</td>
+              </ng-template>
+              </tr>
+           </table>
+
+           <table class="table table-striped " *ngIf="singleview.residentialStructuralDocument?.serventroom.length">
+            <h6>Servant Room</h6> 
+           <tr *ngFor="let data of singleview.residentialStructuralDocument?.serventroom">
+            <td>Length</td>
+            <td *ngIf="data.length == null || data.length == 0 else selenvalue">Not Available</td>
+            <ng-template #selenvalue>
+             <td>{{data.length}}</td>
+            </ng-template>
+            <td>Breadth</td>
+            <td *ngIf="data.breath == null || data.breath == 0 else sebredvalue">Not Available</td>
+            <ng-template #sebredvalue>
+             <td>{{data.breath}}</td>
+            </ng-template>
+            </tr>
+         </table>
+
+         <table class="table table-striped " *ngIf="singleview.residentialStructuralDocument?.storeroom.length">
+            <h6>Store Room</h6> 
+           <tr *ngFor="let data of singleview.residentialStructuralDocument?.storeroom">
+            <td>Length</td>
+            <td *ngIf="data.length == null || data.length == 0 else storlenvalue">Not Available</td>
+            <ng-template #storlenvalue>
+             <td>{{data.length}}</td>
+            </ng-template>
+            <td>Breadth</td>
+            <td *ngIf="data.breadth == null || data.breadth == 0 else storbredvalue">Not Available</td>
+            <ng-template #storbredvalue>
+             <td>{{data.breath}}</td>
+            </ng-template>
+            </tr>
+         </table>
+
+
+            </div>
+          </div>
+
+
+          <div class="card">
+              <div class="card-header"> <h5>Kitchen Section</h5></div>
+            <div class="card-body"> 
+               <table class="table table-striped " *ngFor="let data of singleview.residentialStructuralDocument?.kitchen">
+                   <tr>
+                    <td>Length</td>
+                   <td *ngIf="data.length == null || data.length == 0 else klenvalue">Not Available</td>
+                   <ng-template #klenvalue>
+                    <td>{{data.length}}</td>
+                   </ng-template>
+                   <td>Breadth</td>
+                   <td *ngIf="data.breadth == null || data.breadth == 0 else kbredvalue">Not Available</td>
+                   <ng-template #kbredvalue>
+                    <td>{{data.breadth}}</td>
+                   </ng-template>
+                   </tr>
+                   <tr>
+                     <td>Kitchen Style</td>
+                     <td>{{data.kitchencategory}}</td>
+                   </tr>
+                  
+               </table>
+            </div>
+          </div>
+
+
+          <div class="card">
+              <div class="card-header"><h5>Bathroom Section</h5></div>
+            <div class="card-body">
+               <table class="table table-striped " *ngFor="let data of singleview.residentialStructuralDocument?.bathroom let i = index">
+                   <tr>
+                    <td>Length</td>
+                    <td *ngIf="data.length == null || data.length == 0  else balenvalue">Not Available</td>
+                    <ng-template #balenvalue>
+                     <td>{{data.length}}</td>
+                    </ng-template>
+                    <td>Breadth</td>
+                    <td *ngIf="data.breadth == null || data.breadth == 0  else babredvalue">Not Available</td>
+                    <ng-template #babredvalue>
+                     <td>{{data.breadth}}</td>
+                    </ng-template>
+                   </tr>
+
+                   <tr>
+                   <td>Bathroom Place</td>
+                   <td>{{data.bathroomPlace}}</td>
+                   <td>Bathroom Style</td>  <td>{{data.bathroomStyle}}</td>
+                  </tr>
+     
+               </table>
+            </div>
+          </div>
+
+          <div class="card" *ngIf="singleview.residentialStructuralDocument?.balcony.length">
+            <div class="card-body">
+                <div class="card-header"><h5>Balcony Section</h5></div>
+               <table class="table table-striped" *ngFor="let data of singleview.residentialStructuralDocument?.balcony">
+                   <tr>
+                    <td>Length</td>
+                    <td *ngIf="data.length == null || data.length == 0  else balcvaluel">Not Available</td>
+                    <ng-template #balcvaluel>
+                     <td>{{data.length}}</td>
+                    </ng-template>
+
+                     <td>Breadth</td>
+                     <td *ngIf="data.breadth == null || data.breadth == 0  else balcvalue2">Not Available</td>
+                     <ng-template #balcvalue2>
+                      <td>{{data.breath}}</td>
+                     </ng-template>
+                     
+                   </tr>
+               </table>
+            </div>
+          </div>
+
+          <div class="card" *ngIf="singleview.residentialStructuralDocument?.frontyard.length">
+              <div class="card-header"><h5>Frontyard Section</h5></div>
+            <div class="card-body">
+              
+              <table class="table table-striped">
+                   <tr *ngFor="let data of singleview.residentialStructuralDocument?.frontyard">
+                    <td>Length</td>
+                    <td>{{data.length}}</td>
+                    <td>Breadth</td>
+                     <td>{{data.breath}}</td>
+                   </tr>
+                   
+               </table>
+               <table class="table table-striped" *ngIf="singleview.residentialStructuralDocument?.backyard.length">
+                <h5>Backyard Section</h5>
+                <tr *ngFor="let data of singleview.residentialStructuralDocument?.backyard">
+                 <td>Length</td>
+                 <td>{{data.length}}</td>
+                 <td>Breadth</td>
+                <td>{{data.breath}}</td>
+                </tr>
+                
+            </table>
+            </div>
+          </div>
+
+
+            </div>
+
+            <div class="tab-pane fade" id="nav-furnish" role="tabpanel" aria-labelledby="nav-furnish-tab">
+                <div class="card">
+                    <div class="card-header"><h5>Property Style Section</h5></div>
+                  <div class="card-body">
+                    
+                     <table class="table table-striped">
+                       <h5>Flooring Type</h5>
+                       <ul>
+                         <li *ngFor="let data of singleview.residentialStructuralDocument.floorAndCeiling?.flooring"><span>{{data}}</span></li>
+                         </ul>
+                         <h5>Ceiling Type</h5>
+                       <ul>
+                          <li *ngFor="let data of singleview.residentialStructuralDocument.floorAndCeiling?.ceiling"><span>{{data}}</span></li>
+                          </ul>
+                     </table>
+                  </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">  <h5>Property Facilites</h5></div>
+                    <div class="card-body">
+            <div class="table table-striped furniture_view">
+              <ul>
+                <li *ngFor="let data of singleview?.facilitySpec">{{data}}</li>
+              </ul>
+            </div>
+             </div>
+            </div>
+
+                 </div>
+
+                 <!-- <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                 
+
+
+              </div> -->
+
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="card">
+                    <div class="card-header"><h5>Furnishing Section</h5></div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                          <tr>
+                            <td>Furnishing Status</td>
+                            <td>{{singleview.furnishing}}</td>
+                          </tr>
+                        </table>
+                    </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"> <h5>Furniture</h5></div> 
+              <div class="card-body">
+                    <table class="table table-striped furniture_view">
+                      <ul *ngFor="let data of homefurniture">
+                        <li>{{data}}</li>
+                      </ul>
+                    </table>
+                </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header"> <h5>Home Appliance</h5></div> 
+            <div class="card-body">
+                <table class="table table-striped furniture_view">
+                    <ul *ngFor="let data of homeappliance">
+                        <li>{{data}}</li>
+                 
+
+                    </ul>
+                </table>
+            </div>
+    </div>
+
+
+            </div>
+            <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                                 <tr *ngIf="pricings.assetConstructionPhase">
+                                <td>Construction Phase</td>
+                                <td>{{pricings.assetConstructionPhase}}</td>
+                            </tr>
+                            <tr>
+                                <td>Finalize Inventory</td>
+                                <td>{{pricings.finalizeInvestment}}</td>
+                              </tr>
+
+                              <tr>
+                                <td>Approval Type</td>
+                                <td>{{pricings.layoutApprovalType}}</td>
+                              </tr>
+
+                              <tr>
+                                <td>Estimated Price</td>
+                                <td>₹ {{pricings.estimatedPrice}}</td>
+                              </tr>
+                              <tr>
+                                <td>Expected Price</td>
+                                <td>₹ {{pricings.expectedPrice}}</td>
+                              </tr>
+                        </table>
+              </div>
+            </div>
+            </div>
+          </div>
+        
+        </div>
+
+        <div class="col-lg-4" *ngIf="this.showcontacts || this.locshowcontact">
+<div class="viewer_contactform">
+          <div class="card">
+            <div class="card-header"><h5>Contact Seller</h5></div>
+                <div class="vendor">
+                    <img src="assets/images/default_profile.png"/></div>
+                <div class="card-body">
+              <form>
+                  <div class="form-group">
+                      <i>Name: </i>
+                      <input type="text"  (keypress)="alphabet($event)" [(ngModel)]="name" name="name"  class="form-control" placeholder="Enter Your Name">
+                    </div>
+
+                    <div class="form-group">
+                        <i>Email: </i>
+                        <input type="email" [(ngModel)]="email" name="email" class="form-control"  placeholder="Enter Your Email">
+                      </div>
+                      <div class="form-group">
+                          <i>Phone No: </i>
+                          <input type="text" maxlength="10" (keypress)="numeric($event)" [(ngModel)]="mobileNo" name="mobileNo" class="form-control"  placeholder="Enter Your Mobile">
+                        </div>
+
+                        <div class="form-group">
+                          <i>City: </i>
+                          <input type="text" (keypress)="alphabet($event)" [(ngModel)]="city" name="city" class="form-control"  placeholder="Enter Your City">
+                        </div>
+
+                        <div class="form-group">
+                            <i>State: </i>
+                          <select  name="type" (click)="togglestate($event)" id="property-type" class="form-control" placeholder="Please select Categories" required>
+                            <option *ngFor="let item of statedata"  [value]="item.name">
+                            {{ item.name}}
+                            </option>
+                            </select>
+                          </div>
+
+
+
+                        <div class="form-group default_bg">
+                            <div class="custom-control custom-checkbox">
+                          <input id="nob1" type="checkbox" class="custom-control-input" value="No">
+                          <label class="custom-control-label" for="nob1">I agree to all Terms & Conditions.</label>
+                        </div>
+                        </div>
+
+                       <button class="read-more" type="submit" name="submit" (click)="ContactSubmit()"><span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span>Submit</button>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+
+ </section>
+
+
+
+    </div>
+    </section>

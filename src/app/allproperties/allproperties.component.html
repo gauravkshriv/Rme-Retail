@@ -1,0 +1,355 @@
+<div *ngIf="isLoading" class="overlay">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  
+
+  <section class="wrapper-post">
+      <div class="Filer_mob" (click)="filterArea()">Filter Area</div>
+    <div class="postproperty">
+     <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          
+          <app-resfilter [size]="evenSubject.asObservable()"  [pagenumber]="evenSubject.asObservable()" [propertype]="propertype" (filterdata)="getResidentialdata($event)"></app-resfilter>
+
+            </div>
+  <div class="col-lg-9 col-md-9 col-sm-9">
+    <div class="product-sec">
+  <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#home" (click)="Propertycheck('RESIDENTIAL')">Residential</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu1" (click)="Propertycheck('COMMERCIAL')">Commercial</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#menu2" (click)="Propertycheck('INDUSTRIAL')">Industrial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#menu3" (click)="Propertycheck('AGRICULTURAL')">Agricultural</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#menu4">Raw Land</a>
+            </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="resid-sec residential-content">
+                           <div class="card" *ngFor="let item of filterProperty">
+                              <a [routerLink]="['/residential/view',item.propertyId]" (click)="fromdashboard()"> 
+                                <div class="row res-listing">
+                      <div class="col-md-4">    
+
+                          <div class="img_section">
+                              <span *ngIf="item.propertyImages; else imageloc1">
+                                  <img src="{{item.propertyImages[0]}}" alt="img">
+                              </span>
+                              <ng-template #imageloc1>
+                                  <img src="assets/images/product.jpg" alt="img">
+                              </ng-template>
+                            
+                              </div>
+                        </div>
+                        <div class="col-md-8 px-3">
+                          <div class="prop-description">
+                            <h4 class="card-title">{{item.propertyName}}</h4> <h3 class="price">₹ {{item.pricing.expectedPrice}} /-</h3>
+                            <span><strong>{{item.prebuiltAssetType}}</strong> in <span *ngIf="item.locationDetails.mapLocation; else statedata"></span> {{item.locationDetails.mapLocation}}</span><ng-template #statedata>{{item.locationDetails.state}}</ng-template>
+                            <div class="feature-product">
+                            <div class="row">
+                             
+                              <div class="col-lg-7">
+                                <table>
+                                  <tr>
+                                    <td>Furnishing</td>
+                                    <td><span>{{item.furnishing}}</span></td>
+                                  </tr>
+                                  <tr *ngIf="item.residentialStructuralDocument.flats">
+                                      <td>Flat</td>
+                                      <td *ngIf="item.residentialStructuralDocument.flats.bhks == null else flatbhk">Not Available
+                                      </td>
+                                      <ng-template #flatbhk>
+                                          <span>{{item.residentialStructuralDocument.flats.bhks}}</span>
+                                        </ng-template>
+                                    </tr>
+                                  <tr>
+                                      <td>Status</td>
+                                      <td><span>{{item.pricing.assetConstructionPhase}}</span></td>
+                                    </tr>
+                                  
+                                </table>
+                              </div>
+                              <div class="col-lg-5"> 
+  
+                                  <table>
+                                      <tr>
+                                        <td>Facing</td>
+                                        <td><span>{{item.residentialStructuralDocument.propertyFacing}}</span></td>
+                                      </tr>
+                                      <tr>
+                                          <td>Carpet Area</td>
+                                          <td> <span>{{item.dimensionSpec.carpetArea}} Sqyrd</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sale Type</td>
+                                            <td> <span>{{item.saleType}}</span></td>
+                                          </tr>
+                                    </table>
+    
+                              </div>
+                            </div>
+                            </div>
+                                                        <span>Posted on {{item.createdAt}}<span *ngIf=""></span> </span>
+                          </div>
+                        </div>
+              
+                      </div>
+                      </a>
+                      <button class="read-more" id="dynamcontact" data-toggle="modal" data-target="#exampleModal">Contact Seller</button>
+                
+                   
+
+                    </div>
+                    <div class="showunavailabledata"  *ngIf="filternotavail">
+                      <span>There is not Data Availabe in this Category</span>  </div>
+  
+            </div>
+        </div>
+
+        <div class="tab-pane" id="menu1">
+          <div class="resid-sec residential-content">
+                         <div class="card" *ngFor="let item of commercialprop">
+                            <a [routerLink]="['/commercial/view',item.propertyId]" (click)="fromdashboard()"> 
+                              <div class="row res-listing">
+                    <div class="col-md-4">    
+                        <div class="img_section">
+                            <span *ngIf="item.propertyImages; else imageloc1">
+                                <img src="{{item.propertyImages[0]}}" alt="img">
+                            </span>
+                            <ng-template #imageloc1>
+                                <img src="assets/images/product.jpg" alt="img">
+                            </ng-template>
+                          
+                            </div>
+                      </div>
+                      <div class="col-md-8 px-3">
+                        <div class="prop-description">
+                          <h4 class="card-title">{{item.propertyName}}</h4> <h3 class="price" *ngIf="item.pricing">₹ {{item.pricing.expectedPrice}} /-</h3>
+                          <span><strong>{{item.prebuiltAssetType}}</strong> in <span *ngIf="item.locationDetails.mapLocation; else statedata"></span> {{item.locationDetails.mapLocation}}</span><ng-template #statedata>{{item.locationDetails.state}}</ng-template>
+                          <div class="feature-product">
+                          <div class="row">
+                           
+                            <div class="col-lg-7">
+                              <table>
+                                <tr>
+                                  <td>Market Place</td>
+                                  <td><span>{{item.marketPlace}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Handover Posession</td>
+                                    <!-- <td><span>{{item.pricing.finalizeInvestment}}</span></td> -->
+                                  </tr>
+                                
+                              </table>
+                            </div>
+                            <div class="col-lg-5"> 
+
+                                <table>
+                                    <tr>
+                                      <td>Facing</td>
+                                      <td><span>{{item.commercialStructuralDocument.propertyFacing}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carpet Area</td>
+                                        <td> <span>{{item.commercialDimensions.totalArea}} Sqyrd</span></td>
+                                      </tr>
+                                      <tr>
+                                          <td>Sale Type</td>
+                                          <td> <span>{{item.saleType}}</span></td>
+                                        </tr>
+                                  </table>
+  
+                            </div>
+                          </div>
+                          </div>
+                                                      <span>Posted on {{item.createdAt}}<span *ngIf=""></span> </span>
+                        </div>
+                      </div>
+            
+                    </div>
+                    </a>
+                    <button class="read-more" id="dynamcontact" data-toggle="modal" data-target="#exampleModal">Contact Seller</button>
+              
+                 
+
+                  </div>
+                  <div class="showunavailabledata"  *ngIf="filternotavail">
+                    <span>There is not Data Availabe in this Category</span>  
+                  </div>
+
+          </div>
+      </div>
+
+
+
+        <div class="tab-pane fade" id="menu4">
+            <div class="resid-sec raw-content">
+              <div class="card" *ngFor="let item of rawproperties">
+            <a [routerLink]="['/rawproperty/view',item.landId]" (click)="fromdashboard()"> 
+              <div class="row res-listing">
+    <div class="col-md-4">    
+   
+        <div class="img_section">
+            <span *ngIf="item.dimentionDocument.landMap; else imageloc1">
+                <img src="{{item.dimentionDocument.landMap[0]}}" alt="img">
+            </span>
+            <ng-template #imageloc1>
+                <img src="assets/images/product.jpg" alt="img">
+            </ng-template>
+            </div>
+      </div>
+      <div class="col-md-8 px-3">
+        <div class="prop-description">
+          <h4 class="card-title">{{item.propertyName}}</h4> <h3 class="price"></h3>
+          <span><strong>{{item.prebuiltAssetType}}</strong> in <span *ngIf="item.locationDetails.mapLocation; else statedata"></span> {{item.locationDetails.mapLocation}}</span><ng-template #statedata>{{item.locationDetails.state}}</ng-template>
+          <div class="feature-product">
+              <div class="row">
+                  <div class="col-lg-7">
+                      <table>
+                          <!-- <tr>
+                            <td>Furnishing</td>
+                            <td><span>{{item.landStatus}}</span></td>
+                          </tr> -->propertype
+                          <tr>
+                              <td>Market Place</td>
+                              <td>{{item.marketplace}}
+                              </td>
+                            
+                            </tr>
+                          <tr>
+                              <td>Acres</td>
+                              <td><span>{{item.dimentionDocument.acres}}</span></td>
+                            </tr>
+                          
+                        </table>
+                  </div>
+                  <div class="col-lg-5"> 
+                      <table>
+                          <tr>
+                            <td>Khasra</td>
+                            <td><span>{{item.propertySpecifications.khasraNo}}</span></td>
+                          </tr>
+                          <tr>
+                              <td>Khata No</td>
+                              <td> <span>{{item.propertySpecifications.khataNo}}</span></td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Carpet Area</td>
+                                <td> <span>{{item.propertyType}}</span></td>
+                              </tr> -->
+                        </table> 
+                  </div>
+                </div>
+          </div>
+           <span>Posted on {{item.createdAt}}</span>
+        </div>
+      </div>
+
+    </div>
+    </a>
+    <button class="read-more" id="dynamcontact" data-toggle="modal" data-target="#exampleModal">Contact Seller</button>
+  </div>
+  </div>
+        </div>
+      </div>
+      <!--  -->
+  </div>
+  <button type="button" class="btn btn-primary" id="load_more" (click)="loadMore(20)">Load More</button>
+
+<!--   
+  <div class="pg">
+    <ul class="pagination" id="pagsec">
+      <li class="page-item"><a (click)="applyFilter(1)" class="page-link">1</a></li>
+      <li class="page-item"><a (click)="applyFilter(2)" class="page-link">2</a></li>
+      <li class="page-item"><a (click)="applyFilter(3)" class="page-link">3</a></li>
+      <li class="page-item"><a (click)="applyFilter(4)" class="page-link">4</a></li>
+      <li class="page-item"><a (click)="applyFilter(5)" class="page-link">5</a></li>
+      <li class="page-item"><a (click)="applyFilter(6)" class="page-link">6</a></li>
+      <li class="page-item"><a (click)="applyFilter(7)" class="page-link">7</a></li>
+      <li class="page-item"><a (click)="applyFilter(8)" class="page-link">8</a></li>
+      <li class="page-item"><a (click)="applyFilter(9)" class="page-link">9</a></li>
+      <li class="page-item"><a (click)="applyFilter(10)" class="page-link">10</a></li>
+    </ul>
+  </div> -->
+
+  </div>
+  </div>  
+  
+  
+  
+  </div>
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Contact Seller</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                          <i>Name: </i>
+                          <input type="text"  (keypress)="alphabet($event)" [(ngModel)]="name" name="name"  class="form-control" placeholder="Enter Your Name">
+                        </div>
+    
+                        <div class="form-group">
+                            <i>Email: </i>
+                            <input type="email" [(ngModel)]="email" name="email" class="form-control"  placeholder="Enter Your Email">
+                          </div>
+                          <div class="form-group">
+                              <i>Phone No: </i>
+                              <input type="text" maxlength="10" (keypress)="numeric($event)" [(ngModel)]="mobileNo" name="mobileNo" class="form-control"  placeholder="Enter Your Mobile">
+                            </div>
+    
+                            <div class="form-group">
+                              <i>City: </i>
+                              <input type="text" (keypress)="alphabet($event)" [(ngModel)]="city" name="city" class="form-control"  placeholder="Enter Your City">
+                            </div>
+    
+                            <div class="form-group">
+                                <i>State: </i>
+                              <select  name="type" (click)="contactstate($event)" id="property-type" class="form-control" placeholder="Please select Categories" required>
+                                <option *ngFor="let item of statedata"  [value]="item.name">
+                                {{ item.name}}
+                                </option>
+                                </select>
+                              </div>
+    
+    
+    
+                            <div class="form-group default_bg">
+                                <div class="custom-control custom-checkbox">
+                              <input id="nob1" type="checkbox" class="custom-control-input" value="No">
+                              <label class="custom-control-label" for="nob1">I'm agree to all Terms & Condition</label>
+                            </div>
+                            </div>
+                  </form>
+          </div>
+          <div class="modal-footer">
+              <button class="read-more" type="submit" name="submit" (click)="ContactSubmit(propertyId)"><span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span>Submit Detail</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  

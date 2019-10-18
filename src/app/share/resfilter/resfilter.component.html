@@ -1,0 +1,528 @@
+<div *ngIf="isLoading" class="overlay">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  
+<div class="buy-filter">
+    <span class="remove_filter" (click)="RemovefilterArea()"><i class="fa fa-times-circle-o"></i>
+    </span>
+      <button class="read-more" *ngIf="this.propertype == 'RESIDENTIAL'">Residential Filter :-</button>
+      <button class="read-more" *ngIf="this.propertype == 'COMMERCIAL'">Commmercial Filter :-</button>
+     
+      <div id="accordion" class="accordion">
+
+        <!--  -->
+  <div class="card-header" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+      <a class="card-title">
+          Location
+      </a>
+  </div>
+  <div id="collapseTwo" class="card-body backg" data-parent="#accordion" >
+       <div class="form-group">
+          <label for="inputEmail4">State <i class="fa fa-star"></i></label>
+          <ul class="statedrop">
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle">Select<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li  class="dropdown-item" *ngFor="let item of statedata">
+                       
+                            <label><input type="checkbox" name="item" (click)="togglestate(item)">{{item.name}}</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+
+        <!--  -->
+
+        <div class="form-group">
+          <label for="inputEmail4">City <i class="fa fa-star"></i></label>
+            <div class="custom-controls">
+        <input type="text" name="name" class="form-control" [(ngModel)]="cityvalue" placeholder="Pleas enter City">
+        </div>
+
+        </div>
+
+  </div>
+
+  <!--  -->
+  <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+    <a class="card-title">
+        Select Budget Range
+    </a>
+</div>
+<div id="collapseOne" class="card-body collapse backg" data-parent="#accordion" >
+   
+        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChange)="ApiDataResponse($event)"></ng5-slider>
+</div> 
+  
+  <!--  -->
+
+  <!--  -->
+  <div class="card-header collapsed" data-toggle="collapse" href="#collapsesix">
+      <a class="card-title">
+          Kindly Input Area
+      </a>
+  </div>
+  <div id="collapsesix" class="card-body collapse backg" data-parent="#accordion" >
+    
+      <div class="form-group">
+          <label for="inputEmail4">Min Builtup Area <i class="fa fa-star"></i></label>
+            <div class="custom-controls">
+        <input type="text" name="name" class="form-control" [(ngModel)]="minbuiltup" placeholder="Min Builtup Area">
+        </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail4">Max Builtup Area <i class="fa fa-star"></i></label>
+              <div class="custom-controls">
+          <input type="text" name="name" class="form-control" [(ngModel)]="maxbuiltup" placeholder="Max Builtup Area">
+          </div>
+          </div>
+
+
+          <div class="form-group">
+              <label for="inputEmail4">Min Carpet Area <i class="fa fa-star"></i></label>
+                <div class="custom-controls">
+            <input type="text" name="name" class="form-control" [(ngModel)]="mincarpet" placeholder="Min Carpet Area">
+            </div>
+    
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail4">Max Carpet Area <i class="fa fa-star"></i></label>
+                  <div class="custom-controls">
+              <input type="text" name="name" class="form-control" [(ngModel)]="maxcarpet" placeholder="Max Carpet Area">
+              </div>
+      
+              </div>
+
+  </div> 
+    
+  <!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">
+  <a class="card-title">
+      Sale type
+  </a>
+</div>
+<div id="collapseTen" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+          <div class="col-lg-6" *ngFor="let propdata of propertyfor">
+              <div class="form-group default_bg">
+              <div class="custom-control custom-checkbox">
+            <img src="assets/images/living.png"/>
+            <input id="{{propdata.id}}" type="checkbox" (click)="setproperty(propdata,$event)" class="custom-control-input" name="{{propdata.name}}" value="{{propdata.name}}">
+            <label class="custom-control-label" for="{{propdata.id}}">{{propdata.name}}</label>
+          </div>
+          </div>
+          </div>
+          </div>
+    </div>
+</div>
+<!--  -->
+
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeventeen">
+  <a class="card-title">
+      Residential Type
+  </a>
+</div>
+<div id="collapseSeventeen" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility"> <p>
+  </p>
+     
+      <div class="row">
+          <div class="col-lg-6" *ngFor="let propdata of residential">
+              <div class="form-group default_bg">
+              <div class="custom-control custom-checkbox">
+            <img src="assets/images/living.png"/>
+            <input id="{{propdata.id}}" type="checkbox" (click)="Residentialfor(propdata,$event)" class="custom-control-input" name="{{propdata.name}}" value="{{propdata.name}}">
+            <label class="custom-control-label" for="{{propdata.id}}">{{propdata.name}}</label>
+          </div>
+          </div>
+          </div>
+          </div>
+    </div>
+</div>
+<!--  -->
+    <!--  -->
+  
+   <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+      <a class="card-title">
+          Rooms Type
+      </a>
+  </div>
+  <div id="collapseThree" class="card-body collapse backg" data-parent="#accordion" >
+      <div class="rooomtype">
+          <div class="row">
+            <div class="col-lg-6" *ngFor="let roomsdata of rooms">
+                <div class="form-group default_bg">
+                <div class="custom-control custom-checkbox">
+              <img src="assets/images/living.png"/>
+              <input id="{{roomsdata.id}}" type="checkbox" (click)="tooglerooms(roomsdata,$event)" class="custom-control-input" name="{{roomsdata.name}}" value="{{roomsdata.name}}">
+              <label class="custom-control-label" for="{{roomsdata.id}}">{{roomsdata.name}}</label>
+              <div class="btn-group radio-group count-sec" *ngIf="roomsdata.isSelected">
+                <label (click)="addCountroom(roomsdata)" class="prodcuct_add"> + </label>
+                <label (click)="subCountroom(roomsdata)" class="product_sub"> - </label>
+              </div>
+              <i *ngIf="roomsdata.isSelected">{{roomsdata.count}}</i> 
+            </div>
+            </div>
+            </div>
+            
+            </div>
+        </div>
+        
+  </div>
+   
+   <!--  -->
+   <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+      <a class="card-title">
+          Rooms BHK
+      </a>
+  </div>
+  <div id="collapseFour" class="card-body collapse backg" data-parent="#accordion">
+    <div class="rooomtype">
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let bhkdata of bhk">
+            <div class="form-group default_bg">
+            <div class="custom-control custom-checkbox">
+          <img src="assets/images/living.png"/>
+          <input id="{{bhkdata.id}}" type="checkbox" (click)="tooglebhk(bhkdata,$event)" class="custom-control-input" name="{{bhkdata.name}}" value="{{bhkdata.name}}">
+          <label class="custom-control-label" for="{{bhkdata.id}}">{{bhkdata.name}}</label>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div> 
+  </div>
+<!--  -->
+
+ <!--  -->
+ <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+    <a class="card-title">
+        Furnishing Status
+    </a>
+</div>
+<div id="collapseFive" class="card-body collapse backg" data-parent="#accordion">
+  <div class="rooomtype">
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let data of furnishing">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-checkbox">
+        <img src="assets/images/living.png"/>
+        <input id="{{data.id}}" type="checkbox" (click)="tooglefurnishing(data,$event)" class="custom-control-input" name="{{data.name}}" value="{{data.name}}">
+        <label class="custom-control-label" for="{{data.id}}">{{data.name}}</label>
+      </div>
+      </div>
+      </div>
+      </div>
+  </div> 
+</div>
+<!--  -->
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+    <a class="card-title">
+        Flooring & Ceiling
+    </a>
+</div>
+<div id="collapseSeven" class="card-body collapse backg" data-parent="#accordion">
+ <label>- Flooring</label>
+  <div class="flooring">
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let data of flooring">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-checkbox">
+        <img src="assets/images/living.png"/>
+        <input id="{{data.id}}" type="checkbox" (click)="toogleflooring(data,$event)" class="custom-control-input" name="{{data.name}}" value="{{data.name}}">
+        <label class="custom-control-label" for="{{data.id}}">{{data.name}}</label>
+      </div>
+      </div>
+      </div>
+      </div>
+  </div> 
+
+  <!--  -->
+  <label>- Ceiling</label>
+
+  <div class="ceiling">
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let data of ceiling">
+            <div class="form-group default_bg">
+            <div class="custom-control custom-checkbox">
+          <img src="assets/images/living.png"/>
+          <input id="{{data.id}}" type="checkbox" (click)="toogleceiling(data,$event)" class="custom-control-input" name="{{data.name}}" value="{{data.name}}">
+          <label class="custom-control-label" for="{{data.id}}">{{data.name}}</label>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div> 
+
+</div>
+<!--  -->
+
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+  <a class="card-title">
+      Construction Mode
+  </a>
+</div>
+<div id="collapseEight" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+          <div class="col-lg-6" *ngFor="let payconstructiondata of payconstructionphase">
+              <div class="form-group default_bg">
+              <div class="custom-control custom-radio">
+            <img src="assets/images/living.png"/>
+            <input id="{{payconstructiondata.id}}" type="radio" (click)="setpayconstruction(payconstructiondata,$event)" class="custom-control-input" name="payconstruction" value="{{payconstructiondata.name}}">
+            <label class="custom-control-label" for="{{payconstructiondata.id}}">{{payconstructiondata.name}}</label>
+          </div>
+          </div>
+          </div>
+          </div>
+    </div>
+</div>
+
+<!--  -->
+
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">
+  <a class="card-title">
+      Flooring Style
+  </a>
+</div>
+<div id="collapseNine" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="kitchen">
+      <h6>Kitchen Style</h6>
+    <div class="row">
+      <div class="col-lg-6" *ngFor="let kitchentypedata of kitchentype">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-radio">
+        <img src="assets/images/living.png"/>
+        <input id="{{kitchentypedata.id}}" type="radio" (click)="tooglekitchentype(kitchentypedata,$event)" class="custom-control-input" name="kitchentype" value="{{kitchentypedata.name}}">
+        <label class="custom-control-label" for="{{kitchentypedata.id}}">{{kitchentypedata.name}}</label>
+      </div>
+      </div>
+      </div>
+      
+      </div>
+  </div>
+
+  <!--  -->
+</div>
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">
+  <a class="card-title">
+      Facing Side
+  </a>
+</div>
+<div id="collapseTwelve" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let facingdata of facingside">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-checkbox">
+          <input id="{{facingdata.id}}" type="checkbox" (click)="facingcheck(facingdata,$event)" class="custom-control-input" name="{{facingdata.name}}" value="{{facingdata.name}}">
+          <label class="custom-control-label" for="{{facingdata.id}}">{{ facingdata.name}}</label>
+        </div>
+        </div>
+       </div> 
+       <div class="compass"><img src="assets/images/compass.png"/></div>
+
+          </div>
+    </div>
+</div>
+<!--  -->
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThirt">
+  <a class="card-title">
+      Home Appliance
+  </a>
+</div>
+<div id="collapseThirt" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let homewaresdata of homeappliance">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-checkbox">
+        <input id="{{homewaresdata.id}}" type="checkbox" (click)="tooglehome(homewaresdata,$event)" class="custom-control-input" name="{{homewaresdata.name}}" value="{{homewaresdata.name}}">
+        <label class="custom-control-label" for="{{homewaresdata.id}}">{{ homewaresdata.name}}</label>
+      
+        <div class="btn-group radio-group count-sec" *ngIf="homewaresdata.isSelected">
+          <label (click)="addCounthome(homewaresdata)" class="prodcuct_add"> + </label>
+          <label (click)="subCounthome(homewaresdata)" class="product_sub"> - </label>
+        </div>
+        <i *ngIf="homewaresdata.isSelected">{{homewaresdata.count}}</i>
+      
+      </div>
+       </div>
+       </div> 
+          </div>
+    </div>
+</div>
+<!--  -->
+
+<div class="commercial-section" *ngIf="this.propertype == 'COMMERCIAL'">
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEighteen">
+    <a class="card-title">
+        Commercial Electronics
+    </a>
+    </div>
+    <div id="collapseEighteen" class="card-body collapse backg" data-parent="#accordion" >
+    <div class="facility">    
+        <div class="row">
+          <div class="col-lg-6" *ngFor="let electdata of commelectronics">
+            <div class="form-group default_bg">
+            <div class="custom-control custom-checkbox">
+          <input id="{{electdata.id}}" type="checkbox" (click)="tooglecommelectronic(electdata,$event)" class="custom-control-input" name="{{electdata.name}}" value="{{electdata.name}}">
+          <label class="custom-control-label" for="{{electdata.id}}">{{ electdata.name}}</label>
+        
+          <div class="btn-group radio-group count-sec" *ngIf="electdata.isSelected">
+            <label (click)="addCounthome(electdata)" class="prodcuct_add"> + </label>
+            <label (click)="subCounthome(electdata)" class="product_sub"> - </label>
+          </div>
+          <i *ngIf="electdata.isSelected">{{electdata.count}}</i>
+        
+        </div>
+         </div>
+         </div> 
+            </div>
+      </div>
+    </div>
+    <!--  -->
+
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFifteen">
+    <a class="card-title">
+      Commercial  Furniture
+    </a>
+    </div>
+    <div id="collapseFifteen" class="card-body collapse backg" data-parent="#accordion" >
+    <div class="facility">    
+        <div class="row">
+          <div class="col-lg-6" *ngFor="let furnituredata of commfurniture">
+            <div class="form-group default_bg">
+            <div class="custom-control custom-checkbox">
+          <input id="{{furnituredata.id}}" type="checkbox" (click)="tooglefurniture(furnituredata,$event)" class="custom-control-input" name="{{furnituredata.name}}" value="{{furnituredata.name}}">
+          <label class="custom-control-label" for="{{furnituredata.id}}">{{ furnituredata.name}}</label>
+          <div class="btn-group radio-group count-sec" *ngIf="furnituredata.isSelected">
+            <label (click)="addCountfurn(furnituredata)" class="prodcuct_add"> + </label>
+            <label (click)="subCountfurn(furnituredata)" class="product_sub"> - </label>
+          </div>
+          <i *ngIf="furnituredata.isSelected">{{furnituredata.count}}</i> 
+        </div>
+         </div>
+         </div> 
+            </div>
+      </div>
+    </div>
+    <!--  -->
+
+
+
+
+
+</div>
+
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFifteen">
+  <a class="card-title">
+      Furniture
+  </a>
+</div>
+<div id="collapseFifteen" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let furnituredata of furniture">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-checkbox">
+        <input id="{{furnituredata.id}}" type="checkbox" (click)="tooglefurniture(furnituredata,$event)" class="custom-control-input" name="{{furnituredata.name}}" value="{{furnituredata.name}}">
+        <label class="custom-control-label" for="{{furnituredata.id}}">{{ furnituredata.name}}</label>
+        <div class="btn-group radio-group count-sec" *ngIf="furnituredata.isSelected">
+          <label (click)="addCountfurn(furnituredata)" class="prodcuct_add"> + </label>
+          <label (click)="subCountfurn(furnituredata)" class="product_sub"> - </label>
+        </div>
+        <i *ngIf="furnituredata.isSelected">{{furnituredata.count}}</i> 
+      </div>
+       </div>
+       </div> 
+          </div>
+    </div>
+</div>
+<!--  -->
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen">
+  <a class="card-title">
+      Facilities
+  </a>
+</div>
+<div id="collapseFourteen" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let data of facilities">
+          <div class="form-group default_bg">
+          <div class="custom-control custom-checkbox">
+        <input id="{{data.id}}" type="checkbox" (click)="tooglefacilities(data,$event)" class="custom-control-input" name="{{data.name}}" value="{{data.name}}">
+        <label class="custom-control-label" for="{{data.id}}">{{ data.name}}</label>
+       </div>
+       </div>
+       </div> 
+          </div>
+    </div>
+</div>
+<!--  -->
+
+<!--  -->
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSixteen">
+  <a class="card-title">
+      Select Floor
+  </a>
+</div>
+<div id="collapseSixteen" class="card-body collapse backg" data-parent="#accordion" >
+  <div class="facility">    
+      <div class="row">
+        <select name="showfloorvalue" (click)="togglefloor($event)" id="property-type1" class="form-control" required>
+          <option disabled value="0">Select Floor</option> 
+          <option *ngFor="let data of propertyfloor" [value]="data.name">
+         {{ data.name}}
+         </option>
+         </select> 
+          </div>
+    </div>
+</div>
+<!--  -->
+<!--  -->
+
+<div class="res_filter_btn" *ngIf="this.propertype == 'RESIDENTIAL'">
+  <button class="btn btn-primary filter" type="submit" (click)="applyFilter(20)" target="_blank">Apply Residential Filter</button>
+</div>
+
+
+<div class="comm_filter_btn" *ngIf="this.propertype == 'COMMERCIAL'">
+        <button class="btn btn-primary filter" type="submit" (click)="applyFilter(20)" target="_blank">Apply Commercial Filter</button>
+      </div>
+
+<div class="ind_filter_btn" *ngIf="this.propertype == 'INDUSTRIAL'">
+        <button class="btn btn-primary filter" type="submit" (click)="applyFilter(20)" target="_blank">Apply Commercial Filter</button>
+      </div>
+
+
+<div class="agr_filter_btn" *ngIf="this.propertype == 'AGRICULTURAL'">
+    <button class="btn btn-primary filter" type="submit" (click)="applyFilter(20)" target="_blank">Apply Commercial Filter</button>
+    </div>      
+  
+      </div>
+      <!--  -->
+                    <!--  -->
+            <!--  -->
+  
+  </div>

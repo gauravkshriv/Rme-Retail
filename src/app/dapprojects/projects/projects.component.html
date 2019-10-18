@@ -1,0 +1,313 @@
+<div *ngIf="isLoading" class="overlay">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+<app-navbar></app-navbar>
+
+<div class="micro_data" *ngIf="dappdata$">
+<header>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="logo">
+      <img src="assets/images/rme.png"/>
+    </div>
+  </div>
+    <div class="col-lg-9">
+
+    </div>
+  </div>
+</header>
+
+
+<!--  -->
+
+<section class="proj_banner">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6">
+      <div class="banner_sec">
+   <h1>Aashiyana Project</h1>
+   <h3>{{dappdata$.propertyType}}</h3>
+   <p>Lorem ipsum dolor simet Lorem ipsum dolor simet Lorem ipsum dolor simet Lorem ipsum dolor simet </p>     
+  </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="contact_form">
+      <form class="form-box">
+        <h3 class="h4 text-black mb-4">Enquiry Form</h3>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Enter Email">
+        </div>
+        <div class="form-group mb-4">
+          <input type="text" class="form-control" placeholder="Enter Number">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary btn-pill" value="Submit">
+        </div>
+      </form>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!--  -->
+
+<section class="location-project">
+    <h3>Location & Map</h3>
+
+   <div class="row">
+<div class="col-lg-6">
+   <div class="paragraph">
+     <table class="table table-striped">
+       <tr>
+         <td>Map Location</td>
+         <td>{{dappdata$.location.mapLocation}}</td>
+       </tr>
+     </table>
+     <table class="table table-striped">
+         <tr>
+          <td>State</td>
+          <td>{{dappdata$.location.state}}</td>
+          <td>City</td>
+            <td>{{dappdata$.location.city}}</td>
+        </tr>
+          <tr>
+              <td>District</td>
+              <td>{{dappdata$.location.district}}</td> 
+              <td>Tehsil</td>
+              <td>{{dappdata$.location.tehsil}}</td>
+            </tr>
+            
+          <tr>
+              <td>Pincode</td>
+              <td>{{dappdata$.location.pincode}}</td> 
+              <td>Address</td>
+              <td>{{dappdata$.location.addressLineOne}}</td>
+            </tr>
+
+          <tr>
+              <td>Near By Location</td>
+              <td>{{nearbylocationdata}}</td> 
+              <td>{{dappdata$.nearByLocation.OTHER}}</td> 
+              </tr>
+            </table>
+   </div>
+</div>
+<div class="col-lg-6">
+  <div class="project_location">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+  </div>
+</div>
+      </div>
+</section> 
+
+<section class="inventory">
+      <div class="row">
+        <div class="col-lg-6">
+    <h3>Inventory</h3>
+
+          <div class="basic_inner">
+         <table class="table table-striped">
+           <tr>
+             <td>Total Inventory</td>
+             <td>{{dappdata$.inventory.totalInventoryCount}}</td>
+           </tr>
+
+           <tr>
+              <td>Booked Inventory</td>
+              <td>{{dappdata$.inventory.bookedInventoryCount}}</td>
+            </tr>
+
+           <tr>
+              <td>Availability Inventory</td>
+              <td>{{dappdata$.inventory.availableInventoryCount}}</td>
+            </tr>
+
+           <tr>
+              <td>Sold Inventory </td>
+              <td>{{dappdata$.inventory.soldInventoryCount}}</td>
+            </tr>
+
+           <tr>
+              <td>Unit Price</td>
+              <td>10000</td>
+            </tr>
+           
+         </table>
+          </div>
+          </div>
+
+
+
+        <div class="col-lg-6">
+            <div>
+                <div>
+                  <div class="chart">
+                    <canvas baseChart
+                      [data]="pieChartData"
+                      [labels]="pieChartLabels"
+                      [chartType]="pieChartType"
+                      [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins"
+                      [colors]="pieChartColors"
+                      [legend]="pieChartLegend">
+                    </canvas>
+                  </div>
+                </div>
+              </div>
+        </div> 
+      </div>
+  </section>
+
+
+<!--  -->
+
+<div class="inventory_projects">
+  <div class="row">
+    <div class="col-lg-6">
+     
+    </div>
+    <div class="col-lg-6">
+    
+    </div>
+  </div>
+</div>
+
+
+
+<!--  -->
+
+
+<section class="inventory_projects">
+  <div class="row">
+    <div class="col-lg-6">
+      <h3>Pricing</h3>
+      <div class="row">
+        <table class="table table-striped">
+          <tr>
+            <td>Circle Rate</td>
+            <td>{{dappdata$.pricingCriteria.circleRate}}</td>
+          </tr>
+
+          <tr>
+            <td>Development Charge</td>
+            <td>{{dappdata$.pricingCriteria.developmentCharge}}</td>
+          </tr>
+          <tr>
+            <td>Premimum Rate Charge</td>
+            <td>{{dappdata$.pricingCriteria.developmentCharge}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-lg-6">
+    <h3>Layout </h3>
+      <table class="table table-striped">
+        <tr>
+          <td>Approval Type</td>
+          <td>{{dappdata$.layoutDocument.approvalType}}</td>
+        </tr>
+        <tr>
+          <td>Layout Prepared By</td>
+          <td>{{dappdata$.layoutDocument.layoutPreparedBy}}</td>
+        </tr>
+        <tr>
+          <td>Service Road Size</td>
+          <td>{{dappdata$.layoutDocument.serviceRoadSize.serviceRoadSizeValue}}</td>
+        </tr>
+
+        <tr>
+            <td>Service Road Unit</td>
+            <td>{{dappdata$.layoutDocument.serviceRoadSize.serviceRoadSizeUnit}}</td>
+          </tr>
+      </table>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!--  -->
+
+<section class="basic_facility">
+    <h3>Facilities</h3>
+      <div class="row">
+        <div class="col-lg-2" *ngFor="let data of dappdata$?.facilites">
+          <div class="basic_inner">
+          <img src="assets/images/rmicon.png">
+          <div class="content">
+           <span>{{data}}</span>
+          </div>
+          </div>
+        </div>
+        
+      </div>
+  </section>
+</div>
+  <!-- <footer id="footer">
+      <div class="container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <h5 routerLink="/sell-rawland">Sell Your Asset</h5>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <h5 routerLink="/allproperties">Asset Lookup</h5>
+          </div>
+          
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <h5 routerLink="/need-analysis">Need Analysis</h5>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <h5 href="https://academy.rmehub.in/">Get Certified</h5>
+          </div>
+        </div>
+
+
+				<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+              <ul class="list-unstyled list-inline social text-center">
+                <li class="list-inline-item"><a><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a><i class="fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a><i class="fa fa-google-plus"></i></a></li>
+                <li class="list-inline-item"><a><i class="fa fa-envelope"></i></a></li>
+              </ul>
+            </div>
+          
+          </div>
+        </div>
+        </footer>
+
+
+
+  <div class="footer-bottom">
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-4 col-sm-12 terms">
+          <a routerLink="/termsofuse" class="mr-4">Term of Use</a>
+          <a routerLink="/policy">Privacy Policy</a>
+        </div>
+        <div class="col-md-12 col-lg-4 col-sm-12 copyright">
+          <span >© 2019 Launch. All rights reserved.</span>
+        </div>
+        <div class="col-md-12 col-lg-4 col-sm-12 social ">
+          <a class="mr-3 social-btn twitter"><i class="fa fa-twitter"></i></a>
+          <a class="mr-3 social-btn fb"><i class="fab fa fa-facebook"></i></a>
+          <a class="mr-3 social-btn ln"><i class="fab fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      </div>
+    </div>
+   -->
+
+<app-footer></app-footer>   

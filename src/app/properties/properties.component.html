@@ -1,0 +1,487 @@
+<div *ngIf="isLoading" class="overlay">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+
+
+<section class="wrapper-post">
+  <div class="postproperty">
+   <div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3">
+  <button class="read-more">Residential Filter :-</button>
+<div class="buy-filter">
+
+    <div id="accordion" class="accordion">
+            <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                <a class="card-title">
+                    Select Budget Range
+                </a>
+            </div>
+            <div id="collapseOne" class="card-body" data-parent="#accordion" >
+               
+                    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+            </div>
+<!--  -->
+
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+    <a class="card-title">
+        Location
+    </a>
+</div>
+<div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
+     <input placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+  
+     <div class="distance">    
+        <div class="row">
+          <div class="col-lg-6">
+            <span class="filter-head">Distance in Km</span></div>
+            <div class="col-lg-6"><input class="form-control" placeholder="Km" type="text"></div>
+          </div>
+        </div>
+    
+        <div class="nearby">
+                <span class="filter-head">Nearby Place</span>
+                    <div class="row">
+                        <div class="col-lg-6" *ngFor="let nearlocation of nearlocat">
+                            <div class="form-group default_bg">
+                            <div class="custom-control custom-radio">
+                          <img src="assets/images/living.png"/>
+                          <input id="{{nearlocation.id}}" type="radio" class="custom-control-input" name="{{nearlocation.name}}" value="{{nearlocation.name}}">
+                          <label class="custom-control-label" for="{{nearlocation.id}}">{{ nearlocation.name}}</label>
+                        </div>
+                        
+                        </div>
+                </div>
+                </div>
+        </div>
+</div>
+
+<!--  -->
+   
+
+<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+    <a class="card-title">
+        Style
+    </a>
+</div>
+<div id="collapseThree" class="card-body collapse" data-parent="#accordion" >
+    <div class="flooring">
+        <h6>Flooring Type</h6>
+        <div class="row">
+          <div class="col-lg-6" *ngFor="let flooringdata of flooring">
+              <div class="form-group default_bg">
+              <div class="custom-control custom-checkbox">
+            <img src="assets/images/living.png"/>
+            <input id="{{flooringdata.id}}" type="checkbox" (click)="tooglebflooring(flooringdata,$event)" class="custom-control-input" name="{{flooringdata.name}}" value="{{flooringdata.name}}">
+            <label class="custom-control-label" for="{{flooringdata.id}}">{{flooringdata.name}}</label>
+          </div>
+          </div>
+          </div>
+          
+          </div>
+      </div>
+
+      <div class="ceiling">
+          <h6>Ceiling Type</h6>
+        <div class="row">
+          <div class="col-lg-6" *ngFor="let ceilingdata of ceiling">
+              <div class="form-group default_bg">
+              <div class="custom-control custom-checkbox">
+            <img src="assets/images/living.png"/>
+            <input id="{{ceilingdata.id}}" type="checkbox" (click)="toogleceiling(ceilingdata,$event)" class="custom-control-input" name="{{ceilingdata.name}}" value="{{ceilingdata.name}}">
+            <label class="custom-control-label" for="{{ceilingdata.id}}">{{ceilingdata.name}}</label>
+          </div>
+          </div>
+          </div>
+          
+          </div>
+      </div>
+
+      
+</div>
+
+ <!--  -->
+
+ <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+    <a class="card-title">
+        Flooring Style
+    </a>
+</div>
+<div id="collapseFour" class="card-body collapse" data-parent="#accordion" >
+    <div class="kitchen">
+        <h6>Kitchen Style</h6>
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let kitchentypedata of kitchentype">
+            <div class="form-group default_bg">
+            <div class="custom-control custom-radio">
+          <img src="assets/images/living.png"/>
+          <input id="{{kitchentypedata.id}}" type="radio" (click)="tooglekitchentype(kitchentypedata,$event)" class="custom-control-input" name="kitchentype" value="{{kitchentypedata.name}}">
+          <label class="custom-control-label" for="{{kitchentypedata.id}}">{{kitchentypedata.name}}</label>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <!--  -->
+
+
+    <div class="bathroom">
+        <h6>Bathroom Style</h6>
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let bathroomtypedata of bathroom">
+            <div class="form-group default_bg">
+            <div class="custom-control custom-radio">
+          <img src="assets/images/living.png"/>
+          <input id="{{bathroomtypedata.id}}" type="radio" (click)="tooglebathroomtype(bathroomtypedata,$event)" class="custom-control-input" name="bathroomtypename" value="{{bathroomtypedata.name}}">
+          <label class="custom-control-label" for="{{bathroomtypedata.id}}">{{bathroomtypedata.name}}</label>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!--  -->
+
+
+
+ <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">
+    <a class="card-title">
+        Furnishing Status
+    </a>
+</div>
+<div id="collapseTen" class="card-body collapse" data-parent="#accordion" >
+    <div class="furnishing">    
+        <div class="row">
+            <div class="col-lg-6" *ngFor="let furnishingdata of furnishing">
+                <div class="form-group default_bg">
+                <div class="custom-control custom-radio">
+              <img src="assets/images/living.png"/>
+              <input id="{{furnishingdata.id}}" type="radio" (click)="setfurnish(furnishingdata,$event)" class="custom-control-input" name="furnishvalue" value="{{furnishingdata.name}}">
+              <label class="custom-control-label" for="{{furnishingdata.id}}">{{furnishingdata.name}}</label>
+            </div>
+            </div>
+            </div>
+            </div>
+      </div>
+</div>
+
+
+      <!--  -->
+
+      <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+          <a class="card-title">
+              Facility
+          </a>
+      </div>
+      <div id="collapseFive" class="card-body collapse" data-parent="#accordion" >
+          <div class="facility">    
+              <div class="row">
+                  <div class="col-lg-6" *ngFor="let furnishingdata of furnishing">
+                      <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                    <img src="assets/images/living.png"/>
+                    <input id="{{furnishingdata.id}}" type="radio" (click)="setfurnish(furnishingdata,$event)" class="custom-control-input" name="furnishvalue" value="{{furnishingdata.name}}">
+                    <label class="custom-control-label" for="{{furnishingdata.id}}">{{furnishingdata.name}}</label>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+      </div>
+      <!--  -->
+
+
+      <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+          <a class="card-title">
+              Construction Mode
+          </a>
+      </div>
+      <div id="collapseSix" class="card-body collapse" data-parent="#accordion" >
+          <div class="facility">    
+              <div class="row">
+                  <div class="col-lg-6" *ngFor="let payconstructiondata of payconstructionphase">
+                      <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                    <img src="assets/images/living.png"/>
+                    <input id="{{payconstructiondata.id}}" type="radio" (click)="setpayconstruction(payconstructiondata,$event)" class="custom-control-input" name="payconstruction" value="{{payconstructiondata.name}}">
+                    <label class="custom-control-label" for="{{payconstructiondata.id}}">{{payconstructiondata.name}}</label>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+      </div>
+
+</div>
+    <!--  -->
+                  <!--  -->
+          <!--  -->
+
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9">
+    <a routerLink="/need-analysis"><button class="read-more">Complete Need Analysis</button></a>
+  <div class="product-sec">
+<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#home">Residential</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu1">Raw Land</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+      <div class="tab-pane active" id="home">
+          <div class="resid-sec residential-content">
+                         <div class="card" *ngFor="let item of recentProperties">
+                            <a [routerLink]="['/rawproperty/view',item.propertyId]"> 
+                              <div class="row res-listing">
+                    <div class="col-md-4">    
+                   
+                        <div class="img_section">
+                            <span *ngIf="item.propertyImages; else imageloc1">
+                                <img src="{{item.propertyImages[0]}}" alt="img">
+                            </span>
+                            <ng-template #imageloc1>
+                                <img src="assets/images/product.jpg" alt="img">
+                            </ng-template>
+                          
+                            </div>
+                      </div>
+                      <div class="col-md-8 px-3">
+                        <div class="prop-description">
+                          <h4 class="card-title">{{item.propertyName}}</h4> <h3 class="price">₹ {{item.pricing.expectedPrice}} /-</h3>
+                          <span><strong>{{item.prebuiltAssetType}}</strong> in <span *ngIf="item.locationDetails.mapLocation; else statedata"></span> {{item.locationDetails.mapLocation}}</span><ng-template #statedata>{{item.locationDetails.state}}</ng-template>
+                          <div class="feature-product">
+                          <div class="row">
+                           
+                            <div class="col-lg-7">
+                              <table>
+                                <tr>
+                                  <td>Furnishing</td>
+                                  <td><span>{{item.furnishing}}</span></td>
+                                </tr>
+                                <tr *ngIf="item.residentialStructuralDocument.flats">
+                                    <td>Flat</td>
+                                    <td *ngIf="item.residentialStructuralDocument.flats.bhks == null else flatbhk">Not Available
+                                    </td>
+                                    <ng-template #flatbhk>
+                                        <span>{{item.residentialStructuralDocument.flats.bhks}}</span>
+                                      </ng-template>
+                                  </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td><span>{{item.pricing.assetConstructionPhase}}</span></td>
+                                  </tr>
+                                
+                              </table>
+                            </div>
+                            <div class="col-lg-5"> 
+
+                                <table>
+                                    <tr>
+                                      <td>Facing</td>
+                                      <td><span>{{item.residentialStructuralDocument.propertyFacing}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carpet Area</td>
+                                        <td> <span>{{item.dimensionSpec.carpetArea}} Sqyrd</span></td>
+                                      </tr>
+                                      <tr>
+                                          <td>Carpet Area</td>
+                                          <td> <span>{{item.dimensionSpec.carpetArea}}</span></td>
+                                        </tr>
+                                  </table>
+  
+                            </div>
+                          </div>
+                          </div>
+                             <span>Posted on {{item.createdAt}}</span>
+                        </div>
+                      </div>
+            
+                    </div>
+                    </a>
+                    <button class="read-more" id="dynamcontact" data-toggle="modal" data-target="#exampleModal">Contact Seller</button>
+                  </div>
+       
+
+          </div>
+      </div>
+      <div class="tab-pane fade" id="menu1">
+          <div class="resid-sec raw-content">
+
+              <div class="card" *ngFor="let item of rawproperties">
+                  <a [routerLink]="['/rawproperty/view',item.landId]"> 
+                    <div class="row res-listing">
+          <div class="col-md-4">    
+         
+              <div class="img_section">
+                  <span *ngIf="item.dimentionDocument.landMap; else imageloc1">
+                      <img src="{{item.dimentionDocument.landMap[0]}}" alt="img">
+                  </span>
+                  <ng-template #imageloc1>
+                      <img src="assets/images/product.jpg" alt="img">
+                  </ng-template>
+                  </div>
+            </div>
+            <div class="col-md-8 px-3">
+              <div class="prop-description">
+                <h4 class="card-title">{{item.propertyName}}</h4> <h3 class="price"></h3>
+                <span><strong>{{item.prebuiltAssetType}}</strong> in <span *ngIf="item.locationDetails.mapLocation; else statedata"></span> {{item.locationDetails.mapLocation}}</span><ng-template #statedata>{{item.locationDetails.state}}</ng-template>
+                <div class="feature-product">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <table>
+                                <tr>
+                                  <td>Furnishing</td>
+                                  <td><span>{{item.landStatus}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Flat</td>
+                                    <td>{{item.marketplace}}
+                                    </td>
+                                  
+                                  </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td><span>{{item.dimentionDocument.acres}}</span></td>
+                                  </tr>
+                                
+                              </table>
+                        </div>
+                        <div class="col-lg-5"> 
+                            <table>
+                                <tr>
+                                  <td>Facing</td>
+                                  <td><span>{{item.propertySpecifications.khasraNo}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Carpet Area</td>
+                                    <td> <span>{{item.propertySpecifications.khataNo}}</span></td>
+                                  </tr>
+                                  <tr>
+                                      <td>Carpet Area</td>
+                                      <td> <span>{{item.propertyType}}</span></td>
+                                    </tr>
+                              </table> 
+                        </div>
+                      </div>
+                </div>
+                 <span>Posted on {{item.createdAt}}</span>
+              </div>
+            </div>
+      
+          </div>
+          </a>
+          <button class="read-more" id="dynamcontact" data-toggle="modal" data-target="#exampleModal">Contact Seller</button>
+        </div>
+
+
+</div>
+
+      </div>
+
+
+    </div>
+
+    <!--  -->
+
+</div>
+
+<div class="pg">
+  <ul class="pagination" id="pagsec">
+    <li class="page-item"><a (click)="getRecentlyUploaded(0)" class="page-link">1</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(1)" class="page-link">2</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(2)" class="page-link">3</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(3)" class="page-link">4</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(4)" class="page-link">5</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(5)" class="page-link">6</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(6)" class="page-link">7</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(7)" class="page-link">8</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(8)" class="page-link">9</a></li>
+    <li class="page-item"><a (click)="getRecentlyUploaded(9)" class="page-link">10</a></li>
+  </ul>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+</section>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Contact Seller</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <i>Name: </i>
+                        <input type="text"  (keypress)="alphabet($event)" [(ngModel)]="name" name="name"  class="form-control" placeholder="Enter Your Name">
+                      </div>
+  
+                      <div class="form-group">
+                          <i>Email: </i>
+                          <input type="email" [(ngModel)]="email" name="email" class="form-control"  placeholder="Enter Your Email">
+                        </div>
+                        <div class="form-group">
+                            <i>Phone No: </i>
+                            <input type="text" maxlength="10" (keypress)="numeric($event)" [(ngModel)]="mobileNo" name="mobileNo" class="form-control"  placeholder="Enter Your Mobile">
+                          </div>
+  
+                          <div class="form-group">
+                            <i>City: </i>
+                            <input type="text" (keypress)="alphabet($event)" [(ngModel)]="city" name="city" class="form-control"  placeholder="Enter Your City">
+                          </div>
+  
+                          <div class="form-group">
+                              <i>State: </i>
+                            <select  name="type" (click)="togglestate($event)" id="property-type" class="form-control" placeholder="Please select Categories" required>
+                              <option *ngFor="let item of statedata"  [value]="item.name">
+                              {{ item.name}}
+                              </option>
+                              </select>
+                            </div>
+  
+  
+  
+                          <div class="form-group default_bg">
+                              <div class="custom-control custom-checkbox">
+                            <input id="nob1" type="checkbox" class="custom-control-input" value="No">
+                            <label class="custom-control-label" for="nob1">I'm agree to all Terms & Condition</label>
+                          </div>
+                          </div>
+                </form>
+        </div>
+        <div class="modal-footer">
+            <button class="read-more" type="submit" name="submit" (click)="ContactSubmit(propertyId)"><span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span>Submit Detail</button>
+        </div>
+      </div>
+    </div>
+  </div>

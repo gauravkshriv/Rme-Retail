@@ -1,0 +1,35 @@
+.card-body h4 {
+     text-align: center;
+     padding: 10px 0px 20px 0px;
+}
+
+.table.reset input {
+    width: 100%;
+    padding: 7px;
+}
+
+.fa-lock {
+    color: #17a2b8;
+    font-size: 40px;
+}
+
+.reset tr {
+    height: 75px;
+}
+
+.form_table span {
+    text-transform: capitalize;
+    font-size: 12px;
+}
+.reset button {
+    border: none;
+    position: absolute;
+    background: none;
+    right: 22px;
+    cursor: pointer;
+}   
+
+.card.overall-progress {
+    padding: 10px;
+    border: 10px solid #eaeaea;
+}

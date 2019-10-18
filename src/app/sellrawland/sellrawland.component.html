@@ -1,0 +1,1236 @@
+
+<section class="wrapper-post">
+  <div class="container postproperty">
+   <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    <div class="col-lg-8 col-md-12 col-sm-12">
+<form> 
+  
+  <div id="rawoverviweformedit">
+  <div class="card overviewform"> 
+    <div class="card-body">
+  <h4>Location & Layout</h4>
+  <i class="post_edit" (click)="rawoverviewback()">Edit</i>
+      <div class="row">
+  <div class="col-lg-12">
+  <table class="table table-striped">
+   <tr>
+    <td>Country</td>
+    <td>India</td>
+  </tr>
+  
+  <tr>
+    <td>State</td>
+    <td>{{localstate}}</td>
+  </tr>
+  
+  <tr>
+    <td>City</td>
+    <td>{{localcity}}</td>
+  </tr>
+  <tr>
+      <td>PinCode</td>
+      <td *ngIf="localpincodedata">{{localpincodedata.pinCode}}</td>
+     </tr>
+     
+     <tr>
+      <td>District</td>
+      <td *ngIf="localpincodedata">{{localpincodedata.district}}</td>
+     </tr>
+     
+     <tr>
+      <td>Tehsil</td>
+      <td *ngIf="localpincodedata">{{localpincodedata.taluka}}</td>
+     </tr>
+  
+  <tr>
+    <td>Dimension Unit</td>
+    <td *ngIf="localdimunit">Acres</td>
+  </tr> 
+
+  </table>
+  </div>
+  </div>
+  </div>
+  </div>
+    <!--  -->
+
+    <div class="card overviewform"> 
+      <div class="card-body">
+    <h4>property Detail</h4>
+        <div class="row">
+    <div class="col-lg-12">
+    <table class="table table-striped">
+        <tr>
+            <td>Property Name</td>
+            <td>{{localprojname}}</td>
+          </tr>
+          <tr>
+              <td>Property Description</td>
+              <td>{{localdescription}}</td>
+            </tr>
+        <tr>
+            <td>Property Owner Name</td>
+            <td>{{localownerdata}}</td>
+          </tr>
+          <tr>
+              <td>Property Year Of Document</td>
+              <td>{{localyeardoc}}</td>
+            </tr>
+      <tr>
+        <td>Dimension Unit</td>
+        <td>Acres</td>
+      </tr>
+    
+      <tr>
+        <td>Dimension Area</td>
+        <td *ngIf="localacresarea">{{localacresarea}}</td>
+      </tr>
+
+      <tr>
+        <td>Khata Number</td>
+        <td *ngIf="localkhata">{{localkhata}}</td>
+      </tr>
+
+      <tr>
+        <td>Khasra Number</td>
+        <td *ngIf="localkhasra">{{localkhasra}}</td>
+      </tr>
+</table>
+    </div>
+    </div>
+    </div>
+    </div>
+<!--  -->
+<div class="card overviewform"> 
+  <div class="card-body">
+<h4>property Detail</h4>
+    <div class="row">
+<div class="col-lg-12">
+<table class="table table-striped">
+  <tr *ngIf="eastfield">
+    <td>East Area</td>
+    <td >{{eastfield}}</td>
+  </tr>
+
+  <tr *ngIf="westfield">
+    <td>West Area</td>
+    <td >{{westfield}}</td>
+  </tr>
+
+  <tr *ngIf="northfield">
+    <td>North Area</td>
+    <td >{{northfield}}</td>
+  </tr>
+
+  <tr  *ngIf="southfield">
+    <td>South Area</td>
+    <td>{{southfield}}</td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!--  -->
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localraw">
+<h4>Land Raw.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localraw"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localmap">
+<h4>Land Map.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localmap"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localowner">
+<h4>Land Ownership Chain Document.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localowner"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localseed">
+<h4>Land Certified property sales Deed.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localseed"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localtitcert">
+<h4>Land tittle clearance certificate.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localtitcert"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localduecert">
+<h4>Land No Dues certificate.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localduecert"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="locallandcert">
+<h4>Upload Land use certificate.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of locallandcert"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localapprcert">
+<h4>Land Local development authority apporval certificate.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localapprcert"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localtaxcert">
+<h4>Land title tax clearance certificate Image.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localtaxcert"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card overviewform"> 
+  <div class="card-body" *ngIf="localvalcert">
+<h4>Land Property Valuation certificate.</h4>
+    <div class="row">
+<div class="col-lg-12 imageupload">
+<span *ngFor="let file of localvalcert"><img src="{{file.url}}"/></span>
+</div>
+</div>
+</div>
+</div>
+
+    <!--  -->
+    <div class="card overviewform">
+      <div class="card-body">
+          <p>
+              Your Total Raw Land area is = {{this.localacresarea}} in Acres
+            </p> 
+      </div>
+    </div>
+    
+
+    <div class="card card-body buttonsec">
+        <button class="next-btn" (click)="postRawProperty()"><span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span> RAW UPLOAD PROPERTY</button>
+
+    </div>
+    </div>
+    
+    <!--  -->
+
+<div class="step_one_secion">
+<p class="progress-bar progresseight"><ngb-progressbar type="warning" [value]="progressbarinitstepeight" [striped]="true" [animated]="true"><i>{{progressbarinitstepeight}} %</i></ngb-progressbar></p>
+
+<div class="card rawlocation">
+  <div class="card-body">
+<h4>Enter Your Location</h4>
+    <div class="row">
+<div class="col-lg-6">
+  <div class="form-group">
+  <label for="inputEmail4">Land Name <i class="fa fa-star"></i></label>
+  <input type="text" (keyup)="projname($event)" [(ngModel)]="localprojname" (keypress)="alphabet($event)" name="propertyName" class="form-control" id="propertyName" placeholder="Enter Land Name">
+  <i class="mandat" *ngIf="mandatfield">This Field is Mandatory</i>
+</div>
+</div>
+
+
+<div class="col-lg-6">
+  <div class="form-group">
+      <label for="inputEmail4">State <i class="fa fa-star"></i></label>
+    <select  name="type" [(ngModel)]="statedatashow" (click)="togglestate($event)" id="property-type" class="form-control" placeholder="Please select Categories" required>
+      <option *ngFor="let item of statedata"  [value]="item.name">
+      {{ item.name}}
+      </option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6">
+      <div class="form-group">
+      <label for="inputEmail4">City <i class="fa fa-star"></i></label>
+      <input type="text" class="form-control" (keyup)="togglecity($event)" [(ngModel)]="city" name="city" placeholder="Enter City">
+    </div>
+  </div>
+
+<div class="col-lg-6">
+<div class="form-group">
+<label for="inputEmail4">Pincode <i class="fa fa-star"></i></label>
+<input type="text" [(ngModel)]="pincode" name="pincode" (keypress)="numeric($event)" (keyup)="pincodesubmit($event)" minlength="6" maxlength="6" class="form-control" id="inputPassword4" placeholder="Enter Pincode">
+<i id="spinload" *ngIf="pinload" class="fa fa-spinner fa-spin"></i>
+<i style="color:red" *ngIf="!indicator">pin code not found</i>
+<i class="mandat" *ngIf="mandatfield">This Field is Mandatory</i>
+</div>
+</div>
+
+<div class="col-lg-6">
+  <div class="form-group">
+  <label for="inputEmail4">District </label>
+  <input type="text" class="form-control" [(ngModel)]="district" name="district"  id="district">
+</div>
+</div>
+
+<div class="col-lg-6">
+  <div class="form-group">
+  <label for="inputEmail4">Tehsil</label>
+  <input type="text" class="form-control" [(ngModel)]="taluk"  name="taluk" id="tehsil">
+</div>
+</div>
+
+<div class="col-lg-6">
+  <div class="form-group">
+  <label for="inputEmail4">Address <i class="fa fa-star"></i></label>
+  <input type="text" (keyup)="propaddress($event)" [(ngModel)]="localaddress"  name="localaddress" class="form-control" id="address" placeholder="Enter Address">
+  <i class="mandat" *ngIf="mandatfield">This Field is Mandatory</i>
+</div>
+</div>
+
+<div class="col-lg-6">
+  <div class="form-group">
+  <label for="inputEmail4">Village</label>
+  <input type="text" (keyup)="propvillage($event)" [(ngModel)]="localvillage"  name="localvillage" class="form-control" id="village" placeholder="Enter village">
+</div>
+</div>
+  
+<div class="col-lg-12">
+  <div class="form-group">
+  <label for="inputEmail4">Land Description <i class="fa fa-star"></i></label>
+  <textarea  rows="4" cols="86%" type="text" (keyup)="projdesc($event)" [(ngModel)]="localdescription" name="localdescription" id="propertyName" placeholder="Enter Land Description"></textarea>
+ <i class="mandat" *ngIf="mandatfield">This Field is Mandatory</i>
+</div>
+</div>
+
+
+<div class="col-lg-8">
+  <div class="form-group">
+    <label>Land Location <i class="fa fa-star"></i></label>
+      <input placeholder="Search for your Location" [(ngModel)]="maplacelocat" id="dataloccs" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #rawsearch [formControl]="searchControl1">
+
+    </div>
+</div>
+
+<div class="col-lg-4">
+  <a (click)="setCurrentPosition()"><div class="current_locat">
+      <img src="assets/images/location.png"/> 
+      <p>Use My Current Location</p>
+     </div></a>
+</div>
+
+
+<div class="col-lg-12">
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+</div>
+
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawlocationback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn" (click)="rawlocationnext()"> Next <i class="fa fa-angle-double-right"></i> </button>
+</div>
+</div>
+</div>
+</div> 
+
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawarea">
+  <div class="card-body">
+<h4>What is your preffered Dimension unit</h4>
+<i class="red">Mandatory *</i>
+    <div class="row">
+<div class="col-lg-12">
+    <select  name="dimension" [(ngModel)]="rawdimland"  (click)="toggledimension($event)" id="property-dim" class="form-control" placeholder="Please select Categories" required>
+        <option *ngFor="let items of propertydimension"  [value]="items.name">
+        {{ items.name}}
+        </option>
+        </select>
+</div>
+</div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawareaback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="dim-step next-btn" (click)="rawareanext()"> Next <i class="fa fa-angle-double-right"></i> </button>
+</div>
+
+</div>
+<!--  -->
+
+<div class="card stepone rawdimension">
+  <div class="card-body">
+<h4>Enter Your Dimension</h4>
+    <div class="row">
+<div class="col-lg-12">
+    <div class="form-group">
+    <i>Total Raw Land Area: </i><i class="fa fa-star"></i>  
+    <input type="text" [(ngModel)]="area" (keypress)="numeric($event)" (keyup)="TotaLandarea()" name="area" class="form-control" id="inputPassword4" placeholder="">
+  </div>
+ <i class="area"> Your value in acrea area: {{acresvalue}}</i>
+</div>
+</div>
+
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawdimensionback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn" (click)="rawdimensionnext()"> Next <i class="fa fa-angle-double-right"></i> </button>
+</div>
+</div>
+
+<!--  -->
+<div class="card stepone rawkhasranumber">
+    <div class="card-body">
+  <h4>Describe Your Khasra and Khata Number</h4>
+      <div class="row">
+  <div class="col-lg-6">
+      <div class="form-group">
+      <i>Enter Your Khata Number: </i><i class="fa fa-star"></i>
+      <input type="text" [(ngModel)]="localkhata" (keypress)="spchar($event)" (keyup)="rawkhata($event)" name="khatanumber"  class="form-control" id="frontyardl" placeholder="">
+    </div>
+  </div>
+  <div class="col-lg-6">
+  <div class="form-group">
+  <i>Enter Your Khasara Number:: </i><i class="fa fa-star"></i>
+  <input type="text" [(ngModel)]="localkhasra" (keypress)="spchar($event)" (keyup)="rawkhasra($event)" name="khasranumber" class="form-control" id="frontyardb" placeholder="">
+  </div>
+  </div>
+  </div>
+  
+  </div>
+  <div class="card-body buttonsec">
+      <button class="back-btn" (click)="rawkhataback()"><i class="fa fa-angle-double-left"></i> Back </button>
+    <button class="next-btn" (click)="rawkhatanext()"> Next <i class="fa fa-angle-double-right"></i> </button>
+  </div>
+  </div>
+  <!--  -->
+
+
+<div class="card stepone rawfacing">
+    <div class="card-body">
+  <h4>Enter Your Facing Direction</h4>
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="form-group">
+              <i>North : </i>
+              <input type="text" [(ngModel)]="northfield" name="north" (keyup)="rawfacingcheck(0,$event)" class="form-control" id="frontyardl" placeholder="">
+            </div>
+          </div>
+  <div class="col-lg-6">
+      <div class="form-group">
+      <i>East : </i>
+      <input type="text" [(ngModel)]="eastfield" name="east" (keyup)="rawfacingcheck(1,$event)" class="form-control" id="frontyardl" placeholder="">
+    </div>
+  </div>
+ 
+  </div>
+  <div class="row mapimg">
+ <img src="assets/images/directionimage.jpeg"/>
+</div>
+  <div class="row">
+      <div class="col-lg-6">
+          <div class="form-group">
+          <i>West:</i>
+          <input type="text" [(ngModel)]="westfield" name="west" (keyup)="rawfacingcheck(2,$event)"  class="form-control" id="frontyardb" placeholder="">
+          </div>
+          </div>
+      <div class="col-lg-6">
+      <div class="form-group">
+      <i>South : </i>
+      <input type="text" [(ngModel)]="southfield" name="south" (keyup)="rawfacingcheck(3,$event)" class="form-control" id="frontyardb" placeholder="">
+      </div>
+      </div>
+      </div>
+  
+  </div>
+  <div class="card-body buttonsec">
+      <button class="back-btn" (click)="rawfacingback()"><i class="fa fa-angle-double-left"></i> Back </button>
+    <button class="next-btn" (click)="rawfacingnext()"> Next <i class="fa fa-angle-double-right"></i> </button>
+  </div>
+  </div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawlandmapnext">
+  <div class="card-body">
+<h4>Upload your Land Map <i class="fa fa-star"></i></h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadl" multiple="multiple"  (change)="fileuploadLandMap($event)">
+      <div class="textraw"><label for="imageUploadl" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+<!--  -->
+ 
+<div class="" *ngIf="imagesLandmap.length">
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesLandmap">
+      <a href="javascript:void(0)" (click)="deleteLandMap(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<!--  -->     
+<div  *ngIf="localmap.length"> 
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+    <li *ngFor="let image of localmap">
+        <a href="javascript:void(0)" (click)="localdeletelandmap(image)"><img src="assets/images/delete.png"/></a>                      
+        <div class="img_sec">
+          <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        </div>
+  
+        <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+          <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+        </div>
+  </li>
+  </ul>
+</div>
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawlandmapback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawlandmapnext()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+<!--  -->
+<!--  -->
+
+<div class="card stepone rawpropertyimages">
+  <div class="card-body">
+<h4>Upload your Land Document</h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadr" multiple="multiple"  (change)="fileRawProperty($event)">
+      <div class="textraw"><label for="imageUploadr" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->   
+<div  *ngIf="imagesrawprop.length">                   
+<ul class="post_discuss_img" style="padding:10px; border:1px;" *ngIf="imagesrawprop">                  
+  <li *ngFor="let image of imagesrawprop">
+      <a href="javascript:void(0)" (click)="deleteRawProperty(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+</li>
+</ul>
+   </div>
+<!--  -->
+<div  *ngIf="localraw.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localraw">
+          <a href="javascript:void(0)" (click)="localdeleteRawProperty(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+
+<!--  -->
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawpropertyback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawpropertyimages()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawownershipdoc">
+  <div class="card-body">
+<h4>Upload Land Ownership Chain Document <i class="fa fa-star"></i></h4>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+        <i>Previous Land Owner Name: </i>
+        <input type="text" [(ngModel)]="localownerdata" (keyup)="owner($event)" (keypress)="alphabet($event)" name="ownName" class="form-control"  placeholder="">
+      </div>
+  </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+        <i>Current Land Owner Name: </i>
+        <input type="text" [(ngModel)]="localcurrentownerdata" (keyup)="currentowner($event)" (keypress)="alphabet($event)" name="currentownName" class="form-control"  placeholder="">
+      </div>
+  </div>
+
+  <div class="col-lg-6">
+      <div class="form-group">
+      <i>Year of Land Transfer Document: </i>
+      <input type="text" [(ngModel)]="localyeardoc" (keyup)="yeardoc($event)" (keypress)="numeric($event)" name="yotDoc" class="form-control" placeholder="">
+    </div>
+</div>
+  
+    </div>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadocd" multiple="multiple"  (change)="fileRawOwnershipDocument($event)">
+      <div class="textraw"><label for="imageUploadocd" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesownershipdoc.length"> 
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesownershipdoc">
+      <a href="javascript:void(0)" (click)="deleteRawDocument(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="localowner.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localowner">
+          <a href="javascript:void(0)" (click)="localdeletelandownership(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+  
+<!--  -->
+
+
+     </div> 
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawownerdcback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawownershipdoc()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawsaleseed">
+  <div class="card-body">
+<h4>Upload certified copy of Land sales deed</h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploads" multiple="multiple"  (change)="fileuploadsalesDeed($event)">
+      <div class="textraw"><label for="imageUploads" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesalesdeed.length">                     
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesalesdeed">
+      <a href="javascript:void(0)" (click)="deleteSalesDeed(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="localseed.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localseed">
+          <a href="javascript:void(0)" (click)="localdeletelandsaleseed(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+  
+<!--  -->
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawsaleseedback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawsaleseed()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawtitleclearcertify">
+  <div class="card-body">
+<h4>Upload Land title clearance certificate <i class="fa fa-star"></i></h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadcc" multiple="multiple"  (change)="fileTitleCertificate($event)">
+      <div class="textraw"><label for="imageUploadcc" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagetitle.length">                    
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagetitle">
+      <a href="javascript:void(0)" (click)="deleteTitleCertificate(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="localtitcert.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localtitcert">
+          <a href="javascript:void(0)" (click)="localdeletelandclearcrttify(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+  
+<!--  -->
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawtitlecertifyback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawtitleclearcertify()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+
+
+<!--  -->
+
+<div class="card stepone rawduecertificates">
+  <div class="card-body">
+<h4>Upload Land No dues certificate <i class="fa fa-star"></i></h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploaddc" multiple="multiple"  (change)="fileDuesCertificate($event)">
+      <div class="textraw"><label for="imageUploaddc" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesduecertify.length">                   
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesduecertify">
+      <a href="javascript:void(0)" (click)="deleteDuesCertificate(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="localduecert.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localduecert">
+          <a href="javascript:void(0)" (click)="localdeletelandduecrtify(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawduecertifyback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawduecertificates()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawlandcertificate">
+  <div class="card-body">
+<h4>Upload Land use certificate <i class="fa fa-star"></i></h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadlc" multiple="multiple"  (change)="fileRawLandUseCertificate($event)">
+      <div class="textraw"><label for="imageUploadlc" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesrawlandcertify.length">                     
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesrawlandcertify">
+      <a href="javascript:void(0)" (click)="deleteRawLandCertificate(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="locallandcert.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of locallandcert">
+          <a href="javascript:void(0)" (click)="localdeletelandcertify(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawlandcertifback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawlandcertificate()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawapprovalcertify">
+  <div class="card-body">
+<h4>Upload Local development authority apporval certificate.</h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadac" multiple="multiple"  (change)="fileApprovalcertificate($event)">
+      <div class="textraw"><label for="imageUploadac" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesapprovalcertify.length">                  
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesapprovalcertify">
+      <a href="javascript:void(0)" (click)="deleteApprovalCertificate(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="localapprcert.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localapprcert">
+          <a href="javascript:void(0)" (click)="localdeleteapprovalcertify(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawapprovalback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawapprovalcertify()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawclearcertify">
+  <div class="card-body">
+<h4>Upload Land tittle tax clearance certificate <i class="fa fa-star"></i></h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploaducc" multiple="multiple"  (change)="fileTaxClearanceCertificate($event)">
+      <div class="textraw"><label for="imageUploaducc" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesclearcertify.length">                     
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesclearcertify">
+      <a href="javascript:void(0)" (click)="deleteTaxClearanceCertificate(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+
+<div  *ngIf="localtaxcert.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localtaxcert">
+          <a href="javascript:void(0)" (click)="localdeleteclearcertify(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+
+   </div>
+  
+    </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawclearcertifyback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawclearcertify()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+
+<!--  -->
+
+<div class="card stepone rawvaluationcertify">
+  <div class="card-body">
+<h4>Upload Land Valuation certificate.</h4>
+<div class="row">
+   <div class="col-lg-12">
+    <!-- <label for="property">Upload your Property</label> -->
+
+    <div class="form-group">
+      <div class="profile_img">
+        <div class="img_sec">
+            <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+    </div>
+    <div class="overlay1 upload-btn-wrap">
+      <input class="form-control" type="file" id="imageUploadv" multiple="multiple"  (change)="fileValuationCertificate($event)">
+      <div class="textraw"><label for="imageUploadv" class="upload-btn-profie">
+        <i class="fa fa-plus"></i><span>Add Document</span></label></div>
+    </div>  
+    </div>
+    </div>
+
+<!--  -->
+<div  *ngIf="imagesvaluecertify.length">                      
+<ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+  <li *ngFor="let image of imagesvaluecertify">
+      <a href="javascript:void(0)" (click)="deleteValuationCertificate(image)"><img src="assets/images/delete.png"/></a>                      
+      <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+        <!-- {{image.type}} -->
+      </div>
+      <div class="img_sec" *ngIf="image.type === 'image/png'">
+        <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+      </div>
+
+      <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+        <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+      </div>
+
+</li>
+</ul>
+</div>
+<!--  -->
+<div  *ngIf="localvalcert.length"> 
+  <ul class="post_discuss_img" style="padding:10px; border:1px;">                  
+      <li *ngFor="let image of localvalcert">
+          <a href="javascript:void(0)" (click)="localdeletevalcertify(image)"><img src="assets/images/delete.png"/></a>                      
+          <div class="img_sec">
+            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+          </div>
+    
+          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+          </div>
+    </li>
+    </ul>
+  </div>
+
+
+   </div>
+  </div>
+</div>
+<div class="card-body buttonsec">
+    <button class="back-btn" (click)="rawvalucationback()"><i class="fa fa-angle-double-left"></i> Back </button>
+  <button class="next-btn uploadBlue-step"  (click)="rawvaluationcertify()"> Next <i class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i class="fa fa-spinner fa-spin"></i></span></button>
+</div>
+</div>
+<!--  -->
+
+<!--  -->
+
+<!--  -->
+</div> 
+</form>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+</div>
+</div>
+</section>

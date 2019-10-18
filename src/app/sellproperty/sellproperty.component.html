@@ -1,0 +1,3554 @@
+<section class="wrapper-post">
+  <div class="container postproperty"> 
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2"></div>
+      <div class="col-lg-8 col-md-12 col-sm-12">
+        <form>
+          <div class="card overall-progress">
+            <div class="card-body">
+              <h4>PROPERTY SELL MANAGEMENT</h4>
+              <div class="row">
+                <div class="col-lg-12">
+                  <ul>
+                    <a routerlink="/sell-property" href="/sell-property#step1" (click)="step1()">
+                      <li>Step 1 : Property Specification <span *ngIf="firstformcomplete || localfirststep"><i
+                            class="fa fa-check-circle"></i></span></li>
+                    </a>
+                    <a routerlink="/sell-property" href="/sell-property#step2" (click)="step2()">
+                      <li>Step 2 : Location & Layout <span *ngIf="twoformcomplete || localsecondstep"><i
+                            class="fa fa-check-circle"></i></span></li>
+                    </a>
+
+                    <a *ngIf="!this.localmarket && !this.agrfarmapi; else notshow" routerlink="/sell-property"
+                      href="/sell-property#step3" (click)="step3()">
+                      <li>Step 3 : Property Style <span *ngIf="threeformcomplete || localthirdstep"><i
+                            class="fa fa-check-circle"></i></span></li>
+                    </a>
+                    <ng-template #notshow>
+                      <a *ngIf="this.localmarket && this.localmarket.name != 'Agriculture'" routerlink="/sell-property"
+                        href="/sell-property#step3" (click)="step3()">
+                        <li>Step 3 : Property Style <span *ngIf="threeformcomplete || localthirdstep"><i
+                              class="fa fa-check-circle"></i></span></li>
+                      </a>
+                    </ng-template>
+
+                    <a *ngIf="!this.localprebuilt && !this.agrlandshow; else harvest" routerlink="/sell-property"
+                      href="/sell-property#step4" (click)="step4()">
+                      <li>Step {{faci_manag}} : Facility Management <span *ngIf="fourformcomplete || localfourstep"><i
+                            class="fa fa-check-circle"></i></span></li>
+                    </a>
+
+                    <ng-template #harvest>
+                      <a *ngIf="this.localprebuilt && (this.localprebuilt.name !='Farm Land' || this.localprebuilt.name !='Poultry Land' || this.localprebuilt.name !='Orchid')"
+                        routerlink="/sell-property" href="/sell-property#step4" (click)="step4()">
+                        <li>Step {{faci_manag}} : Facility Management <span *ngIf="fourformcomplete || localfourstep"><i
+                              class="fa fa-check-circle"></i></span></li>
+                      </a>
+                    </ng-template>
+
+
+                    <a *ngIf="!this.localmarket && !this.agrfarmapi; else notshow1" routerlink="/sell-property"
+                      href="/sell-property#step5" (click)="step5()">
+                      <li>Step 5 : Furnishing Status <span *ngIf="fiveformcomplete || localfivestep"><i
+                            class="fa fa-check-circle"></i></span></li>
+                    </a>
+                    <ng-template #notshow1>
+                      <a *ngIf="this.localmarket && this.localmarket.name != 'Agriculture'" routerlink="/sell-property"
+                        href="/sell-property#step5" (click)="step5()">
+                        <li>Step 5 : Furnishing Status <span *ngIf="fiveformcomplete || localfivestep"><i
+                              class="fa fa-check-circle"></i></span></li>
+                      </a>
+                    </ng-template>
+
+
+                    <a routerlink="/sell-property" href="/sell-property#step6" (click)="step6()">
+                      <li>
+                        Step {{prop_gallery}} : Property Gallery
+                        <span *ngIf="sixformcomplete || localsixstep"><i class="fa fa-check-circle"></i></span></li>
+                    </a>
+
+                    <a routerlink="/sell-property" href="/sell-property#step7" (click)="step7()">
+                      <li>
+                        Step {{payment_step}} : Payments Method
+                        <span *ngIf="sevenformcomplete || localsevenstep"><i class="fa fa-check-circle"></i></span></li>
+                    </a>
+                  </ul>
+
+                  <a class="reset" (click)="onreloadclear()"><i class="fa fa-spinner fa-spin" *ngIf="resetspin"></i>Reset Form</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+
+          <!--  -->
+          <div id="overviweformedit">
+            <div class="card overviewform">
+              <div class="card-body">
+                <h4>Property Specification</h4>
+                <a class="post_edit" (click)="stepedit1()">Edit</a>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table table-striped">
+                      <tr>
+                        <td>Property For</td>
+                        <td *ngIf="localpropfor">{{localpropfor.name}}</td>
+                      </tr>
+                      <tr>
+                        <td>Market Type</td>
+                        <td *ngIf="localmarket">{{localmarket.name}}</td>
+                      </tr>
+                      <tr>
+                        <td>Prebuilt Type</td>
+                        <td *ngIf="localprebuilt">{{localprebuilt.name}}</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <tr>
+ <td>Place</td>
+ <td>Naraina</td>
+</tr> -->
+            <div class="card overviewform">
+              <div class="card-body">
+                <h4>Location & Layout</h4>
+                <i class="post_edit" (click)="stepedit2()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table table-striped">
+
+                      <tr>
+                        <td>Project Name</td>
+                        <td>{{localprojname}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Country</td>
+                        <td>India</td>
+                      </tr>
+
+                      <tr>
+                        <td>State</td>
+                        <td>{{localstate}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>City</td>
+                        <td>{{localcity}}</td>
+                      </tr>
+
+                      <tr *ngIf="localpincodedata">
+                        <td>PinCode</td>
+                        <td>{{localpincodedata.pinCode}}</td>
+                      </tr>
+
+                      <tr *ngIf="localpincodedata">
+                        <td>District</td>
+                        <td>{{localpincodedata.district}}</td>
+                      </tr>
+
+                      <tr *ngIf="localpincodedata">
+                        <td>Tehsil</td>
+                        <td>{{localpincodedata.taluka}}</td>
+                      </tr>
+
+                      <tr *ngIf="localdimunit">
+                        <td>Dimension Unit</td>
+                        <td>Sq. Feet</td>
+                      </tr>
+
+                      <tr *ngIf="localbuitarea">
+                        <td>Built Up Area</td>
+                        <td>{{localbuitarea}}</td>
+                      </tr>
+
+                      <tr *ngIf="localtotalfloor">
+                        <td>Total Floor</td>
+                        <td>{{localtotalfloor}}</td>
+                      </tr>
+
+                      <tr *ngIf="localfloor">
+                        <td>Floor</td>
+                        <td>{{localfloor}}</td>
+                      </tr>
+
+                      <tr *ngIf="localbhkflat">
+                        <td>BHK flat</td>
+                        <td>{{localbhkflat}}</td>
+                      </tr>
+
+                      <tr *ngIf="localfacing">
+                        <td>Facing</td>
+                        <td>{{localfacing.name}}</td>
+                      </tr>
+
+                      <tr *ngIf="localkitchentype">
+                        <td>Kitchen Type</td>
+                        <td>{{localkitchentype.name}}</td>
+                      </tr>
+                      <tr>
+                        <td>Balcony</td>
+                        <td>Yes</td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-striped">
+                      <h5>Landmark Section</h5>
+                      <tr *ngFor="let mark of locallocat1">
+                        <td>{{mark.name}}</td><br />
+                        <td>{{mark.nearestdis}}</td>
+                        <td>{{mark.nearlocat}}</td>
+                      </tr>
+                    </table>
+
+
+                    <table class="table table-striped" *ngIf="localconference">
+                      <h5>Conference Room</h5>
+                      <tr *ngFor="let data of localconference">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localcabins">
+                      <h5>Cabins Room</h5>
+                      <tr *ngFor="let data of localcabins">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localcafe">
+                      <h5>Cafe Area</h5>
+                      <tr *ngFor="let data of localcafe">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localreceiption">
+                      <h5>Receiption</h5>
+                      <tr *ngFor="let data of localreceiption">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localwaithall">
+                      <h5>Waiting Hall</h5>
+                      <tr *ngFor="let data of localwaithall">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localnaproom">
+                      <h5>Nap Room</h5>
+                      <tr *ngFor="let data of localnaproom">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localrecord">
+                      <h5>Record Room</h5>
+                      <tr *ngFor="let data of localrecord">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localserver">
+                      <h5>Server Room</h5>
+                      <tr *ngFor="let data of localserver">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localmachine">
+                      <h5>Machine Room</h5>
+                      <tr *ngFor="let data of localmachine">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+
+                    </table>
+
+
+                    <table class="table table-striped" *ngIf="localbedroom">
+                      <h5>Bedroom Section</h5>
+                      <tr>
+                        <td>No. Of Bedroom</td>
+                        <td>{{localbedroom.noOfRoom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localbedroom?.roomdimension">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localivingroom">
+                      <h5>LivingRoom Section</h5>
+                      <tr>
+                        <td>No. Of Living</td>
+                        <td>{{localivingroom.noOfRoom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localivingroom?.roomdimension">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+
+
+                    <table class="table table-striped" *ngIf="localstudyroom">
+                      <h5>StudyRoom Section</h5>
+                      <tr>
+                        <td>No. Of Living</td>
+                        <td>{{localstudyroom.noOfRoom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localstudyroom?.roomdimension">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+
+                    <table class="table table-striped" *ngIf="localpoojaroom">
+                      <h5>PoojaRoom Section</h5>
+                      <tr>
+                        <td>No. Of Living</td>
+                        <td>{{localpoojaroom.noOfRoom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localpoojaroom?.roomdimension">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localservantroom">
+                      <h5>ServantRoom Section</h5>
+                      <tr>
+                        <td>No. Of Living</td>
+                        <td>{{localservantroom.noOfRoom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localservantroom?.roomdimension">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localdiningroom">
+                      <h5>ServantRoom Section</h5>
+                      <tr>
+                        <td>No. Of Living</td>
+                        <td>{{localdiningroom.noOfRoom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localdiningroom?.roomdimension">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localkitchen">
+                      <h5>Kitchen Section</h5>
+                      <tbody *ngFor="let data of localkitchen?.kitchendimension">
+                        <tr>
+                          <td>No. of Kitchen</td>
+                          <td *ngIf="localkitchen">{{localkitchen.noOfkitchen}}</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Length</td>
+                          <td>{{data.length}}</td>
+                          <td>Breadth</td>
+                          <td>{{data.breadth}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table class="table table-striped" *ngIf="localbathroom">
+                      <h5>Bathroom Section</h5>
+                      <tr>
+                        <td>No. Of Bathroom</td>
+                        <td>{{localbathroom.noOfbathroom}}</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngFor="let data of localbathroom">
+                        <td>Length</td>
+                        <td>{{data.length}}</td>
+                        <td>Breadth</td>
+                        <td>{{data.breadth}}</td>
+                      </tr>
+                    </table>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--  -->
+
+            <div class="card overviewform">
+              <div class="card-body">
+                <h4>Property Style</h4>
+                <i class="post_edit" (click)="stepedit3()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table table-striped">
+                      <tr *ngIf="localflooringtype">
+                        <td>Flooring Type</td>
+                        <td><span *ngFor="let floortype of localflooringtype">{{floortype.name}}, &nbsp;</span></td>
+                      </tr>
+
+                      <tr *ngIf="localceilingtype">
+                        <td>Ceiling Type</td>
+                        <td><span *ngFor="let ceiling of localceilingtype">{{ceiling.name}}, &nbsp;</span></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card overviewform">
+              <div class="card-body">
+                <h4>Facility Management</h4>
+                <i class="post_edit" (click)="stepedit4()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table table-striped">
+                      <tr *ngIf="localutilities">
+                        <td>Utilities</td>
+                        <td><span *ngFor="let utility of localutilities">{{utility.name}}, &nbsp;</span></td>
+                      </tr>
+
+                      <tr *ngIf="localcommunity">
+                        <td>Communities Facilities</td>
+                        <td><span *ngFor="let commun of localcommunity">{{commun.name}}, &nbsp;</span></td>
+                      </tr>
+
+                      <tr *ngIf="localecofacility">
+                        <td>Eco-Friendly</td>
+                        <td><span *ngFor="let ecofac of localecofacility">{{ecofac.name}}, &nbsp;</span></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="card overviewform">
+              <div class="card-body">
+                <h4>Furnishing Status</h4>
+                <i class="post_edit" (click)="stepedit5()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table table-striped">
+
+
+                      <tr *ngIf="localfurnshingstatus">
+                        <td>Furnishing Status</td>
+                        <td>{{localfurnshingstatus.name}}</td>
+                      </tr>
+
+
+
+                      <tr *ngIf="localcommfurnit">
+                        <td>Commercial Furniture</td>
+                        <td><span *ngFor="let data of localcommfurnit">{{data.name}}, &nbsp;</span></td>
+                      </tr>
+
+
+                      <tr *ngIf="localcommelect">
+                        <td>Commecial Electronic</td>
+                        <td><span *ngFor="let data of localcommelect">{{data.name}}, &nbsp;</span></td>
+                      </tr>
+
+
+                      <tr *ngIf="localhomeware">
+                        <td>Home Wares</td>
+                        <td><span *ngFor="let homeware of localhomeware">{{homeware.name}}, &nbsp;</span></td>
+                      </tr>
+
+                      <tr *ngIf="localkitchenware">
+                        <td>kitchen wares</td>
+                        <td><span *ngFor="let kitchen of localkitchenware">{{kitchen.name}}, &nbsp;</span></td>
+                      </tr>
+
+
+                      <tr *ngIf="localappliance">
+                        <td>Home Appliance</td>
+                        <td><span *ngFor="let appliance of localappliance">{{appliance.name}}, &nbsp;</span></td>
+                      </tr>
+
+                      <tr *ngIf="localfuruniture">
+                        <td>Home Furniture </td>
+                        <td><span *ngFor="let furnitureware of localfuruniture">{{furnitureware.name}}, &nbsp;</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card overviewform">
+              <div class="card-body">
+                <h4>Payments Method</h4>
+                <i class="post_edit" (click)="stepedit7()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table table-striped">
+                      <tr *ngIf="localconstruction">
+                        <td>Construction Phase</td>
+                        <td>{{localconstruction.name}}</td>
+                      </tr>
+
+                      <tr *ngIf="localfinalizeinventory">
+                        <td>Finalize Inventory</td>
+                        <td>{{localfinalizeinventory.name}}</td>
+                      </tr>
+
+                      <tr *ngIf="localapprovaltype">
+                        <td>Approval Type</td>
+                        <td>{{localapprovaltype.name}}</td>
+                      </tr>
+
+                      <tr *ngIf="localestimated">
+                        <td>Estimated Price</td>
+                        <td>₹ {{localestimated}}</td>
+                      </tr>
+
+                      <tr *ngIf="localexpected">
+                        <td>Expected Price</td>
+                        <td>₹ {{localexpected}}</td>
+                      </tr>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card overviewform">
+              <div class="card-body" *ngIf="localfiledata">
+                <h4>Property Image</h4>
+                <i class="post_edit" (click)="stepedit6()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12 imageupload">
+                    <span *ngFor="let file of localfiledata"><img src="{{file.url}}" /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card overviewform">
+              <div class="card-body" *ngIf="localbluePrint">
+                <h4>Property Blue Print</h4>
+                <i class="post_edit" (click)="stepedit6()">Edit</i>
+                <div class="row">
+                  <div class="col-lg-12 imageupload">
+                    <span *ngFor="let file of localbluePrint"><img src="{{file.url}}" /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <ng-container *ngIf="this.localmarket &&  this.localmarket.name=='Residential'">
+              <div class="card overviewform">
+                <div class="card-body">
+
+                  <p>
+                    Your Total Carpet area is = {{localcarpet}} Sq.Feet
+                  </p>
+                  <p>
+                    Your Total Built Up Area is = {{localbuitarea}} Sq.Feet
+                  </p>
+                  <div class="data_preview">
+                    <p><input type="text" id="showpropdata" type="checkbox" (click)="checkpropertylist($event)"
+                        name="name" value="confirm"><span for="showpropdata"></span>I Want to List this property on
+                      Retail Platform</p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="card card-body buttonsec">
+                <button class="next-btn" (click)="resuploadProperty()"><span *ngIf="spinner"><i
+                      class="fa fa-spinner fa-spin"></i></span> UPLOAD RESIDENTIAL PROPERTY</button>
+              </div>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="this.localmarket &&  this.localmarket.name=='Commercial'">
+              <div class="card overviewform">
+                <div class="card-body">
+                  <p>
+                    Your Total Floor area is = {{localtotalarea}}
+                  </p>
+                  <p *ngIf="localadminoperat">
+                    Your Built Up Area is = {{localadminoperat}}
+                  </p>
+                  <div class="data_preview">
+                    <p><input type="text" id="showpropdata" type="checkbox" (click)="checkpropertylist($event)"
+                        name="name" value="confirm"><span for="showpropdata"></span>I Want to List this property on
+                      Retail Platform</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-body buttonsec">
+                <button class="next-btn" (click)="commuploadProperty()"><span *ngIf="spinner"><i
+                      class="fa fa-spinner fa-spin"></i></span> UPLOAD COMMERCIAL PROPERTY</button>
+              </div>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="this.localmarket &&  this.localmarket.name=='Industrial'">
+              <div class="card overviewform">
+                <div class="card-body">
+                  <p>
+                    Your Total Floor area is = {{localtotalarea}}
+                  </p>
+                  <p *ngIf="localadminoperat">
+                    Your Built Up Area is = {{localadminoperat}}
+                  </p>
+                  <div class="data_preview">
+                    <p><input type="text" id="showpropdata" type="checkbox" (click)="checkpropertylist($event)"
+                        name="name" value="confirm"><span for="showpropdata"></span>I Want to List this property on
+                      Retail Platform</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-body buttonsec">
+                <button class="next-btn" (click)="indusUploadProperty()"><span *ngIf="spinner"><i
+                      class="fa fa-spinner fa-spin"></i></span> UPLOAD INDUSTRIAL PROPERTY</button>
+              </div>
+
+            </ng-container>
+
+
+          </div>
+
+          <!--  -->
+
+          <div class="step_one_secion">
+            <p class="progress-bar progressone">
+              <ngb-progressbar type="warning" [value]="progressbarinitstepone" [striped]="true" [animated]="true">
+                <i>{{progressbarinitstepone}} %</i></ngb-progressbar>
+            </p>
+
+            <div class="card stepone propertyforused">
+              <div class="card-body">
+                <h4>Property Sale Type<i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let propdata of propertyfor">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{propdata.id}}" type="radio" (click)="setproperty(propdata,$event.target)"
+                          class="custom-control-input" name="market" value="{{propdata.name}}">
+                        <label class="custom-control-label" for="{{propdata.id}}">{{propdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="propforback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="market-step next-btn" (click)="propfornext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+
+            <div class="card stepone market">
+              <div class="card-body">
+                <h4>Market Type <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <ng-container *ngFor="let marketdata of market">
+                    <div class="col-lg-6" *ngIf="marketdata.allowed == true">
+                      <div class="form-group default_bg">
+                        <div class="custom-control custom-radio">
+                          <img src="assets/images/living.png" />
+                          <input id="{{marketdata.id}}" type="radio" (click)="setradio(marketdata,$event.target)"
+                            class="custom-control-input" name="market" value="{{marketdata.name}}">
+                          <label class="custom-control-label" for="{{marketdata.id}}">{{marketdata.name}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="marketback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="market-step next-btn" (click)="marketnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+            <!--  -->
+            <div class="card stepone prebuiltresidential">
+              <div class="card-body">
+                <h4>{{setradiov}} PreBuilt Type</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let residentialdata of residential">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{residentialdata.id}}" type="radio"
+                          (click)="setprebuiltmarket(residentialdata,$event)" class="custom-control-input" name="asset"
+                          value="{{residentialdata.name}}">
+                        <label class="custom-control-label"
+                          for="{{residentialdata.id}}">{{residentialdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="prebuiltback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="prebuilt-step next-btn" (click)="prebuiltnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+            <!--  -->
+            <div class="card stepone prebuiltcommercial">
+              <div class="card-body">
+                <h4>{{setradiov}} PreBuilt Type</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let commercialdata of commercial">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{commercialdata.id}}" type="radio"
+                          (click)="setprebuiltmarket(commercialdata,$event)" class="custom-control-input" name="asset"
+                          value="{{commercialdata.name}}">
+                        <label class="custom-control-label" for="{{commercialdata.id}}">{{commercialdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="prebuiltback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="prebuilt-step next-btn" (click)="prebuiltnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+
+            <!--  -->
+            <div class="card stepone prebuiltindustrial">
+              <div class="card-body">
+                <h4>{{setradiov}} PreBuilt Type</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let industrialdata of industrial">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{industrialdata.id}}" type="radio"
+                          (click)="setprebuiltmarket(industrialdata,$event)" class="custom-control-input" name="asset"
+                          value="{{industrialdata.name}}">
+                        <label class="custom-control-label" for="{{industrialdata.id}}">{{industrialdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="prebuiltback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="prebuilt-step next-btn" (click)="prebuiltnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card stepone prebuiltagriculture">
+              <div class="card-body">
+                <h4>{{setradiov}} PreBuilt Type</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let agriculturedata of agriculture">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{agriculturedata.id}}" type="radio"
+                          (click)="setprebuiltmarket(agriculturedata,$event)" class="custom-control-input" name="asset"
+                          value="{{agriculturedata.name}}">
+                        <label class="custom-control-label"
+                          for="{{agriculturedata.id}}">{{agriculturedata.name}}</label>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="prebuiltback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="prebuilt-step next-btn" (click)="prebuiltnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card stepone industrial_sec">
+              <div class="card-body">
+                <h4> Industrial Type</h4>
+                <div class="row" *ngIf="factoryunit">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Production Type <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keypress)="alphabet($event)"
+                        (keyup)="indprodtype($event)" [(ngModel)]="productiontype" name="productiontype"
+                        placeholder="Production Type">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Production capacity <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keyup)="indprodcap($event)" [(ngModel)]="productioncapac"
+                        name="productioncapac" placeholder="Production Capacity">
+                    </div>
+                  </div>
+                </div>
+
+                <!--  -->
+
+                <div class="row" *ngIf="assemblingunit">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Assembling Type <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keypress)="alphabet($event)"
+                        (keyup)="indassembtype($event)" [(ngModel)]="assemblingtype" name="assemblingtype"
+                        placeholder="Assembling Type">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Assembling capacity <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keyup)="indassembcap($event)"
+                        [(ngModel)]="assemblingcapac" name="assemblingcapac" placeholder="Assembling Capacity">
+                    </div>
+                  </div>
+                </div>
+
+                <!--  -->
+
+                <div class="row" *ngIf="workshopunit">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="inputEmail4">Workshop Unit <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keyup)="indworkshop($event)" [(ngModel)]="workshoptype"
+                        name="city" placeholder="Workshop unit">
+                    </div>
+                  </div>
+                </div>
+
+                <!--  -->
+
+                <div class="row" *ngIf="warehousecoldstore">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="inputEmail4">Warehouse / Cold Storage<i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keyup)="indwarehouse($event)" [(ngModel)]="warecoldstore"
+                        name="city" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!--  -->
+
+                <div class="row" *ngIf="laboratoryunit">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="inputEmail4">laboratory Category <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keyup)="indlabcategory($event)"
+                        [(ngModel)]="laboratorycat" name="city" placeholder="Laboratory">
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="indoptionback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="prebuilt-step next-btn" (click)="indoptionnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+
+          </div>
+
+          <!-- end step one -->
+
+          <!-- strat step two -->
+
+          <div class="step_two_section">
+            <p class="progress-bar progresstwo">
+              <ngb-progressbar type="warning" [value]="progressbarinitsteptwo" [striped]="true" [animated]="true">
+                <i>{{progressbarinitsteptwo}} %</i></ngb-progressbar>
+            </p>
+
+            <!--  -->
+
+            <div class="card steptwo maplocate">
+              <div class="card-body">
+                <h4>Enter Your Location</h4>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Property Name <i class="fa fa-star"></i></label>
+                      <input type="text" (keyup)="projname($event)" [(ngModel)]="localprojname"
+                        (keypress)="alphabet($event)" name="propertyName" class="form-control" id="propertyName"
+                        placeholder="Enter Properties Name">
+                      <i class="mandat" *ngIf="mandatfieldres">This Field is Mandatory</i>
+                      <i class="mandat" *ngIf="projcharact">Type minimum 4 letter</i>
+
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">State <i class="fa fa-star"></i></label>
+                      <select name="type" [(ngModel)]="statedatashow" (click)="togglestate($event)" id="property-type"
+                        class="form-control" placeholder="Please select Categories" required>
+                        <option selected disabled>Select</option>
+                        <option *ngFor="let item of statedata" [value]="item.name">
+                          {{ item.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">City <i class="fa fa-star"></i></label>
+                      <input type="text" class="form-control" (keyup)="togglecity($event)" [(ngModel)]="city"
+                        name="city" placeholder="Enter City">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Pincode <i class="fa fa-star"></i></label>
+                      <input type="text" [(ngModel)]="pincode" name="pincode" (keypress)="numeric($event)"
+                        (keyup)="pincodesubmit($event)" minlength="6" maxlength="6" class="form-control"
+                        id="inputPassword4" placeholder="Enter Pincode">
+                      <i id="spinload" *ngIf="pinload" class="fa fa-spinner fa-spin"></i>
+                      <i style="color:red" *ngIf="!indicator">pin code not found</i>
+                      <i class="mandat" *ngIf="mandatfieldpin">This Field is Mandatory</i>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">District</label>
+                      <input type="text" class="form-control" (keyup)="toogledistrict($event)" [(ngModel)]="district"
+                        name="district" id="district">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Tehsil</label>
+                      <input type="text" class="form-control" (keyup)="toogletehsil($event)" [(ngModel)]="taluk"
+                        name="taluk" id="tehsil">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Address <i class="fa fa-star"></i></label>
+                      <input type="text" (keyup)="propaddress($event)" [(ngModel)]="localaddress" name="localaddress"
+                        class="form-control" id="address" placeholder="Enter Address">
+                      <i class="mandat" *ngIf="mandatfieldadd">This Field is Mandatory</i>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="inputEmail4">Village</label>
+                      <input type="text" (keyup)="propvillage($event)" [(ngModel)]="localvillage" name="localvillage"
+                        class="form-control" id="village" placeholder="Enter village">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="inputEmail4">Property Description <i class="fa fa-star"></i></label>
+                      <textarea rows="4" cols="86%" type="text" (keyup)="projdesc($event)"
+                        [(ngModel)]="localdescription" name="localdescription" id="propertyName"
+                        placeholder="Enter Properties Description"></textarea>
+                      <i class="mandat" *ngIf="mandatfieldescr">This Field is Mandatory</i>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-8">
+                    <div class="form-group">
+                      <label>Property Location</label>
+                      <input placeholder="Search for your Location" id="dataloccs" [(ngModel)]="maplacelocat"
+                        autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search
+                        [formControl]="searchControl">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <a (click)="setCurrentPosition()">
+                      <div class="current_locat">
+                        <img src="assets/images/location.png" />
+                        <p>Use My Current Location</p>
+                      </div>
+                    </a>
+                  </div>
+
+
+                  <div class="col-lg-12">
+                    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                    </agm-map>
+                  </div>
+
+
+                  <div class="card-body buttonsec">
+                    <button class="back-btn" (click)="locationback()"><i class="fa fa-angle-double-left"></i> Back
+                    </button>
+                    <button class="next-btn" (click)="locationnext()"> Next <i class="fa fa-angle-double-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--  -->
+
+            <div class="card steptwo propertyfloork">
+              <div class="card-body">
+                <h4>Select Floor <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select [(ngModel)]="showfloorvalue" name="showfloorvalue" (click)="togglefloor($event)"
+                      id="property-type1" class="form-control" required>
+                      <option selected disabled value="-1">Select Floor</option>
+                      <option *ngFor="let data of propertyfloor" [value]="data.name">
+                        {{ data.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="floorback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="propertyfloor next-btn" (click)="floornext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+
+            <div class="card steptwo totalpropertyfloor">
+              <div class="card-body">
+                <h4>Total Floors In Location<i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select [(ngModel)]="showtotalfloor" name="showtotalfloor" (click)="toggletotalfloor($event)"
+                      id="property-type1" class="form-control" required>
+                      <option selected disabled value="-1">Total Floor</option>
+                      <option *ngFor="let data of propertyfloor" [value]="data.name">
+                        {{ data.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="totfloorback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="propertyfloor next-btn" (click)="totfloornext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+            <!--  -->
+
+            <!--  -->
+
+            <div class="card steptwo bhkfloor">
+              <div class="card-body">
+                <h4>Select Flat BHK <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let bhkfloor of bhk">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{bhkfloor.id}}" type="radio" (click)="tooglebhk(bhkfloor,$event)"
+                          class="custom-control-input" name="bhkfloor" value="{{bhkfloor.name}}">
+                        <label class="custom-control-label" for="{{bhkfloor.id}}">{{ bhkfloor.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="bhkfloorback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="bhkfloor-step next-btn" (click)="bhkfloornext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+            <div class="card steptwo landmark">
+              <div class="card-body">
+                <h4>Select Nearby Location <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let nearlocation of nearlocat">
+                    <div class="form-group default_bg" [ngClass]="{'buttoncolor':nearlocation.isSelected}">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{nearlocation.id}}" type="checkbox" (click)="tooglelandmark(nearlocation,$event)"
+                          class="custom-control-input" name="{{nearlocation.name}}" value="{{nearlocation.name}}">
+                        <label class="custom-control-label" for="{{nearlocation.id}}">{{ nearlocation.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="landmarkback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="landmark-step next-btn" (click)="landmarknext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+
+
+              <!--  -->
+              <div class="" *ngFor="let data of nearlocat">
+                <table class="table table-striped" *ngIf="data.isSelected">
+                  <h5>{{data.name}}</h5>
+                  <tr>
+                    <td>Location Name</td>
+                    <td>{{data.nearlocat}}</td>
+                    <td>Distance</td>
+                    <td>{{data.nearestdis}} (km)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="modal" id="myLocation">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title">{{nearLocation.name}} </h5>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <i>Nearest {{nearLocation.name}}: </i>
+                        <input (keypress)="alphabet($event)" id="nearlocat" type="text"
+                          [(ngModel)]="nearLocation.nearlocat" name="nearlocat" class="form-control"
+                          placeholder="Nearest place">
+                      </div>
+                      <div class="col-lg-6">
+                        <i>Distance in km : </i>
+                        <input (keypress)="numeric($event)" id="distancelocat" type="text"
+                          [(ngModel)]="nearLocation.nearestdis" name="nearestdis" class="form-control"
+                          placeholder="Distance">
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"
+                      (click)="submitlandmarkdistance(nearLocation)">Submit</button>
+                    <button type="button" id="neardisab" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  <!-- Modal footer -->
+
+                </div>
+              </div>
+            </div>
+
+            <!--  -->
+
+
+            <div class="card steptwo facing">
+              <div class="card-body">
+                <h4>Select Facing <i class="fa fa-star"></i></h4>
+                <div class="facing_inner">
+                  <div class="row">
+                    <!-- <div class="col-lg-12"> -->
+                    <div class="col-lg-4" *ngFor="let facingdata of facingside">
+                      <div class="form-group default_bg">
+                        <div class="custom-control custom-radio">
+                          <input id="{{facingdata.id}}" type="radio" (click)="facingcheck(facingdata,$event)"
+                            class="custom-control-input" name="facingdata" value="{{facingdata.name}}">
+                          <label class="custom-control-label" for="{{facingdata.id}}">{{ facingdata.name}}</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="compass"><img src="assets/images/compass.png" /></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="facingback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="facing-step next-btn" (click)="facingnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+            <div class="card steptwo area">
+              <div class="card-body">
+                <h4>What is your preffered propery Dimension area unit</h4>
+                <i class="red">Mandatory *</i>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select name="type" [(ngModel)]="showdimvalue" name="showdimvalue" (click)="toggledimension($event)"
+                      id="property-area" class="form-control" placeholder="Please select Categories" required>
+                      <option selected disabled value="0">Select Dimension</option>
+                      <option *ngFor="let item of propertydimension" [value]="item.name">
+                        {{ item.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec dimen">
+                <button class="back-btn" (click)="areaback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="dim-step next-btn" (click)="areanext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!-- check locaal value -->
+
+            <!--  -->
+            <div class="card steptwo agrdimension">
+              <div class="card-body">
+                <h4>Enter Your Agriculture Dimension</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngIf="this.prebuiltselect == 12 || this.prebuiltselect == 13; else preshow">
+                    <div class="form-group">
+                      <i>Built-up Area </i><i class="fa fa-star"></i>
+                      <input type="text" [(ngModel)]="agrbuiltarea" (keypress)="numeric($event)"
+                        (keyup)="toggleagrbuiltarea($event)" name="agrbuiltarea" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+                  <ng-template #preshow>
+                    <div class="col-lg-6"
+                      *ngIf="this.localprebuilt && (this.localprebuilt.name == 'Farm House' || this.localprebuilt.name == 'Green House')">
+                      <div class="form-group">
+                        <i>Built-up Area </i><i class="fa fa-star"></i>
+                        <input type="text" [(ngModel)]="agrbuiltarea" (keypress)="numeric($event)"
+                          (keyup)="toggleagrbuiltarea($event)" name="agrbuiltarea" class="form-control" placeholder="">
+                      </div>
+                    </div>
+
+                  </ng-template>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Farm / Open Area </i><i class="fa fa-star"></i>
+                      <input type="text" [(ngModel)]="openarea" (keypress)="numeric($event)"
+                        (keyup)="toggleopenarea($event)" name="openarea" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="agrdimensionback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="agrdimensionnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+            <!--  -->
+
+            <!--  -->
+            <div class="card steptwo commdimension">
+              <div class="card-body">
+                <h4 *ngIf="localmarket">Enter Your {{localmarket.name}} Dimension</h4>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Total Floor Area </i><i class="fa fa-star"></i>
+                      <input type="text" [(ngModel)]="commtotalarea" (keypress)="numeric($event)"
+                        (keyup)="toggletotalarea($event)" name="totalarea" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Open Area </i>
+                      <input type="text" [(ngModel)]="commopenarea" (keypress)="numeric($event)"
+                        (keyup)="togglecommopenarea($event)" name="commopenarea" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i> Operational Floor Area </i>
+                      <input type="text" [(ngModel)]="operatarea" (keypress)="numeric($event)"
+                        (keyup)="toggleadmin($event)" name="operatarea" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i> Adminisrative Floor Area </i>
+                      <input type="text" [(ngModel)]="adminarea" (keypress)="numeric($event)"
+                        (keyup)="toggleadmin($event)" name="adminarea" class="form-control" placeholder="">
+                    </div>
+                  </div>
+
+
+                </div>
+                <i class="red" *ngIf="toatalareavalidation">Value must be less than Total Floor area</i>
+
+
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="commdimensionback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="commdimensionnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card steptwo dimension">
+              <div class="card-body">
+                <h4>Enter Your Residential Dimension</h4>
+                <div class="row">
+                  <div class="col-lg-6"
+                    *ngIf="this.prebuiltselect != 3 && this.localprebuilt && this.localprebuilt.name != 'Flat'">
+                    <div class="form-group">
+                      <a class="info_to0ltip" rel="popover" data-img="assets/images/super_area.png"><img
+                          src="assets/images/info.png"></a>
+                      <i>Super Built Up Area </i><i class="fa fa-star"></i>
+                      <input type="text" [(ngModel)]="superBuiltUpArea" (keypress)="numeric($event)"
+                        (keyup)="superBuiltUpAreac($event)" name="superBuiltUpArea" class="form-control" placeholder="">
+                    </div>
+                    Your value in Sq.Feet area: {{sqfeet1}}
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <a class="info_to0ltip" rel="popover" data-img="assets/images/built_area.png"><img
+                          src="assets/images/info.png"></a>
+                      <i> Built Up Area </i><i class="fa fa-star"></i>
+                      <input type="text" [(ngModel)]="builtUpArea" (keypress)="numeric($event)"
+                        (keyup)="superBuiltUpAreac($event)" name="builtUpArea" class="form-control" placeholder="">
+                      <i class="red" *ngIf="builtupareainfo">Value must be less than 25% Super Built-up area</i>
+                    </div>
+                    Your value in Sq.Feet area: {{sqfeet2}}
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="dimensionback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="dimensionnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+            <!--  -->
+
+            <!--  -->
+            <div class="card steptwo commercialfloor">
+              <div class="card-body">
+                <h4>Select Operational Floor<i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let floorvalue of operationalfloor">
+                    <div class="form-group default_bg" [ngClass]="{'buttoncolor':floorvalue.isSelected}">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{floorvalue.id}}" type="checkbox" (click)="toogleoperatfloor(floorvalue,$event)"
+                          class="custom-control-input" name="{{floorvalue.name}}" value="{{floorvalue.name}}">
+                        <label class="custom-control-label" for="{{floorvalue.id}}">{{ floorvalue.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="commoperatback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="landmark-step next-btn" (click)="commoperatnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+
+              <table class="table table-striped" *ngIf="localconference">
+                <h5>Conference Room</h5>
+                <tr *ngFor="let data of localconference">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+              <table class="table table-striped" *ngIf="localcabins">
+                <h5>Cabins Room</h5>
+                <tr *ngFor="let data of localcabins">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localcafe">
+                <h5>Cafe Area</h5>
+                <tr *ngFor="let data of localcafe">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localreceiption">
+                <h5>Receiption</h5>
+                <tr *ngFor="let data of localreceiption">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localwaithall">
+                <h5>Waiting Hall</h5>
+                <tr *ngFor="let data of localwaithall">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localnaproom">
+                <h5>Nap Room</h5>
+                <tr *ngFor="let data of localnaproom">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localrecord">
+                <h5>Record Room</h5>
+                <tr *ngFor="let data of localrecord">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localserver">
+                <h5>Server Room</h5>
+                <tr *ngFor="let data of localserver">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+              <table class="table table-striped" *ngIf="localmachine">
+                <h5>Machine Room</h5>
+                <tr *ngFor="let data of localmachine">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+
+              </table>
+
+            </div>
+
+            <!--  -->
+
+            <div class="modal" id="myopearational">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title">{{floorvaluename}}</h5>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+
+                    <select [(ngModel)]="selectedoperat" (change)="opefloorselect($event.target.value,roomdatavalue)"
+                      name="type" class="form-control" placeholder="Please select Categories" required>
+                      <option selected disabled>Select</option>
+                      <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ type}}
+                      </option>
+                    </select>
+
+
+                    <div class="" *ngFor="let operatfloor of operationalfloorarray; let i = index">
+                      <div class="form-row">
+                        <div class="col-md-4">
+                          <input (keypress)="numeric($event)" type="text" [(ngModel)]="operatfloor.operatlength"
+                            name="operatlength{{i}}" id="operatlength{{i}}" class="form-control" placeholder="Length">
+                        </div>
+                        <div class="col-md-1">
+                          <i class="fa fa-times"></i>
+
+                        </div>
+                        <div class="col-md-4">
+                          <input (keypress)="numeric($event)" type="text" [(ngModel)]="operatfloor.operatbredth"
+                            name="operatbredth{{i}}" id="operatbredth{{i}}" class="form-control" placeholder="Breadth">
+                        </div>
+                        <div class="col-md-3">
+                          <span>Sq.Feet</span>
+                        </div>
+                      </div>
+                    </div>
+                    <i class="notehide">Note: Operational floor Dimension is Not Mandatory you can submit form</i>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"
+                      (click)="submitoperationalfloor(selectedfloor)">Submit</button>
+                    <button type="button" id="neardisab" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  <!-- Modal footer -->
+
+                </div>
+              </div>
+            </div>
+
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card steptwo agriculturetype">
+              <div class="card-body">
+                <h4>Kindly input Harvesting Type</h4>
+
+                <div class="row" *ngFor="let data of agriculturetype; let i = index">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="custom-control">
+                        <input [(ngModel)]="data.harvestname" name="harvestname" (keypress)="alphabet($event)"
+                          type="text" class="form-control" placeholder="Crop Name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="custom-control">
+                        <input [(ngModel)]="data.harvestunit" name="harvestunit" (keypress)="numeric($event)"
+                          type="text" class="form-control" placeholder="Crop Unit">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="harvest_icon" (click)="addMoreHarvest()">
+                  <i class="fa fa-plus-circle"></i>
+                </div>
+
+                <div class="harvest_other" *ngIf="harvestvalid">
+                  <div class="row" *ngFor="let harvestdata of harvestarray">
+                    <div class="col-md-6">
+                      <i (click)="removeharvest(harvestdata)"><i class="fa fa-times-circle" id="fa_sub"></i></i>
+                      <div class="form-group">
+                        <div class="custom-control">
+                          <input type="text" [(ngModel)]="harvestdata.harvestname" name="{{harvestdata.id}}"
+                            class="form-control" placeholder="Harvesting Name">
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="custom-control">
+                          <input type="text" [(ngModel)]="harvestdata.harvestunit" name="{{harvestdata.id}}"
+                            class="form-control" placeholder="Harvesting Unit">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="agricultypeback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="agricultypenext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!--  -->
+
+
+
+
+
+            <!--  -->
+
+            <div class="card steptwo rooms">
+              <div class="card-body">
+                <h4>Select Rooms <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let roomsdata of rooms">
+                    <div class="form-group default_bg" [ngClass]="{'buttoncolor':roomsdata.isSelected}">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{roomsdata.id}}" type="checkbox" (click)="tooglerooms(roomsdata,$event)"
+                          class="custom-control-input" name="{{roomsdata.name}}" value="{{roomsdata.name}}">
+                        <label class="custom-control-label" for="{{roomsdata.id}}">{{roomsdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="roomback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="room-step next-btn" (click)="roomnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+              <table class="table table-striped" *ngIf="localbedroom && localbedroom?.roomdimension.length">
+                <h5>Bedroom Section</h5>
+                <tr>
+                  <td>No. Of Bedroom</td>
+                  <td>{{localbedroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localbedroom?.roomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+
+
+              <table class="table table-striped" *ngIf="localivingroom && localivingroom?.livingroomdimension.length">
+                <h5>LivingRoom Section</h5>
+                <tr>
+                  <td>No. Of Living</td>
+                  <td>{{localivingroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localivingroom?.livingroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+
+
+              <table class="table table-striped" *ngIf="localstudyroom && localstudyroom?.studyroomdimension.length">
+                <h5>StudyRoom Section</h5>
+                <tr>
+                  <td>No. Of Living</td>
+                  <td>{{localstudyroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localstudyroom?.studyroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+
+              <table class="table table-striped" *ngIf="localpoojaroom && localpoojaroom?.poojaroomdimension.length">
+                <h5>PoojaRoom Section</h5>
+                <tr>
+                  <td>No. Of Living</td>
+                  <td>{{localpoojaroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localpoojaroom?.poojaroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+              <table class="table table-striped"
+                *ngIf="localservantroom && localservantroom?.servantroomdimension.length">
+                <h5>ServantRoom Section</h5>
+                <tr>
+                  <td>No. Of Living</td>
+                  <td>{{localservantroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localservantroom?.servantroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+              <table class="table table-striped" *ngIf="localdiningroom && localdiningroom?.diningroomdimension.length">
+                <h5>Dining Section</h5>
+                <tr>
+                  <td>No. Of Living</td>
+                  <td>{{localdiningroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localdiningroom?.diningroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+              <table class="table table-striped" *ngIf="localstoreroom && localstoreroom?.storeroomdimension.length">
+                <h5>Store Section</h5>
+                <tr>
+                  <td>No. Of Living</td>
+                  <td>{{localstoreroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localstoreroom?.storeroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+
+              <table class="table table-striped"
+                *ngIf="localbasementroom && localstoreroom?.basementroomdimension.length">
+                <h5>Basement Section</h5>
+                <tr>
+                  <td>No. Of Basement</td>
+                  <td>{{localbasementroom.noOfRoom}}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let data of localbasementroom?.basementroomdimension">
+                  <td>Length</td>
+                  <td>{{data.length}}</td>
+                  <td>Breadth</td>
+                  <td>{{data.breadth}}</td>
+                </tr>
+              </table>
+            </div>
+
+
+            <!--  -->
+
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title">Select No. Of {{roomdatavalue}} </h5>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <select [(ngModel)]="Selectedroom" (change)="roomselectchange($event.target.value,roomdatavalue)"
+                      name="type" id="property-type" class="form-control" placeholder="Please select Categories"
+                      required>
+                      <option selected disabled>Select</option>
+                      <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ type}}
+                      </option>
+                    </select>
+
+                    <div class="" *ngFor="let room of nooroomscheck; let i = index">
+                      <div class="form-row">
+                        <div class="col-md-4">
+                          <input id="roomlength{{i}}" (keypress)="numeric($event)" type="text" class="form-control"
+                            placeholder="Length">
+                        </div>
+                        <div class="col-md-1">
+                          <i class="fa fa-times"></i>
+
+                        </div>
+                        <div class="col-md-4">
+                          <input id="roombreadth{{i}}" (keypress)="numeric($event)" type="text" class="form-control"
+                            placeholder="Breadth">
+                        </div>
+                        <div class="col-md-3">
+                          <span>Sq.Feet</span>
+                        </div>
+                      </div>
+                    </div>
+                    <i class="notehide">Note: Room Dimension is Not Mandatory you can submit form</i>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="submitrooms()">Submit</button>
+                    <button type="button" id="roomdisab" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  <!-- Modal footer -->
+
+
+                </div>
+              </div>
+            </div>
+
+            <!--  -->
+
+            <div class="card steptwo kitchenvalue">
+              <div class="card-body">
+                <h4>Number of Kitchen <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select [(ngModel)]="showkitchenvalue" (change)="tooglkitchen($event.target.value)" name="type"
+                      class="form-control" placeholder="Please select Categories" required>
+                      <option selected disabled>Select</option>
+                      <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ type}}
+                      </option>
+                    </select>
+                    <div class="" *ngFor="let room of noofkitchen; let i = index">
+                      <div class="form-row">
+                        <div class="col-md-4">
+                          <input [(ngModel)]="room.length" name="kitchenlength{{i}}" id="kitchenlength{{i}}"
+                            (keypress)="numeric($event)" type="text" class="form-control" placeholder="Length">
+                        </div>
+                        <div class="col-md-1">
+                          <i class="fa fa-times"></i>
+
+                        </div>
+                        <div class="col-md-4">
+                          <input [(ngModel)]="room.breadth" name="kitchenbreadth{{i}}" id="kitchenbreadth{{i}}"
+                            (keypress)="numeric($event)" type="text" class="form-control" placeholder="Breadth">
+                        </div>
+                        <div class="col-md-3">
+                          <span>Sq.Feet</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="kitchenvalueback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="kitchenvalue-step next-btn" (click)="kitchenvaluenext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+            <!--  -->
+
+            <div class="card steptwo kitchentype">
+              <div class="card-body">
+                <h4>Select Kitchen Type <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let kitchentypedata of kitchentype">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{kitchentypedata.id}}" type="radio"
+                          (click)="tooglekitchentype(kitchentypedata,$event)" class="custom-control-input"
+                          name="kitchentype" value="{{kitchentypedata.name}}">
+                        <label class="custom-control-label"
+                          for="{{kitchentypedata.id}}">{{kitchentypedata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="kitchentypeback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="kitchentype-step next-btn" (click)="kitchentypenext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+
+            <div class="card steptwo commbathroom">
+              <div class="card-body">
+                <h4>Number of Bathroom <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select [(ngModel)]="showbathroomvalue" (change)="tooglbathroom($event.target.value)" name="type"
+                      id="property-type" class="form-control" placeholder="Please select Categories" required>
+                      <option selected disabled>Select</option>
+                      <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ type}}
+                      </option>
+                    </select>
+
+                    <div class="" *ngFor="let style of bathroomstylearray; let i = index">
+                      <div class="form-row">
+                        <div class="col-md-2">
+                          <span>Length</span>
+                          <input [(ngModel)]="style.length" name="length{{i}}" (keypress)="numeric($event)" type="text"
+                            class="form-control">
+                        </div>
+
+                        <div class="col-md-2">
+                          <span>Breadth</span>
+                          <input [(ngModel)]="style.breadth" name="breadth{{i}" (keypress)="numeric($event)" type="text" class="form-control">
+                        </div>
+
+                  <div class="col-md-4">
+                   <span>Select Bathroom Position</span>
+                    <select [(ngModel)]="style.bathroomplace" name="locat{{i}}" (change)="bathroomlocationv($event)"
+                            name="type" id="property-locat" class="form-control" placeholder="Please select Categories"
+                            required>
+                          <option selected disabled>Select</option>
+                          <option *ngFor="let data of bathroomlocat" [value]="data.value">
+                            {{data.name}}
+                          </option>
+
+                          </select>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <span>Select Bathroom Style</span>
+                          <select [(ngModel)]="style.bathroomStyle" name="bathstyle{{i}}"
+                            (change)="tooglebathroomtype($event)" name="type" id="property-type" class="form-control"
+                            placeholder="Please select Categories" required>
+                            <option selected disabled value="select style">Select</option>
+                            <option *ngFor="let bathroomtypedata of bathroom" [value]="bathroomtypedata.value">
+                              {{ bathroomtypedata.name}}
+                            </option>
+                          </select>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="bathroomback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="bathroom-step next-btn" (click)="bathroomnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+
+            <!--  -->
+
+            <div class="card steptwo bathroom">
+              <div class="card-body">
+                <h4>Number of Bathroom <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select [(ngModel)]="showbathroomvalue" (change)="tooglbathroom($event.target.value)" name="type"
+                      id="property-type" class="form-control" placeholder="Please select Categories" required>
+                      <option selected disabled>Select</option>
+                      <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ type}}
+                      </option>
+                    </select>
+
+                    <div class="" *ngFor="let style of bathroomstylearray; let i = index">
+                      <div class="form-row">
+                        <div class="col-md-2">
+                          <span>Length</span>
+                          <input [(ngModel)]="style.length" name="length{{i}}" (keypress)="numeric($event)" type="text"
+                            class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                          <span>Breadth</span>
+                          <input [(ngModel)]="style.breadth" name="breadth{{i}" (keypress)="numeric($event)" type="text" class="form-control">
+               </div>
+               <div class="col-md-4">
+                 <span>Select Bathroom Position</span>
+                  <select [(ngModel)]="style.bathroomplace" name="locat{{i}}" (change)="bathroomlocationv($event)"
+                            name="type" id="property-locat" class="form-control" placeholder="Please select Categories"
+                            required>
+                          <option selected disabled>Select</option>
+                          <option *ngFor="let data of bathroomlocat" [value]="data.value">
+                            {{data.name}}
+                          </option>
+                          </select>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <span>Select Bathroom Style</span>
+                          <select [(ngModel)]="style.bathroomStyle" name="bathstyle{{i}}"
+                            (change)="tooglebathroomtype($event)" name="type" id="property-type" class="form-control"
+                            placeholder="Please select Categories" required>
+                            <option selected disabled value="select style">Select</option>
+                            <option *ngFor="let bathroomtypedata of bathroom" [value]="bathroomtypedata.value">
+                              {{ bathroomtypedata.name}}
+                            </option>
+                          </select>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="bathroomback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="bathroom-step next-btn" (click)="bathroomnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+            <!--  -->
+            <!--  -->
+            <div class="card steptwo balconyavail">
+              <div class="card-body">
+                <h4>choose Balcony Availability</h4>
+                <div class="row">
+
+                  <div class="col-lg-6" *ngFor="let parkingavail of jbalconyavail">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{parkingavail.id}}" type="radio" (click)="tooglebalconys(parkingavail,$event)"
+                          class="custom-control-input" name="{{parkingavail}}" value="{{parkingavail.name}}">
+                        <label class="custom-control-label" for="{{parkingavail.id}}">{{parkingavail.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="balconyavailback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="balconyavailnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+
+
+            <!--  -->
+            <div class="card steptwo balcony">
+              <div class="card-body">
+                <h4>No. of Balcony</h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <select [(ngModel)]="showbalconyvalue" (change)="tooglebalconyvalue($event.target.value)"
+                      name="type" id="property-type" class="form-control" placeholder="Please select Categories"
+                      required>
+                      <option selected disabled>Select</option>
+                      <option *ngFor="let type of propertyTypes" [value]="type">
+                        {{ type}}
+                      </option>
+                    </select>
+
+                    <div class="" *ngFor="let balcony of noofbalcony; let i = index">
+                      <div class="form-row">
+                        <div class="col-md-4">
+                          <input [(ngModel)]="balcony.length" name="balconylength{{i}}" id="balconylength{{i}}" name=""
+                            (keypress)="numeric($event)" type="text" class="form-control" id="inputPassword4"
+                            placeholder="Length">
+                        </div>
+                        <div class="col-md-1">
+                          <i class="fa fa-times"></i>
+
+                        </div>
+                        <div class="col-md-4">
+                          <input [(ngModel)]="balcony.breadth" name="balconybreadth{{i}}" id="balconybreadth{{i}}"
+                            (keypress)="numeric($event)" type="text" class="form-control" id="inputPassword4"
+                            placeholder="Breadth">
+                        </div>
+                        <div class="col-md-3">
+                          <span>Sq.Feet</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="balconyback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="baclonynext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card steptwo frontbackyardavail">
+              <div class="card-body">
+                <h4>Choose Front Yard & Back Yard Availability</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let frtontyardata of jfrontyardavail">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{frtontyardata.id}}" type="radio" (click)="tooglefrontavail(frtontyardata,$event)"
+                          class="custom-control-input" name="{{frtontyardata}}" value="{{frtontyardata.name}}">
+                        <label class="custom-control-label" for="{{frtontyardata.id}}">{{frtontyardata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="frontbackavailback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="frontbackavailnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+
+            <div class="card steptwo frontyardlawn">
+              <div class="card-body">
+                <h4> Front Yard Dimension</h4>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Length: </i>
+                      <input type="text" [(ngModel)]="frontyardlength" name="frontyardlength"
+                        (keypress)="numeric($event)" class="form-control" id="frontyardl" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Breadth: </i>
+                      <input type="text" [(ngModel)]="frontyardbreadth" name="frontyardbreadth"
+                        (keypress)="numeric($event)" class="form-control" id="frontyardb" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="frontyardback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="frontyardnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+            <!--  -->
+
+            <div class="card steptwo backyardlawn">
+              <div class="card-body">
+                <h4>Back Yard Dimension</h4>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Length: </i>
+                      <input type="text" (keypress)="numeric($event)" [(ngModel)]="backyardlength" name="backyardlength"
+                        class="form-control" id="backyardl" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <i>Breadth: </i>
+                      <input type="text" (keypress)="numeric($event)" [(ngModel)]="backyardbreadth"
+                        name="backyardbreadth" class="form-control" id="backyardb" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="backyardback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="backyardnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+
+
+            <!--  -->
+          </div>
+          <!-- end step two -->
+
+          <!-- start step three -->
+          <div class="step_three_section">
+
+            <p class="progress-bar progressthree">
+              <ngb-progressbar type="warning" [value]="progressbarinitstepthree" [striped]="true" [animated]="true">
+                <i>{{progressbarinitstepthree}} %</i></ngb-progressbar>
+            </p>
+            <div class="card stepthree floortype">
+              <div class="card-body">
+                <h4>Select Flooring Type <i class="fa fa-star"></i></h4>
+                <i class="red">You can Select multipe Flooring Type</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let flooringdata of flooring">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{flooringdata.id}}" type="checkbox" (click)="tooglebflooring(flooringdata,$event)"
+                          class="custom-control-input" name="{{flooringdata.name}}" value="{{flooringdata.name}}">
+                        <label class="custom-control-label" for="{{flooringdata.id}}">{{flooringdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="floortypeback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="floortype-step next-btn" (click)="floortypenext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+            <!--  -->
+
+            <div class="card stepthree ceilingtype">
+              <div class="card-body">
+                <h4>Select Ceiling Type <i class="fa fa-star"></i></h4>
+                <i class="red">You can Select multiple Ceiling Type</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let ceilingdata of ceiling">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{ceilingdata.id}}" type="checkbox" (click)="toogleceiling(ceilingdata,$event)"
+                          class="custom-control-input" name="{{ceilingdata.name}}" value="{{ceilingdata.name}}">
+                        <label class="custom-control-label" for="{{ceilingdata.id}}">{{ceilingdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="ceiltypeback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="ceilingtype-step next-btn" (click)="ceiltypenext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+            <!--  -->
+          </div>
+
+          <!-- end step three -->
+
+
+          <!-- start step four  -->
+
+          <div class="four_step_section">
+
+            <p class="progress-bar progressfour">
+              <ngb-progressbar type="warning" [value]="progressbarinitstepfour" [striped]="true" [animated]="true">
+                <i>{{progressbarinitstepfour}} %</i></ngb-progressbar>
+            </p>
+
+            <div class="card stepfour parktype">
+              <div class="card-body">
+                <h4>Do You Offer parking with this property </h4>
+                <div class="row">
+
+                  <div class="col-lg-6" *ngFor="let parkingavail of parkingavailablity">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{parkingavail.id}}" type="radio" (click)="toogleparkingtype(parkingavail,$event)"
+                          class="custom-control-input" name="{{parkingavails}}" value="{{parkingavail.name}}">
+                        <label class="custom-control-label" for="{{parkingavail.id}}">{{parkingavail.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="parktypeback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="parktypenext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+
+
+
+            <!--  -->
+
+
+            <div class="card stepfour parkingformation">
+              <div class="card-body">
+                <h4>Property Parking </h4>
+                <i>Note:- On Select You have to mention no. of vehicle</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let parkinginfo of parkinginformation">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{parkinginfo.id}}" type="radio" (click)="toogleparkinginfo(parkinginfo,$event)"
+                          class="custom-control-input" name="parkinginform" value="{{parkinginfo.name}}">
+                        <label class="custom-control-label" for="{{parkinginfo.id}}">{{parkinginfo.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="card-body buttonsec">
+                <!-- <button class="back-btn" (click)="parktypeback()"><i class="fa fa-angle-double-left"></i> Back </button> -->
+                <button class="next-btn" (click)="parkoptionnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+            </div>
+
+
+            <!--  -->
+
+            <!--  -->
+
+            <div class="modal" id="myVehicle">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title">Property Parking </h5>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <i>No. Of Vehicle : </i>
+                        <input (keypress)="numeric($event)" id="vehicledata" type="text" class="form-control"
+                          placeholder="No. of vehicle">
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="submitparkingvalue()">Submit</button>
+                    <button type="button" id="parkdisab" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  <!-- Modal footer -->
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="card stepfour utilities">
+              <div class="card-body">
+                <h4>Kindly select your basic utilities</h4>
+                <i class="red">You can Select multiple Utilities</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let utilitiesdata of utilities">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{utilitiesdata.id}}" type="checkbox" (click)="toogleutilities(utilitiesdata,$event)"
+                          class="custom-control-input" name="{{utilitiesdata.name}}" value="{{utilitiesdata.name}}">
+                        <label class="custom-control-label" for="{{utilitiesdata.id}}">{{utilitiesdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="utilitiestypeback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="utilitiestypenext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+            <div class="card stepfour safetyutilities">
+              <div class="card-body">
+                <h4>Kindly select your Safety utilities</h4>
+                <i class="red">You can Select multiple Utilities</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let safetydata of safetyutility">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{safetydata.id}}" type="checkbox" (click)="tooglesafetyutil(safetydata,$event)"
+                          class="custom-control-input" name="{{safetydata.name}}" value="{{safetydata.name}}">
+                        <label class="custom-control-label" for="{{safetydata.id}}">{{safetydata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="safetyutilback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="safetyutilnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+            <div class="card stepfour commtype">
+              <div class="card-body">
+                <h4>Kindly select Your community facilities</h4>
+                <i class="red">You can Select multipe Community Facilities</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let communitydata of community">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{communitydata.id}}" type="checkbox" [(ngModel)]="communitydata.isSelected"
+                          (click)="tooglecommunity(communitydata,$event)" class="custom-control-input"
+                          name="{{communitydata.name}}" value="{{communitydata.name}}">
+                        <label class="custom-control-label" for="{{communitydata.id}}">{{communitydata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="commtypeback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="commtypenext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+            <!--  -->
+            <div class="card stepfour facilitytype">
+              <div class="card-body">
+                <h4>Kindly select Your Eco-friendly facilities</h4>
+                <i class="red">You can Select multipe Eco-Friendly Facilities</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let faciliytytypedata of faciliytytype">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox">
+                        <img src="assets/images/living.png" />
+                        <input id="{{faciliytytypedata.id}}" type="checkbox" [(ngModel)]="faciliytytypedata.isSelected"
+                          (click)="tooglefacility(faciliytytypedata,$event)" class="custom-control-input"
+                          name="{{faciliytytypedata.name}}" value="{{faciliytytypedata.name}}">
+                        <label class="custom-control-label"
+                          for="{{faciliytytypedata.id}}">{{faciliytytypedata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <i (click)="addMore()" *ngIf="array.length"><i class="fa fa-plus" id="fa_plus"></i>
+                  </i>
+
+                  <div class="col-lg-6" *ngIf="ecoother">
+                    <div class="form-group" *ngFor="let obj of array">
+                      <div class="custom-control">
+                        <!-- <input type=text [(ngModel)]="" name="obj"> -->
+                        <input type="text" [(ngModel)]="obj.value" name="{{obj.id}}" class="form-control"
+                          placeholder="Pleas enter Eco Facilities">
+                        <i (click)="remove(obj)"><i class="fa fa-times-circle" id="fa_sub"></i>
+                        </i>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="facilitytypeback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="facilitytype-step next-btn" (click)="facilitytypenext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+            <!--  -->
+          </div>
+          <!--  end start four -->
+
+
+          <!-- start step five  -->
+
+          <div class="step_five_section">
+
+            <p class="progress-bar progressfive">
+              <ngb-progressbar type="warning" [value]="progressbarinitstepfive" [striped]="true" [animated]="true">
+                <i>{{progressbarinitstepfive}} %</i></ngb-progressbar>
+            </p>
+
+
+            <div class="card stepfive furnishstatus">
+              <div class="card-body">
+                <h4>Select Furnishing Status</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let furnishingdata of furnishing">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{furnishingdata.id}}" type="radio" (click)="setfurnish(furnishingdata,$event)"
+                          class="custom-control-input" name="furnishvalue" value="{{furnishingdata.name}}">
+                        <label class="custom-control-label" for="{{furnishingdata.id}}">{{furnishingdata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="furnishback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="furnishstatus-step next-btn" (click)="furnishnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+            <div class="card stepfive constructionphase">
+              <div class="card-body">
+                <h4>Select Raw Status</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let constructiondatadata of constructionphase">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{constructiondatadata.id}}" type="radio" (click)="setconstructionphase($event)"
+                          class="custom-control-input" name="furnishvalue" value="{{constructiondatadata.name}}">
+                        <label class="custom-control-label"
+                          for="{{constructiondatadata.id}}">{{constructiondatadata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <!-- <button class="back-btn" (click)="furnishback()"><i class="fa fa-angle-double-left"></i> Back </button> -->
+                <button class="next-btn" (click)="constructionnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+
+            <!--  -->
+            <div class="card stepfive commfurniture">
+              <div class="card-body">
+                <h4>Select Furniture Wares</h4>
+                <i class="red">You can Select multipe Home Wares</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let commdata of commfurniture">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{commdata.id}}" type="checkbox" [(ngModel)]="commdata.isSelected"
+                          (click)="tooglecommfurnit(commdata,$event)" class="custom-control-input"
+                          name="{{commdata.name}}" value="{{commdata.name}}">
+                        <label class="custom-control-label" for="{{commdata.id}}">{{commdata.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="commdata.isSelected">
+                          <label (click)="addCountcommfurnit(commdata)" class="prodcuct_add"> + </label>
+                          <label (click)="subCountcommfurnit(commdata)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="commdata.isSelected">{{commdata.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="commfurback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="commfurnnet()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card stepfive commelectronics">
+              <div class="card-body">
+                <h4>Select Electonics</h4>
+                <i class="red">You can Select multipe Home Wares</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let commelect of commelectronics">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{commelect.id}}" type="checkbox" [(ngModel)]="commelect.isSelected"
+                          (click)="tooglecommelect(commelect,$event)" class="custom-control-input"
+                          name="{{commelect.name}}" value="{{commelect.name}}">
+                        <label class="custom-control-label" for="{{commelect.id}}">{{commelect.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="commelect.isSelected">
+                          <label (click)="addCountcommelect(commelect)" class="prodcuct_add"> + </label>
+                          <label (click)="subCountcommelect(commelect)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="commelect.isSelected">{{commelect.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="commelectback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="commelectnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card stepfive homewares">
+              <div class="card-body">
+                <h4>Select Home Wares</h4>
+                <i class="red">You can Select multipe Home Wares</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let homewaresdata of homewares">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{homewaresdata.id}}" type="checkbox" [(ngModel)]="homewaresdata.isSelected"
+                          (click)="tooglehome(homewaresdata,$event)" class="custom-control-input"
+                          name="{{homewaresdata.name}}" value="{{homewaresdata.name}}">
+                        <label class="custom-control-label" for="{{homewaresdata.id}}">{{homewaresdata.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="homewaresdata.isSelected">
+                          <label (click)="addCounthome(homewaresdata)" class="prodcuct_add"> + </label>
+                          <label (click)="subCounthome(homewaresdata)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="homewaresdata.isSelected">{{homewaresdata.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="homeback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="homenext()"> Next <i class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+            <!--  -->
+            <div class="card stepfive kitchen">
+              <div class="card-body">
+                <h4>Select Kitchen Wares</h4>
+                <i class="red">You can Select multipe Kitchen Wares</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let kitchenwaredata of kitchenware">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{kitchenwaredata.id}}" type="checkbox"
+                          (click)="tooglekitchen(kitchenwaredata,$event)" class="custom-control-input"
+                          name="{{kitchenwaredata.name}}" value="{{kitchenwaredata.name}}">
+                        <label class="custom-control-label"
+                          for="{{kitchenwaredata.id}}">{{kitchenwaredata.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="kitchenwaredata.isSelected">
+                          <label (click)="addCountkitchen(kitchenwaredata)" class="prodcuct_add"> + </label>
+                          <label (click)="subCountkitchen(kitchenwaredata)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="kitchenwaredata.isSelected">{{kitchenwaredata.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="kitchenback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="kitchennext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card stepfive fullfurnishkitchen">
+              <div class="card-body">
+                <h4>Select kitchen Wares</h4>
+                <i class="red">You can Select multipe Kitchen Wares</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let fullfurnishedata of fullfurnished">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{fullfurnishedata.id}}" type="checkbox" [(ngModel)]="fullfurnishedata.isSelected"
+                          (click)="tooglekitchenfullyfurnished(fullfurnishedata,$event)" class="custom-control-input"
+                          name="{{fullfurnishedata.name}}" value="{{fullfurnishedata.value}}">
+                        <label class="custom-control-label"
+                          for="{{fullfurnishedata.id}}">{{fullfurnishedata.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="fullfurnishedata.isSelected">
+                          <label (click)="addCountkitchenfully(fullfurnishedata)" class="prodcuct_add"> + </label>
+                          <label (click)="subCountkitchenfully(fullfurnishedata)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="fullfurnishedata.isSelected">{{fullfurnishedata.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--  -->
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="kitchenback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="kitchennext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+
+
+            <!--  -->
+            <div class="card stepfive appliance">
+              <div class="card-body">
+                <h4>Select Home Applianes</h4>
+                <i class="red">You can Select multipe Home Applianes</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let appliancedata of appliance">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{appliancedata.id}}" type="checkbox" [(ngModel)]="appliancedata.isSelected"
+                          (click)="toogleappliance(appliancedata,$event)" class="custom-control-input"
+                          name="{{appliancedata.name}}" value="{{appliancedata.name}}">
+                        <label class="custom-control-label" for="{{appliancedata.id}}">{{appliancedata.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="appliancedata.isSelected">
+                          <label (click)="addCountappliance(appliancedata)" class="prodcuct_add"> + </label>
+                          <label (click)="subCountappliance(appliancedata)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="appliancedata.isSelected">{{appliancedata.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6" *ngIf="applother">
+                    <div class="form-group">
+                      <div class="custom-control">
+                        <input type="text" id="ecoother" name="name" class="form-control"
+                          placeholder="Pleas enter utilities">
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="applianceback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="appliancenext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+            <!--  -->
+            <div class="card stepfive furniturehome">
+              <div class="card-body">
+                <h4>Select Furniture</h4>
+                <i class="red">You can Select multipe Furniture</i>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let furnituredata of furniture">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-checkbox numbercount">
+                        <img src="assets/images/living.png" />
+                        <input id="{{furnituredata.id}}" type="checkbox" [(ngModel)]="furnituredata.isSelected"
+                          (click)="tooglefurniture(furnituredata,$event)" class="custom-control-input"
+                          name="{{furnituredata.name}}" value="{{furnituredata.name}}">
+                        <label class="custom-control-label" for="{{furnituredata.id}}">{{furnituredata.name}}</label>
+                        <div class="btn-group radio-group count-sec" *ngIf="furnituredata.isSelected">
+                          <label (click)="addCountfurniture(furnituredata)" class="prodcuct_add"> + </label>
+                          <label (click)="subCountfurniture(furnituredata)" class="product_sub"> - </label>
+                        </div>
+                        <i *ngIf="furnituredata.isSelected">{{furnituredata.count}}</i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="furniturehomeback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="furniturehomenext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+          </div>
+          <!-- end step five section -->
+
+
+          <!-- start six section -->
+          <div class="step_six_section">
+
+            <p class="progress-bar progresssix">
+              <ngb-progressbar type="warning" [value]="progressbarinitstepsix" [striped]="true" [animated]="true">
+                <i>{{progressbarinitstepsix}} %</i></ngb-progressbar>
+            </p>
+
+            <div class="card stepsix propertygallery">
+              <div class="card-body">
+                <h4>Upload Property Images <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <!-- <label for="property">Upload your Property</label> -->
+
+                    <div class="form-group">
+                      <div class="profile_img">
+                        <div class="img_sec">
+                          <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+                        </div>
+                        <div class="overlay1 upload-btn-wrap">
+                          <input class="form-control" type="file" id="imageUpload" multiple="multiple"
+                            accept=".png, .jpg, .jpeg" (change)="fileuploads($event)">
+                          <div class="text1"><label for="imageUpload" class="upload-btn-profie">
+                              <i class="fa fa-plus"></i><span>Add Image</span></label></div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--  -->
+                    <div *ngIf="images.length">
+                      <ul class="post_discuss_img" style="padding:10px; border:1px;">
+                        <li *ngFor="let image of images">
+                          <a href="javascript:void(0)" (click)="deleteImage(image)"><img
+                              src="assets/images/delete.png" /></a>
+                          <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+                            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+                            <!-- {{image.type}} -->
+                          </div>
+                          <div class="img_sec" *ngIf="image.type === 'image/png'">
+                            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--  -->
+
+                    <!--  -->
+                    <div *ngIf="localfiledata.length">
+                      <ul class="post_discuss_img" style="padding:10px; border:1px;">
+                        <li *ngFor="let image of localfiledata">
+                          <a href="javascript:void(0)" (click)="localdeletefiledata(image)"><img
+                              src="assets/images/delete.png" /></a>
+                          <div class="img_sec">
+                            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+                          </div>
+
+                          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+                            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--  -->
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="propertyuploadback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn upload-step" (click)="propertyupload()"> Next <i
+                    class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i
+                      class="fa fa-spinner fa-spin"></i></span></button>
+              </div>
+            </div>
+
+            <!--  -->
+
+            <div class="card stepsix propertydimension">
+              <div class="card-body">
+                <h4>Upload Property Blue-print <i class="fa fa-star"></i></h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <!-- <label for="property">Upload your Property</label> -->
+
+                    <div class="form-group">
+                      <div class="profile_img">
+                        <div class="img_sec">
+                          <img src="assets/images/propertyupload.jpg" alt="profile" class="card-img-top">
+                        </div>
+                        <div class="overlay1 upload-btn-wrap">
+                          <input class="form-control" type="file" id="imageUploadb" multiple="multiple"
+                            accept=".png, .jpg, .jpeg" (change)="fileuploadsBlue($event)">
+                          <div class="text1"><label for="imageUploadb" class="upload-btn-profie">
+                              <i class="fa fa-plus"></i><span>Add Image</span></label></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--  -->
+                    <div *ngIf="imagesblue.length">
+                      <ul class="post_discuss_img" style="padding:10px; border:1px;">
+                        <li *ngFor="let image of imagesblue">
+                          <a href="javascript:void(0)" (click)="deleteImageBlue(image)"><img
+                              src="assets/images/delete.png" /></a>
+                          <div class="img_sec" *ngIf="image.type === 'image/jpeg'">
+                            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+                            <!-- {{image.type}} -->
+                          </div>
+                          <div class="img_sec" *ngIf="image.type === 'image/png'">
+                            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--  -->
+
+                    <div *ngIf="localbluePrint.length">
+                      <ul class="post_discuss_img" style="padding:10px; border:1px;">
+                        <li *ngFor="let image of localbluePrint">
+                          <a href="javascript:void(0)" (click)="localdeleteblueprint(image)"><img
+                              src="assets/images/delete.png" /></a>
+                          <div class="img_sec">
+                            <img [src]="image.url" alt="no image" style="height:130px; width:150px;">
+                          </div>
+
+                          <div class="img_sec" *ngIf="image.type === 'application/pdf'">
+                            <img src="assets/images/pdf-icon.png" alt="pdf-icon" style="height:130px; width:150px;">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--  -->
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="propertyblueback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn uploadBlue-step" (click)="propertybluePrint()"> Next <i
+                    class="fa fa-angle-double-right"></i> <span *ngIf="spinner"><i
+                      class="fa fa-spinner fa-spin"></i></span></button>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!--  -->
+
+          <!--  -->
+          <div class="step_seven_section">
+
+            <p class="progress-bar progressseven">
+              <ngb-progressbar type="warning" [value]="progressbarinitstepseven" [striped]="true" [animated]="true">
+                <i>{{progressbarinitstepseven}} %</i></ngb-progressbar>
+            </p>
+
+
+            <div class="card stepseven payconstruct">
+              <div class="card-body">
+                <h4>Select Construction Phase</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let payconstructiondata of payconstructionphase">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{payconstructiondata.id}}" type="radio"
+                          (click)="setpayconstruction(payconstructiondata,$event)" class="custom-control-input"
+                          name="payconstruction" value="{{payconstructiondata.name}}">
+                        <label class="custom-control-label"
+                          for="{{payconstructiondata.id}}">{{payconstructiondata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="payconstructback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="payconstruct-step next-btn" (click)="payconstructnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+
+
+            <div class="card stepseven payinventory">
+              <div class="card-body">
+                <h4>
+                  <span
+                    *ngIf="this.marketdataapi == 1 ||  this.marketdataapi == 3 && this.localmarket && this.localmarket.name == 'Commercial' && this.localmarket.name == 'Agriculture'; else invent">Who
+                    can Handover the possession</span>
+                  <ng-template #invent>
+                    <span>Select Finalize Inventory</span>
+                  </ng-template>
+                </h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let payfinalizedata of payfinalize">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{payfinalizedata.id}}" type="radio"
+                          (click)="setpayfinalizedata(payfinalizedata,$event)" class="custom-control-input"
+                          name="payfinaliz" value="{{payfinalizedata.name}}">
+                        <label class="custom-control-label"
+                          for="{{payfinalizedata.id}}">{{payfinalizedata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="payinventoryback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="payinventory-step next-btn" (click)="payinventorynext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+            </div>
+
+            <!--  -->
+
+            <div class="card stepseven payapproval">
+              <div class="card-body">
+                <h4>Select Approval Type</h4>
+                <div class="row">
+                  <div class="col-lg-6" *ngFor="let payapprovaldata of payapproval">
+                    <div class="form-group default_bg">
+                      <div class="custom-control custom-radio">
+                        <img src="assets/images/living.png" />
+                        <input id="{{payapprovaldata.id}}" type="radio"
+                          (click)="setpayapprovaldata(payapprovaldata,$event)" class="custom-control-input"
+                          name="payapprovald" value="{{payapprovaldata.name}}">
+                        <label class="custom-control-label"
+                          for="{{payapprovaldata.id}}">{{payapprovaldata.name}}</label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-6" *ngIf="approvalother">
+                    <div class="form-group">
+                      <div class="custom-control">
+                        <input type="text" [(ngModel)]="otherappinput" (keyup)="othertypeinput($event)"
+                          name="otherapproval" class="form-control" placeholder="Pleas enter Approval">
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="payapprovalback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="payapproval-step next-btn" (click)="payapprovalnext()"> Next <i
+                    class="fa fa-angle-double-right"></i> </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+            <div class="card stepseven resindetialpricing">
+              <div class="card-body">
+                <h4>Mention Pricing of Property</h4>
+                <div class="row">
+                  <div class="col-lg-12">
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Your Total Built area in Sq.Feet <i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <b class="sqfeet">{{localbuitarea}} Sq.Feet</b>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Your Total Carpet area in Sq.Feet <i
+                          class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control" name="name" (keypress)="numeric($event)"
+                          [(ngModel)]="localcarpet" (keyup)="carpetarea($event)">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Enter current unit area rate per Sq.feet <i
+                          class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" (keyup)="unitrate($event)" (keypress)="numeric($event)" class="form-control"
+                          name="name" id="unit">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Your property current rate is</i>
+                      <div class="col-sm-7">
+                        <i> ₹ {{propertyvalue}}</i>
+                      </div>
+                    </div>
+
+                    <span>Add More Other Detail about price (Recommended) :</span>
+                    <div class="price_feature">
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Maintenance Charges</i>
+                        <div class="col-sm-7">
+                          <input type="text" name="charge" (keypress)="numeric($event)" (keyup)="maintcharge($event)"
+                            class="form-control" id="charge" placeholder="Maintenance charges">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Development Charges</i>
+                        <div class="col-sm-7">
+                          <input type="text" name="tax" (change)="taxchange($event)" (keyup)="taxgov($event)"
+                            class="form-control" id="tax" placeholder="Tax charges">
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <h4 *ngIf="totalpropertyrate">Your Total Property rate is ₹ {{totalpropertyrate}} </h4>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Expected price <i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input class="form-control" id="number" [(ngModel)]="expectprice" (keypress)="numeric($event)"
+                          (keyup)="check($event)" type="text" name="pricing" placeholder="Please Enter Pricing">
+                        <div class="price_word" id="words"></div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="pricingback()"><i class="fa fa-angle-double-left"></i> Back </button>
+                <button class="next-btn" (click)="pricingnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+            <!--  -->
+
+
+
+            <!--  -->
+
+            <div class="card stepseven agriculturepricing">
+              <div class="card-body">
+                <h4>Mention Pricing of Agriculture Land</h4>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <!-- {{localprebuilt | json}} -->
+                    <div class="" *ngIf="this.agrbuiltshow; else prebuiltshow">
+
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Built-up Area<i class="fa fa-star"></i></i>
+                        <div class="col-sm-7">
+                          <input type="text" [(ngModel)]="agrbuiltup" (keyup)="agrbuiltareat($event)"
+                            (keypress)="numeric($event)" class="form-control" name="agrbuilt" id="unit">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Current Built-up area rate per Sq.feet<i
+                            class="fa fa-star"></i></i>
+                        <div class="col-sm-7">
+                          <input type="text" (keyup)="agrbuiltunitrate($event)" (keypress)="numeric($event)"
+                            class="form-control" name="name" id="unit">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Your built-up house current rate is</i>
+                        <div class="col-sm-7">
+                          <i> ₹ {{agrharvesting}}</i>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <ng-template #prebuiltshow>
+                      <div
+                        *ngIf="this.localprebuilt && (this.localprebuilt.name=='Green House' || this.localprebuilt.name=='Farm House')">
+
+                        <div class="form-group row">
+                          <i class="col-sm-5 col-form-label">Built-up Area<i class="fa fa-star"></i></i>
+                          <div class="col-sm-7">
+                            <input type="text" [(ngModel)]="agrbuiltup" (keyup)="agrbuiltareat($event)"
+                              (keypress)="numeric($event)" class="form-control" name="agrbuilt" id="unit">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <i class="col-sm-5 col-form-label">Current Built-up area rate per Sq.feet<i
+                              class="fa fa-star"></i></i>
+                          <div class="col-sm-7">
+                            <input type="text" (keyup)="agrbuiltunitrate($event)" (keypress)="numeric($event)"
+                              class="form-control" name="name" id="unit">
+                          </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                          <i class="col-sm-5 col-form-label">Your built-up house current rate is</i>
+                          <div class="col-sm-7">
+                            <i> ₹ {{agrharvesting}}</i>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Farm Area<i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" [(ngModel)]="agropenarea" (keyup)="agrfarmarea($event)"
+                          (keypress)="numeric($event)" class="form-control" name="agrfarmare" id="unit">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Current Farm unit area rate per Sq.feet<i
+                          class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" (keyup)="agrfarmunitrate($event)" (keypress)="numeric($event)"
+                          class="form-control" name="name" id="unit">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Your Farm area current rate is</i>
+                      <div class="col-sm-7">
+                        <i> ₹ {{agrfarmarea}}</i>
+                      </div>
+                    </div>
+
+                    <span>Add More Other Detail about price (Recommended) :</span>
+                    <div class="price_feature">
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Maintenance Charges</i>
+                        <div class="col-sm-7">
+                          <input type="text" name="charge" (keypress)="numeric($event)" (keyup)="maintcharge($event)"
+                            class="form-control" id="charge" placeholder="Maintenance charges">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Development Charges</i>
+                        <div class="col-sm-7">
+                          <input type="text" name="tax" (change)="taxchange($event)" (keyup)="taxgov($event)"
+                            class="form-control" id="tax" placeholder="Tax charges">
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <h4 *ngIf="totalpropertyrate">Your Total Property rate is ₹ {{totalpropertyrate}} </h4>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Expected price <i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input class="form-control" id="number" [(ngModel)]="expectprice" (keypress)="numeric($event)"
+                          (keyup)="check($event)" type="text" name="pricing" placeholder="Please Enter Pricing">
+                        <div id="price_word" class="words"></div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="agrpricingback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="agrpricingnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!--  -->
+            <!--  -->
+
+
+            <div class="card stepseven commercialpricing">
+              <div class="card-body">
+                <h4 *ngIf="localmarket">Mention Pricing of {{localmarket.name}} Property</h4>
+                <div class="row">
+                  <div class="col-lg-12">
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Total Area<i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" [(ngModel)]="localtotalarea" (keyup)="commbuiltarate($event)"
+                          (keypress)="numeric($event)" class="form-control" name="agrbuilt" id="unit">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Current Total area rate per Sq.feet<i
+                          class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" (keyup)="commtotalunitrate($event)" (keypress)="numeric($event)"
+                          class="form-control" name="name" id="unit">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Your total Property area current rate is</i>
+                      <div class="col-sm-7">
+                        <i> ₹ {{commtotalalareavalue}}</i>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Built up Area<i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" [(ngModel)]="localadminoperat" (keyup)="agrfarmarea($event)"
+                          (keypress)="numeric($event)" class="form-control" name="agrfarmare" id="unit">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Current Builtup unit area rate per Sq.feet<i
+                          class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input type="text" (keyup)="commbuiltiunitrate($event)" (keypress)="numeric($event)"
+                          class="form-control" name="name" id="unit">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Your Built-up area current rate is</i>
+                      <div class="col-sm-7">
+                        <i> ₹ {{commbuiltareavalue}}</i>
+                      </div>
+                    </div>
+
+                    <span>Add More Other Detail about price (Recommended) :</span>
+                    <div class="price_feature">
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Maintenance Charges</i>
+                        <div class="col-sm-7">
+                          <input type="text" name="charge" (keypress)="numeric($event)" (keyup)="maintcharge($event)"
+                            class="form-control" id="charge" placeholder="Maintenance charges">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <i class="col-sm-5 col-form-label">Development Charges</i>
+                        <div class="col-sm-7">
+                          <input type="text" name="tax" (change)="taxchange($event)" (keyup)="taxgov($event)"
+                            class="form-control" id="tax" placeholder="Tax charges">
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <h4 *ngIf="totalpropertyrate">Your Total Property rate is ₹ {{totalpropertyrate}} </h4>
+
+                    <div class="form-group row">
+                      <i class="col-sm-5 col-form-label">Expected price <i class="fa fa-star"></i></i>
+                      <div class="col-sm-7">
+                        <input class="form-control" id="number" [(ngModel)]="expectprice" (keypress)="numeric($event)"
+                          (keyup)="check($event)" type="text" name="pricing" placeholder="Please Enter Pricing">
+                        <div id="price_word" class="words"></div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-body buttonsec">
+                <button class="back-btn" (click)="commpricingback()"><i class="fa fa-angle-double-left"></i> Back
+                </button>
+                <button class="next-btn" (click)="commpricingnext()"> Next <i class="fa fa-angle-double-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+
+            <!--  -->
+
+          </div>
+          <!--  -->
+        </form>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+  </div>
+</section>

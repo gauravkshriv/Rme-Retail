@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'COM4t Fine';
+    src: url('COM4tFineRegular.woff2') format('woff2'),
+        url('COM4tFineRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url('CaviarDreams.woff2') format('woff2'),
+        url('CaviarDreams.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Antic Didone';
+    src: url('AnticDidone-Regular.woff2') format('woff2'),
+        url('AnticDidone-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

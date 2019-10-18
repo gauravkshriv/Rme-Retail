@@ -1,0 +1,77 @@
+
+.fa{
+  color: #9a9595;
+}
+
+.active{
+  background-color: #ccc;
+}
+
+  
+.social_prof .fa {
+  font-size: 20px;
+  color: #0da4dd;
+}
+
+.profile-box img {
+  margin: auto;
+  display: block;
+  height: 150px;
+}
+
+/////////////////////////// loader css
+
+label.custom-control-label
+{
+  cursor: pointer;
+}
+
+.modal-content {
+  border-radius: 0px;
+}
+
+.modal-body .custom-control-label {
+  display: block;
+}
+
+.upload-btn-wrap .upload-btn-profie {
+  width: 80%;
+  border: 1px dashed #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 80px !important;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.prof-photo {
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+
+  
+.profile_img {
+  position: relative; 
+}
+
+
+
+
+#imageUpload {
+  display: none;
+}
+
+.text {
+  color: #fff;
+  font-size: 15px;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  text-align: center;
+}

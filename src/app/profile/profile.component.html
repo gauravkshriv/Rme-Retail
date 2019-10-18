@@ -1,0 +1,100 @@
+<div *ngIf="isLoading" class="overlay">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+
+<section class="wrapper-section">
+  <div class="postproperty">
+   <div class="row">
+    <div class="col-lg-3 col-sm-4">
+
+<section class="sidebar">
+  <div class="profile-box"  *ngIf="profiledata">
+
+    <div class="img_sec" *ngIf="!profiledata.profilepicture; else pimg2">
+              <img src="assets/images/default_profile.png" alt="profile" class="card-img-top">
+      </div>
+      <ng-template #pimg2>
+          <img src="{{profiledata.profilepicture}}" alt="profile" [innerHTML]='profiledata.profilepicture' id="prof_chang_img" alt="profile" class="card-img-top">  
+        </ng-template>
+
+    <span class="profile_name">{{profiledata.firstname}}</span>
+    <span class="profile_occ">OWNER</span>
+  </div>
+
+  <nav class="need-sec">
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+      <a routerLink="/user/myprofile/propertyreview" class="nav-item nav-link active" id="dashboard_sec" (click)="activestatus('dashboard_sec')"><i class="fa fa-home"></i> Dashboard</a>
+      <!-- <a class="nav-item nav-link" id="leads_sec" (click)="activestatus('leads_sec')"><i class="fa fa-home"></i>Leads</a> -->
+      <!-- <a routerLink="/user/myprofile/myproperties" class="nav-item nav-link" id="prop_sec" (click)="activestatus('prop_sec')"><i class="fa fa-home" ></i> My Properties</a> -->
+      <a routerLink="/user/myprofile/propertydetail" class="nav-item nav-link" id="profile_sec" (click)="activestatus('profile_sec')"><i class="fa fa-home"></i> My Profile</a>
+   </div>
+    </nav>
+</section>
+
+    </div>
+
+    <div class="col-lg-9 col-sm-8">
+      
+        <div class="profile-view">       
+          <a (click)="addProperty()"><span class="fa fa-plus-circle" id="add_prop" data-toggle="tooltip" data-placement="top" title="Post a property"></span></a>   
+          <section id="tabs">
+              <div class="container">               
+                    <div class="tab-content py-3 px-3 px-sm-0">
+                     
+                   <router-outlet></router-outlet>
+                          
+                      </div>
+                      </div>
+                      </section>
+                      </div>
+                      </div>
+
+</div>
+</div>
+</section>
+
+
+<!-- The Modal -->
+<div class="modal" id="uploadmodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Upload Pre-Built Property & Raw Land</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-6" *ngFor="let propdata of marketupload">
+              <div class="form-group default_bg">
+              <div class="custom-control custom-radio">
+            <img src="assets/images/living.png"/>
+            <input id="{{propdata.id}}" type="radio" (click)="setproperty(propdata,$event)" class="custom-control-input" name="market" value="{{propdata.name}}">
+            <label class="custom-control-label" for="{{propdata.id}}">{{propdata.name}}</label>
+          </div>
+          </div>
+          </div>
+          </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Proceed</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+   

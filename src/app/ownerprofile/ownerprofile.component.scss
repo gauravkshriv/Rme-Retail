@@ -1,0 +1,59 @@
+.postproperty.card-body {
+    margin: 20px 0px;
+}
+
+.table td
+{
+    border-top: none;
+    color: #000;
+}
+
+.postproperty img 
+{
+    height: 200px;
+    width: 100%;
+}
+.buttonsec button
+{
+    margin: 0px;
+}
+
+.fa {
+    color: #000 !important;
+    margin: 0px 10px;
+}
+
+.filter
+{
+    float:right;
+}
+
+.dropdown-toggle::after
+{
+    float: right;
+    margin-top: 10px;
+}
+.read_more {
+    color: #324172 !important;
+    margin: 10px 0px 0px 10px;
+}
+
+.form-control
+{
+    padding: 9px 0px !important;
+    height: 44px !important;
+}
+
+
+
+
+button.dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    padding: 10px 14px;
+}
+
+.read_more .fa {
+    color: #324172;
+    /* margin-right: 10px; */
+}
